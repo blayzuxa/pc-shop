@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xeon Shop — Сборка экстремальных игровых ПК | Краснодар</title>
+    <title>Xeon Shop — Сборка кастомных игровых ПК | Краснодар</title>
     <style>
         :root {
             --bg-deep: #040406;
@@ -474,6 +474,43 @@
             flex-wrap: wrap;
             animation: fadeInUp 1.1s ease-out;
         }
+        .trust-bar {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .trust-item .trust-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(180, 130, 255, 0.08);
+            border: 1px solid rgba(180, 130, 255, 0.2);
+            flex-shrink: 0;
+        }
+        .trust-item .trust-value {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .trust-item .trust-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -483,6 +520,11 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+        @keyframes shakeInvalid {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
         }
 
         .btn {
@@ -659,6 +701,228 @@
         .tab-btn:hover {
             border-color: rgba(255, 255, 255, 0.5);
             color: #fff;
+        }
+
+        .task-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .task-card {
+            text-align: left;
+            padding: 26px 24px;
+            cursor: pointer;
+        }
+        .task-card .task-icon {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .task-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+        }
+        .task-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+        .task-card .task-link {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--neon-purple);
+            letter-spacing: 0.3px;
+        }
+        .task-card:hover .task-link {
+            color: var(--neon-cyan);
+        }
+
+        .budget-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .budget-filters .budget-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        .budget-btn {
+            padding: 9px 20px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+        .budget-btn.active {
+            background: rgba(77, 240, 255, 0.15);
+            border-color: var(--neon-cyan);
+            color: #fff;
+            box-shadow: 0 0 16px rgba(77, 240, 255, 0.3);
+        }
+        .budget-btn:hover {
+            border-color: rgba(255, 255, 255, 0.45);
+            color: #fff;
+        }
+        .pc-card.budget-hidden {
+            display: none;
+        }
+
+        .builder-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 44px;
+        }
+        .builder-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 6px;
+        }
+        .builder-progress-item {
+            flex: 1;
+            text-align: center;
+        }
+        .builder-progress-dot {
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            transition: var(--transition-smooth);
+        }
+        .builder-progress-item.active .builder-progress-dot,
+        .builder-progress-item.done .builder-progress-dot {
+            background: var(--neon-purple);
+            box-shadow: 0 0 10px rgba(180, 130, 255, 0.6);
+        }
+        .builder-progress-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .builder-progress-item.active .builder-progress-label {
+            color: #fff;
+            font-weight: 700;
+        }
+        .builder-step {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        .builder-step.active {
+            display: block;
+        }
+        .builder-step h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .builder-step .builder-step-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .choice-btn {
+            padding: 18px 16px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-card);
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+        .choice-btn:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+        .choice-btn.selected {
+            background: rgba(180, 130, 255, 0.18);
+            border-color: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(180, 130, 255, 0.35);
+        }
+        .builder-field {
+            margin-bottom: 20px;
+        }
+        .builder-field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .builder-field input,
+        .builder-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px solid var(--border-card);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            resize: vertical;
+        }
+        .builder-field input:focus,
+        .builder-field textarea:focus {
+            outline: none;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 16px rgba(180, 130, 255, 0.25);
+        }
+        .builder-field input::placeholder,
+        .builder-field textarea::placeholder {
+            color: var(--text-muted);
+        }
+        .builder-summary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .builder-summary strong {
+            color: #fff;
+        }
+        .builder-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            gap: 14px;
+        }
+        .builder-hint {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            text-align: center;
         }
 
         .catalog-grid {
@@ -858,6 +1122,18 @@
             flex-direction: column;
             gap: 14px;
         }
+        .review-source {
+            align-self: flex-start;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            background: rgba(77, 240, 255, 0.1);
+            border: 1px solid rgba(77, 240, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
         .review-author {
             font-size: 1.1rem;
             font-weight: 800;
@@ -985,7 +1261,8 @@
                 font-size: 2.1rem;
             }
             .steps-grid,
-            .catalog-grid {
+            .catalog-grid,
+            .task-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
             .reviews-grid {
@@ -1022,7 +1299,8 @@
                 font-size: 1.7rem;
             }
             .steps-grid,
-            .catalog-grid {
+            .catalog-grid,
+            .task-cards {
                 grid-template-columns: 1fr;
             }
             .reviews-grid {
@@ -1031,6 +1309,17 @@
             .hero-buttons {
                 flex-direction: column;
                 gap: 12px;
+            }
+            .trust-bar {
+                flex-direction: column;
+                gap: 18px;
+                align-items: flex-start;
+            }
+            .budget-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 4px;
             }
             .btn {
                 width: 100%;
@@ -1130,7 +1419,9 @@
 
             <nav>
                 <ul class="nav-menu">
+                    <li><a href="#task-picker">Подбор ПК</a></li>
                     <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#build">Собрать ПК</a></li>
                     <li><a href="#portfolio">Наши работы</a></li>
                     <li><a href="#steps">Этапы работы</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
@@ -1138,7 +1429,7 @@
                 </ul>
             </nav>
             <div class="header-social">
-                <a href="https://t.me/XeonShop_pump" target="_blank" class="social-icon-btn" aria-label="Telegram">
+                <a href="https://t.me/xeonpump" target="_blank" class="social-icon-btn" aria-label="Telegram">
                     <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
                 </a>
                 <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank" class="social-icon-btn" aria-label="TikTok">
@@ -1153,12 +1444,14 @@
         </header>
 
         <div class="mobile-menu" id="mobileMenu">
+            <a href="#task-picker">Подбор ПК</a>
             <a href="#catalog">Каталог</a>
+            <a href="#build">Собрать ПК</a>
             <a href="#portfolio">Наши работы</a>
             <a href="#steps">Этапы работы</a>
             <a href="#reviews">Отзывы</a>
             <a href="#footer">Контакты</a>
-            <a href="https://t.me/XeonShop_pump" target="_blank">Telegram</a>
+            <a href="https://t.me/xeonpump" target="_blank">Telegram</a>
             <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
             <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank">Avito</a>
         </div>
@@ -1170,7 +1463,7 @@
                         <span class="dot"></span> КРАСНОДАР • СБОРКА С ГАРАНТИЕЙ
                     </div>
                     <h1 class="hero-title">
-                        СБОРКА<br><span class="highlight">ЭКСТРЕМАЛЬНЫХ ИГРОВЫХ ПК</span><br>С ЧЕСТНОЙ ГАРАНТИЕЙ
+                        СБОРКА<br><span class="highlight">КАСТОМНЫХ ИГРОВЫХ ПК</span><br>С ЧЕСТНОЙ ГАРАНТИЕЙ
                     </h1>
                     <p class="hero-subtitle">
                         Собираем мощные игровые компьютеры в Краснодаре. Каждый ПК проходит 3 часа стресс-тестов
@@ -1179,6 +1472,36 @@
                     <div class="hero-buttons">
                         <a href="#catalog" class="btn btn-primary">Открыть каталог</a>
                         <a href="#steps" class="btn btn-outline">Условия работы</a>
+                    </div>
+                    <div class="trust-bar reveal">
+                        <div class="trust-item">
+                            <span class="trust-icon">🛡️</span>
+                            <span>
+                                <span class="trust-value">Гарантия на сборку</span><br>
+                                <span class="trust-label">на все комплектующие</span>
+                            </span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">🔥</span>
+                            <span>
+                                <span class="trust-value">3 часа тестов</span><br>
+                                <span class="trust-label">OCCT + FurMark на каждом ПК</span>
+                            </span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">📦</span>
+                            <span>
+                                <span class="trust-value">Страховка доставки</span><br>
+                                <span class="trust-label">по всей России через Авито</span>
+                            </span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon">⭐</span>
+                            <span>
+                                <span class="trust-value">5.0 · 230+ отзывов</span><br>
+                                <span class="trust-label">рейтинг продавца на Авито</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1214,6 +1537,42 @@
             </div>
         </section>
 
+        <section class="section" id="task-picker">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Подбор</div>
+                    <h2 class="section-title">КАКОЙ ПК <span class="accent">ВАМ НУЖЕН</span></h2>
+                    <p class="section-desc">Выберите задачу — мы сразу отфильтруем каталог по подходящему бюджету</p>
+                </div>
+                <div class="task-cards reveal">
+                    <div class="glass-card task-card" data-goto-budget="1">
+                        <span class="task-icon">💼</span>
+                        <h3>Учёба, офис, нетребовательные игры</h3>
+                        <p>Веб, документы, YouTube и киберспортивные тайтлы на средних настройках.</p>
+                        <span class="task-link">До 90 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="2">
+                        <span class="task-icon">🎮</span>
+                        <h3>Комфортный гейминг</h3>
+                        <p>Актуальные игры на высоких настройках со стабильным 100+ FPS.</p>
+                        <span class="task-link">90 000 – 130 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="3">
+                        <span class="task-icon">🏆</span>
+                        <h3>Киберспорт</h3>
+                        <p>Максимальный FPS в соревновательных играх, минимальные задержки.</p>
+                        <span class="task-link">130 000 – 180 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="4">
+                        <span class="task-icon">🎬</span>
+                        <h3>Стриминг и 4K</h3>
+                        <p>Игра, запись и стрим одновременно, топовые настройки в 4K.</p>
+                        <span class="task-link">От 180 000 ₽ →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="catalog">
             <div class="container">
                 <div class="section-header reveal">
@@ -1225,11 +1584,19 @@
                     <button class="tab-btn active" data-tab="intel">Конфигурации INTEL</button>
                     <button class="tab-btn" data-tab="amd">Конфигурации AMD</button>
                 </div>
+                <div class="budget-filters reveal">
+                    <span class="budget-label">Бюджет:</span>
+                    <button class="budget-btn active" data-budget="all">Все</button>
+                    <button class="budget-btn" data-budget="1">До 90 000 ₽</button>
+                    <button class="budget-btn" data-budget="2">90 000–130 000 ₽</button>
+                    <button class="budget-btn" data-budget="3">130 000–180 000 ₽</button>
+                    <button class="budget-btn" data-budget="4">От 180 000 ₽</button>
+                </div>
 
                 <!-- INTEL сборки -->
                 <div class="catalog-group" id="intel-group">
                     <div class="catalog-grid">
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="1">
   <img src="images/pc1.png" alt="ПК Начальный" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
   <h3 class="pc-card-title">Начальный</h3>
   <ul class="pc-specs">
@@ -1248,7 +1615,7 @@
 </div>
 
 
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="2">
 <img src="images/pc2.png" alt="ПК Средний" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Средний</h3>
@@ -1266,7 +1633,7 @@
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
                             </div>
                         </div>
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="3">
 <img src="images/pc3.png" alt="ПК Киберспортивный" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
@@ -1284,7 +1651,7 @@
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
                             </div>
                         </div>
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="4">
 <img src="images/pc4.png" alt="ПК Стримерский" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Стримерский</h3>
@@ -1309,7 +1676,7 @@
                 <!-- AMD сборки (изначально скрыты) -->
                 <div class="catalog-group hidden" id="amd-group">
                     <div class="catalog-grid">
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="1">
 <img src="images/pc5.png" alt="ПК Начальный AMD" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Начальный</h3>
@@ -1327,7 +1694,7 @@
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
                             </div>
                         </div>
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="2">
 <img src="images/pc6.png" alt="ПК Средний AMD" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Средний</h3>
@@ -1346,7 +1713,7 @@
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
                             </div>
                         </div>
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="3">
 <img src="images/pc7.png" alt="ПК Киберспортивный AMD" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
@@ -1364,7 +1731,7 @@
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
                             </div>
                         </div>
-                        <div class="pc-card glass-card reveal">
+                        <div class="pc-card glass-card reveal" data-budget="4">
 <img src="images/pc8.png" alt="ПК Стримерский AMD" class="pc-card-img" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.05);">
 
                             <h3 class="pc-card-title">Стримерский</h3>
@@ -1387,6 +1754,112 @@
             </div>
         </section>
 
+        <section class="section" id="build">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Индивидуальная сборка</div>
+                    <h2 class="section-title">СОБЕРИ СВОЙ <span class="accent">ПК</span></h2>
+                    <p class="section-desc">Не нашли готовую конфигурацию под себя? Пройдите 5 шагов — соберём индивидуальный вариант под ваш бюджет и задачи</p>
+                </div>
+
+                <div class="builder-wrapper glass-card reveal">
+                    <div class="builder-progress" id="builderProgress">
+                        <div class="builder-progress-item active" data-step="1">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Платформа</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="2">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Бюджет</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="3">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Задача</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="4">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Стиль</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="5">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Контакты</div>
+                        </div>
+                    </div>
+
+                    <div class="builder-steps">
+                        <div class="builder-step active" data-step="1">
+                            <h3>Какая платформа нужна?</h3>
+                            <p class="builder-step-desc">Если не уверены — выберите «Не важно», подберём по цене/производительности</p>
+                            <div class="choice-grid" data-group="platform">
+                                <button class="choice-btn" data-value="Intel">Intel</button>
+                                <button class="choice-btn" data-value="AMD">AMD</button>
+                                <button class="choice-btn" data-value="Не важно">Не важно, что оптимальнее</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="2">
+                            <h3>Какой у вас бюджет?</h3>
+                            <p class="builder-step-desc">Ориентировочно — точную сумму обсудим после консультации</p>
+                            <div class="choice-grid" data-group="budget">
+                                <button class="choice-btn" data-value="До 90 000 ₽">До 90 000 ₽</button>
+                                <button class="choice-btn" data-value="90 000–130 000 ₽">90 000–130 000 ₽</button>
+                                <button class="choice-btn" data-value="130 000–180 000 ₽">130 000–180 000 ₽</button>
+                                <button class="choice-btn" data-value="От 180 000 ₽">От 180 000 ₽</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="3">
+                            <h3>Для чего в основном нужен ПК?</h3>
+                            <p class="builder-step-desc">Это определяет баланс между процессором, видеокартой и охлаждением</p>
+                            <div class="choice-grid" data-group="goal">
+                                <button class="choice-btn" data-value="Игры">Игры</button>
+                                <button class="choice-btn" data-value="Стриминг / запись контента">Стриминг / запись контента</button>
+                                <button class="choice-btn" data-value="Киберспорт, максимальный FPS">Киберспорт, максимальный FPS</button>
+                                <button class="choice-btn" data-value="Работа, монтаж, нейросети">Работа, монтаж, нейросети</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="4">
+                            <h3>Пожелания по стилю</h3>
+                            <p class="builder-step-desc">RGB-подсветка и корпус — необязательно, можно пропустить</p>
+                            <div class="builder-field">
+                                <label>Подсветка</label>
+                                <div class="choice-grid" data-group="rgb">
+                                    <button class="choice-btn" data-value="Яркая RGB-подсветка">Яркая RGB-подсветка</button>
+                                    <button class="choice-btn" data-value="Сдержанная / без подсветки">Сдержанная / без подсветки</button>
+                                    <button class="choice-btn" data-value="Не важно">Не важно</button>
+                                </div>
+                            </div>
+                            <div class="builder-field">
+                                <label>Доп. пожелания (необязательно)</label>
+                                <textarea id="builderComment" rows="3" placeholder="Например: нужен тихий ПК, хочу белый корпус, есть старые комплектующие для переноса..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="5">
+                            <h3>Как с вами связаться?</h3>
+                            <p class="builder-step-desc">Проверим конфигурацию и вернёмся с точной ценой и сроками</p>
+                            <div class="builder-summary" id="builderSummary"></div>
+                            <div class="builder-field">
+                                <label>Ваше имя</label>
+                                <input type="text" id="builderName" placeholder="Как вас зовут?">
+                            </div>
+                            <div class="builder-field">
+                                <label>Telegram или телефон</label>
+                                <input type="text" id="builderContact" placeholder="@username или +7...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="builder-nav">
+                        <button class="btn btn-outline" id="builderBack" style="visibility: hidden;">Назад</button>
+                        <button class="btn btn-primary" id="builderNext">Далее</button>
+                    </div>
+                    <div class="builder-hint">Заявка откроется в Telegram — останется нажать «Отправить»</div>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="portfolio">
             <div class="container">
                 <div class="section-header reveal">
@@ -1396,14 +1869,14 @@
                 </div>
                 <div class="slider-wrapper reveal">
                     <div class="slider-viewport" id="sliderViewport">
-                        <img src="images/work1.jpg" alt="Кастомная сборка в черном аквариуме" class="active" data-caption="Кастомная сборка в черном аквариуме">
-                        <img src="images/work2.jpg" alt="Бюджетная сборка на AM5" data-caption="Бюджетная сборка на AM5">
-                        <img src="images/work3.jpg" alt="Сборка в белом аквариуме" data-caption="Сборка в белом аквариуме">
-<img src="images/work4.jpg" alt="Сборка 4" data-caption="Ультимативный игровой монстр для требовательных игр">
-<img src="images/work5.jpg" alt="Сборка 5" data-caption="Мощная рабочая станция в строгом черном стиле">
-<img src="images/work6.jpg" alt="Сборка 6" data-caption="Премиальная кастомная система в белом корпусе-аквариуме">
-<img src="images/work7.jpg" alt="Сборка 7" data-caption="Компактный игровой куб с максимальной производительностью">
-<img src="images/work8.jpg" alt="Сборка 8" data-caption="Экстремальный игровой ПК с кастомным охлаждением">
+                        <img src="images/work1.jpg" alt="Кастомная сборка в черном аквариуме" class="active">
+                        <img src="images/work2.jpg" alt="Бюджетная сборка на AM5">
+                        <img src="images/work3.jpg" alt="Сборка в белом аквариуме">
+<img src="images/work4.jpg" alt="Сборка 4">
+<img src="images/work5.jpg" alt="Сборка 5">
+<img src="images/work6.jpg" alt="Сборка 6">
+<img src="images/work7.jpg" alt="Сборка 7">
+<img src="images/work8.jpg" alt="Сборка 8">
 
 
                     </div>
@@ -1414,7 +1887,6 @@
                         <span class="slider-dot" data-index="1"></span>
                         <span class="slider-dot" data-index="2"></span>
                     </div>
-                    <div class="slider-caption" id="sliderCaption">Кастомная сборка в черном аквариуме</div>
                 </div>
             </div>
         </section>
@@ -1430,21 +1902,25 @@
                 </div>
                 <div class="reviews-grid">
                     <div class="glass-card review-card reveal">
+                        <div class="review-source">Источник: Авито</div>
                         <div class="review-author">Саня Донбасс</div>
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">«Все пришло целым и рабочим! Продавец учёл все пожелания перед отправкой. Всё чотенько и простыми словами, рекомендую!»</p>
                     </div>
                     <div class="glass-card review-card reveal">
+                        <div class="review-source">Источник: Авито</div>
                         <div class="review-author">Константин</div>
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">«Рекомендую Игоря как надежного продавца. Отличная сборка, комплектующие новые, с гарантией. Подробная консультация по всем вопросам, всегда на связи. Огромное спасибо за компьютер!»</p>
                     </div>
                     <div class="glass-card review-card reveal">
+                        <div class="review-source">Источник: Авито</div>
                         <div class="review-author">clouzyx</div>
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">«Крутой тип, за все шарит! Всё собрал по красоте, тесты прогнал, даже с проблемами по видеосвязи помог. Цены очень адекватные, короче — лучший!»</p>
                     </div>
                     <div class="glass-card review-card reveal">
+                        <div class="review-source">Источник: Авито</div>
                         <div class="review-author">Матвей</div>
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">«Продавец хороший, компьютер пришёл полностью целый. Всё было в точности как в объявлении. Большое спасибо!»</p>
@@ -1466,7 +1942,7 @@
 </a>
 
                 <div class="footer-social">
-                    <a href="https://t.me/XeonShop_pump" class="footer-social-item">
+                    <a href="https://t.me/xeonpump" class="footer-social-item">
                         <span class="social-icon-btn">
                             <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
                         </span>
@@ -1611,7 +2087,6 @@
 
             // PORTFOLIO SLIDER (УНИВЕРСАЛЬНЫЙ)
 const slides = document.querySelectorAll('#sliderViewport img');
-const captionEl = document.getElementById('sliderCaption');
 const prevBtn = document.getElementById('prevSlide');
 const nextBtn = document.getElementById('nextSlide');
 const dotsContainer = document.querySelector('.slider-dots');
@@ -1638,7 +2113,6 @@ function goToSlide(index) {
     slides[index].classList.add('active');
     if (activeDots[index]) activeDots[index].classList.add('active');
     
-    captionEl.textContent = slides[index].dataset.caption || '';
     currentIndex = index;
 }
 
@@ -1687,6 +2161,146 @@ startAutoPlay();
                     }
                 });
             });
+
+            // BUDGET FILTER
+            const budgetBtns = document.querySelectorAll('.budget-btn');
+            const allPcCards = document.querySelectorAll('.pc-card');
+            function applyBudgetFilter(value) {
+                budgetBtns.forEach(b => b.classList.toggle('active', b.dataset.budget === value));
+                allPcCards.forEach(card => {
+                    const matches = value === 'all' || card.dataset.budget === value;
+                    card.classList.toggle('budget-hidden', !matches);
+                });
+            }
+            budgetBtns.forEach(btn => {
+                btn.addEventListener('click', () => applyBudgetFilter(btn.dataset.budget));
+            });
+
+            // TASK PICKER CARDS -> jump to catalog with matching budget filter
+            document.querySelectorAll('.task-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    applyBudgetFilter(card.dataset.gotoBudget);
+                    const catalogSection = document.getElementById('catalog');
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = catalogSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                });
+            });
+
+            // PC BUILDER WIZARD
+            (function() {
+                const TELEGRAM_USERNAME = 'XeonShop_pump';
+                const steps = Array.from(document.querySelectorAll('.builder-step'));
+                const progressItems = Array.from(document.querySelectorAll('.builder-progress-item'));
+                const backBtn = document.getElementById('builderBack');
+                const nextBtn = document.getElementById('builderNext');
+                const summaryBox = document.getElementById('builderSummary');
+                if (!steps.length || !nextBtn) return;
+
+                let currentStep = 1;
+                const totalSteps = steps.length;
+                const answers = { platform: '', budget: '', goal: '', rgb: '' };
+
+                document.querySelectorAll('.choice-grid').forEach(grid => {
+                    const group = grid.dataset.group;
+                    grid.querySelectorAll('.choice-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            answers[group] = btn.dataset.value;
+                        });
+                    });
+                });
+
+                function updateProgress() {
+                    progressItems.forEach(item => {
+                        const step = parseInt(item.dataset.step, 10);
+                        item.classList.remove('active', 'done');
+                        if (step === currentStep) item.classList.add('active');
+                        else if (step < currentStep) item.classList.add('done');
+                    });
+                }
+
+                function buildSummary() {
+                    const comment = document.getElementById('builderComment').value.trim();
+                    let html = '';
+                    if (answers.platform) html += `<strong>Платформа:</strong> ${answers.platform}<br>`;
+                    if (answers.budget) html += `<strong>Бюджет:</strong> ${answers.budget}<br>`;
+                    if (answers.goal) html += `<strong>Задача:</strong> ${answers.goal}<br>`;
+                    if (answers.rgb) html += `<strong>Подсветка:</strong> ${answers.rgb}<br>`;
+                    if (comment) html += `<strong>Пожелания:</strong> ${comment}`;
+                    summaryBox.innerHTML = html || 'Пока ничего не выбрано';
+                }
+
+                function showStep(step) {
+                    steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step, 10) === step));
+                    updateProgress();
+                    backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+                    if (step === totalSteps) {
+                        buildSummary();
+                        nextBtn.textContent = 'Отправить в Telegram';
+                    } else {
+                        nextBtn.textContent = 'Далее';
+                    }
+                }
+
+                function validateStep(step) {
+                    if (step >= 1 && step <= 4) {
+                        const groupMap = { 1: 'platform', 2: 'budget', 3: 'goal', 4: 'rgb' };
+                        const group = groupMap[step];
+                        if (group === 'rgb') return true; // style step is optional
+                        if (!answers[group]) {
+                            const grid = document.querySelector(`.choice-grid[data-group="${group}"]`);
+                            if (grid) {
+                                grid.style.animation = 'none';
+                                requestAnimationFrame(() => { grid.style.animation = 'shakeInvalid 0.4s'; });
+                            }
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                function sendToTelegram() {
+                    const name = document.getElementById('builderName').value.trim();
+                    const contact = document.getElementById('builderContact').value.trim();
+                    if (!name || !contact) {
+                        [document.getElementById('builderName'), document.getElementById('builderContact')].forEach(input => {
+                            if (!input.value.trim()) input.style.borderColor = 'rgba(255, 70, 100, 0.7)';
+                        });
+                        return;
+                    }
+                    const comment = document.getElementById('builderComment').value.trim();
+                    let text = 'Заявка на сборку ПК с сайта Xeon Shop\n\n';
+                    text += `Платформа: ${answers.platform || '—'}\n`;
+                    text += `Бюджет: ${answers.budget || '—'}\n`;
+                    text += `Задача: ${answers.goal || '—'}\n`;
+                    text += `Подсветка: ${answers.rgb || '—'}\n`;
+                    if (comment) text += `Пожелания: ${comment}\n`;
+                    text += `\nИмя: ${name}\n`;
+                    text += `Связь: ${contact}`;
+
+                    const url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)}`;
+                    window.open(url, '_blank');
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentStep === totalSteps) {
+                        sendToTelegram();
+                        return;
+                    }
+                    if (!validateStep(currentStep)) return;
+                    currentStep = Math.min(currentStep + 1, totalSteps);
+                    showStep(currentStep);
+                });
+
+                backBtn.addEventListener('click', () => {
+                    currentStep = Math.max(currentStep - 1, 1);
+                    showStep(currentStep);
+                });
+
+                showStep(currentStep);
+            })();
 
             updateHeader();
             console.log('🖥️ Xeon Shop — финальная версия');
