@@ -509,9 +509,11 @@
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             z-index: 999;
-            padding: 100px 30px 30px;
+            padding: 90px 30px 30px;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             transition: right 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
             border-left: 1px solid rgba(255, 255, 255, 0.06);
         }
@@ -1997,6 +1999,18 @@
                 right: 0;
                 width: 100%;
             }
+            .mobile-menu .consult-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                margin-top: 8px;
+                box-shadow: none;
+            }
+            .mobile-menu .consult-dropdown.open .consult-menu {
+                display: flex;
+            }
             .mobile-sticky-cta .sticky-secondary {
                 color: #fff;
                 border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -2871,6 +2885,16 @@
                 </div>
             </div>
         </footer>
+    <div class="mobile-sticky-cta">
+        <a href="#catalog" class="sticky-secondary">Каталог</a>
+        <div class="consult-dropdown">
+            <button type="button" class="sticky-primary consult-trigger">Консультация →</button>
+            <div class="consult-menu">
+                <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script>
@@ -3287,15 +3311,5 @@ startAutoPlay();
         })();
     </script>
 
-    <div class="mobile-sticky-cta">
-        <a href="#catalog" class="sticky-secondary">Каталог</a>
-        <div class="consult-dropdown">
-            <button type="button" class="sticky-primary consult-trigger">Консультация →</button>
-            <div class="consult-menu">
-                <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
-                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
