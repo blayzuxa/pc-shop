@@ -471,91 +471,6 @@
             transform: scale(1.12);
             color: #fff;
         }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            background: none;
-            border: none;
-            padding: 8px;
-        }
-        .hamburger span {
-            display: block;
-            width: 26px;
-            height: 2.5px;
-            background: #fff;
-            border-radius: 3px;
-            transition: var(--transition-smooth);
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: rgba(8, 8, 14, 0.95);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            z-index: 999;
-            padding: 90px 30px 30px;
-            flex-direction: column;
-            gap: 16px;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            transition: right 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-            border-left: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .mobile-menu.active {
-            right: 0;
-        }
-        .mobile-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            transition: var(--transition-smooth);
-        }
-        .mobile-menu a:hover {
-            color: var(--neon-purple);
-        }
-        .mobile-menu a.mobile-consult-link,
-        .mobile-menu button.mobile-consult-link {
-            margin-top: 8px;
-            text-align: center;
-            border-bottom: none;
-            border-radius: 30px;
-            padding: 14px 0;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
-            box-shadow: 0 6px 24px rgba(140, 70, 230, 0.4);
-            color: #fff;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .mobile-menu a.mobile-consult-link:hover,
-        .mobile-menu button.mobile-consult-link:hover {
-            color: #fff;
-        }
-
         .section {
             padding: 100px 40px;
             position: relative;
@@ -1939,18 +1854,64 @@
         .mobile-sticky-cta {
             display: none;
         }
-        @media (max-width: 1400px) {
+        @media (max-width: 1439px) {
+            .header {
+                padding: 14px 8px;
+            }
             .nav-menu {
-                display: none;
+                gap: 5px;
+            }
+            .nav-menu a {
+                font-size: 0.64rem;
+                letter-spacing: 0;
             }
             .header-social {
-                display: none;
+                gap: 2px;
             }
-            .hamburger {
-                display: flex;
+            .social-icon-btn {
+                width: 26px;
+                height: 26px;
+            }
+            .social-icon-btn svg {
+                width: 13px;
+                height: 13px;
+            }
+            .header-consult-btn {
+                padding: 6px 10px;
+                font-size: 0.6rem;
+                gap: 3px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .logo-icon {
+                width: 30px;
+                height: 30px;
             }
         }
         @media (max-width: 768px) {
+            .header {
+                flex-wrap: wrap;
+                row-gap: 8px;
+                padding: 10px 10px;
+            }
+            .nav-menu {
+                order: 3;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px 8px;
+            }
+            .nav-menu a {
+                font-size: 0.62rem;
+                padding: 3px 0;
+            }
+            .header-social {
+                gap: 2px;
+            }
+            .hero-section {
+                padding-top: 110px;
+            }
             body {
                 padding-bottom: 78px;
             }
@@ -2001,18 +1962,6 @@
                 right: 0;
                 width: 100%;
             }
-            .mobile-menu .consult-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                display: none;
-                margin-top: 8px;
-                box-shadow: none;
-            }
-            .mobile-menu .consult-dropdown.open .consult-menu {
-                display: flex;
-            }
             .mobile-sticky-cta .sticky-secondary {
                 color: #fff;
                 border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -2021,9 +1970,6 @@
                 color: #fff;
                 background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
                 box-shadow: 0 6px 20px rgba(140, 70, 230, 0.4);
-            }
-            .mobile-menu {
-                display: flex;
             }
             .hero-title {
                 font-size: 2.2rem;
@@ -2126,7 +2072,7 @@
                 padding: 18px;
             }
             .hero-section {
-                padding-top: 75px;
+                padding-top: 130px;
             }
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -2244,33 +2190,7 @@
                     </div>
                 </div>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
         </header>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#task-picker">Подбор ПК</a>
-            <a href="#catalog">Каталог</a>
-            <a href="#build">Собрать ПК</a>
-            <a href="#about">О нас</a>
-            <a href="#portfolio">Наши работы</a>
-            <a href="#steps">Этапы работы</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#faq">Вопросы</a>
-            <a href="#footer">Контакты</a>
-            <a href="https://t.me/xeonpump" target="_blank">Telegram</a>
-            <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank">MAX</a>
-            <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
-            <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank">Avito</a>
-            <div class="consult-dropdown" style="display: block; width: 100%;">
-                <button type="button" class="mobile-consult-link consult-trigger" style="width: 100%;">Консультация →</button>
-                <div class="consult-menu" style="left: 0; right: 0; width: 100%;">
-                    <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
-                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
-                </div>
-            </div>
-        </div>
 
         <section class="section hero-section" id="hero">
             <div class="container">
@@ -2910,21 +2830,6 @@
                 }
             }
             window.addEventListener('scroll', updateHeader, { passive: true });
-
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            });
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
 
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries) => {
