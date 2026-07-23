@@ -528,11 +528,17 @@
         }
         .hero-visual-frame {
             position: relative;
+            display: block;
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(180, 130, 255, 0.15);
             animation: heroFloat 6s ease-in-out infinite;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .hero-visual-frame:hover {
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 80px rgba(180, 130, 255, 0.3);
         }
         .hero-visual-frame img {
             width: 100%;
@@ -547,36 +553,36 @@
         }
         .hero-float-badge {
             position: absolute;
+            text-decoration: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 18px;
+            gap: 12px;
+            padding: 16px 22px;
             border-radius: 16px;
             z-index: 2;
             animation: heroFloat 6s ease-in-out infinite;
             animation-delay: 0.3s;
         }
         .hero-float-badge .badge-icon {
-            font-size: 1.3rem;
+            font-size: 1.7rem;
         }
         .hero-float-badge .badge-value {
-            font-weight: 800;
-            font-size: 1rem;
+            font-weight: 900;
+            font-size: 1.35rem;
             color: #fff;
-            line-height: 1.1;
+            line-height: 1.15;
         }
         .hero-float-badge .badge-label {
             font-size: 0.72rem;
-            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
         }
         .hero-float-badge.badge-price {
             top: -18px;
             right: -16px;
-        }
-        .hero-float-badge.badge-rating {
-            bottom: -18px;
-            left: -16px;
-            animation-delay: 1s;
         }
         .hero-stats {
             display: flex;
@@ -672,6 +678,18 @@
             line-height: 1.7;
             max-width: 560px;
             animation: fadeInUp 1s ease-out;
+        }
+        .hero-subtitle .lead {
+            display: block;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .hero-subtitle .lead .accent-word {
+            color: var(--neon-cyan);
         }
         .hero-buttons {
             display: flex;
@@ -1189,40 +1207,118 @@
         }
         .pc-specs {
             list-style: none;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
-        .pc-specs li {
+        .spec-row {
             display: flex;
             align-items: center;
             gap: 8px;
+            min-width: 0;
         }
-        .pc-specs .spec-icon {
-            width: 18px;
-            text-align: center;
+        .spec-icon-box {
+            width: 32px;
+            height: 32px;
             flex-shrink: 0;
-            opacity: 0.9;
+            border-radius: 50%;
+            background: #0a0a10;
+            border: 1.5px solid transparent;
+            background-image: linear-gradient(#0a0a10, #0a0a10), linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .spec-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+        }
+        .spec-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .spec-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .pc-fps {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(180, 130, 255, 0.07);
+            border: 1px solid rgba(180, 130, 255, 0.18);
+        }
+        .fps-bar-track {
+            position: relative;
+            width: 64px;
+            height: 26px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.09) 0 5px, transparent 5px 8px);
+            overflow: hidden;
+        }
+        .fps-bar-fill {
+            position: absolute;
+            inset: 0;
+            width: calc(var(--fps-pct) * 1%);
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+            -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 8px);
+            mask-image: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 8px);
+            transition: width 0.6s ease;
+        }
+        .fps-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .fps-text .fps-title {
             font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--neon-purple);
-            background: rgba(180, 130, 255, 0.12);
-            padding: 6px 12px;
-            border-radius: 20px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .fps-text .fps-sub {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            width: fit-content;
-            letter-spacing: 0.3px;
+            gap: 5px;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+        .fps-info {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            cursor: help;
+            flex-shrink: 0;
         }
         .pc-price {
             font-size: 1.4rem;
             font-weight: 900;
             color: #fff;
+        }
+        .pc-price .price-prefix {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-right: 2px;
         }
         .pc-price span {
             font-size: 0.8rem;
@@ -1868,17 +1964,13 @@
                             в OCCT и FurMark. Честные цены без скрытых накруток. Доставка по всей России через Авито.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#catalog" class="btn btn-primary">Открыть каталог</a>
-                            <a href="#steps" class="btn btn-outline">Условия работы</a>
+                            <a href="#build" class="btn btn-primary">Собрать ПК</a>
+                            <a href="#catalog" class="btn btn-outline">Готовые сборки</a>
                         </div>
                         <div class="hero-stats reveal">
                             <div class="hero-stat">
-                                <span class="hero-stat-value" data-count="230" data-suffix="+">0</span>
-                                <span class="hero-stat-label">Собранных ПК</span>
-                            </div>
-                            <div class="hero-stat">
                                 <span class="hero-stat-value" data-count="5" data-decimal="1">0</span>
-                                <span class="hero-stat-label">Рейтинг на Авито</span>
+                                <span class="hero-stat-label">230+ отзывов на Авито</span>
                             </div>
                             <div class="hero-stat">
                                 <span class="hero-stat-value" data-count="3">0</span>
@@ -1892,23 +1984,16 @@
                     </div>
                     <div class="hero-visual reveal">
                         <div class="hero-visual-glow"></div>
-                        <div class="hero-visual-frame">
-                            <img src="images/pc1.png" alt="Кастомная сборка Xeon Shop — Начальный" loading="lazy" decoding="async">
-                        </div>
-                        <div class="hero-float-badge badge-price glass-card">
+                        <a href="#catalog" class="hero-visual-frame">
+                            <img src="images/pc7.png" alt="Кастомная сборка Xeon Shop — Киберспортивный" loading="lazy" decoding="async">
+                        </a>
+                        <a href="#catalog" class="hero-float-badge badge-price glass-card">
                             <span class="badge-icon">💻</span>
                             <span>
-                                <span class="badge-value">От 68 000 ₽</span><br>
-                                <span class="badge-label">старт линейки</span>
+                                <span class="badge-label">Серия Игровые ПК</span><br>
+                                <span class="badge-value">От 68 000 ₽</span>
                             </span>
-                        </div>
-                        <div class="hero-float-badge badge-rating glass-card">
-                            <span class="badge-icon">⭐</span>
-                            <span>
-                                <span class="badge-value">5.0 · 230+ отзывов</span><br>
-                                <span class="badge-label">рейтинг на Авито</span>
-                            </span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1984,7 +2069,7 @@
             <div class="container">
                 <div class="section-header reveal">
                     <div class="section-label">Конфигуратор</div>
-                    <h2 class="section-title">ПРЕМИУМ <span class="accent">КАТАЛОГ</span></h2>
+                    <h2 class="section-title">КАТАЛОГ <span class="accent">ИГРОВЫХ ПК</span></h2>
                     <p class="section-desc">Выберите платформу и найдите идеальную сборку под свои задачи</p>
                 </div>
                 <div class="catalog-tabs reveal">
@@ -2006,15 +2091,15 @@
                         <div class="pc-card glass-card reveal" data-budget="1">
   <div class="pc-image-frame"><img src="images/pc1.png" alt="ПК Начальный" class="pc-card-img" loading="lazy" decoding="async"></div>
   <h3 class="pc-card-title">Начальный</h3>
-  <ul class="pc-specs">
-    <li><span class="spec-icon">🖥️</span> i3-12100F</li>
-    <li><span class="spec-icon">🎴</span> RTX 5050 8GB</li>
-    <li><span class="spec-icon">🧠</span> 16GB DDR4 3200MHz</li>
-    <li><span class="spec-icon">🌀</span> Thermalright Assasin X120</li>
-    <li><span class="spec-icon">🏔️</span> H610M</li>
-  </ul>
-  <div class="pc-fps">⚡ 111 FPS в играх</div>
-  <div class="pc-price">68 000 <span>₽</span></div>
+  <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i3-12100F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">H610M</span></span></div>
+  </div>
+  <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 28;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">111 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+  <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
   <div class="pc-actions">
     <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
     <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2026,15 +2111,15 @@
 <div class="pc-image-frame"><img src="images/pc2.png" alt="ПК Средний" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Средний</h3>
-                            <ul class="pc-specs">
-                                <li><span class="spec-icon">🖥️</span> i5-13400F</li>
-                                <li><span class="spec-icon">🎮</span> RTX 5060 12GB</li>
-                                <li><span class="spec-icon">🧠</span> 32GB DDR4</li>
-                                <li><span class="spec-icon">❄️</span> Thermalright Assasin X120</li>
-                                <li><span class="spec-icon">🖧</span> B760M</li>
-                            </ul>
-                            <div class="pc-fps">⚡ 200 FPS в играх</div>
-                            <div class="pc-price">105 000 <span>₽</span></div>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i5-13400F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR4</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760M</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 50;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">200 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2044,15 +2129,15 @@
 <div class="pc-image-frame"><img src="images/pc3.png" alt="ПК Киберспортивный" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
-                            <ul class="pc-specs">
-                                <li><span class="spec-icon">🖥️</span> i5-13600KF</li>
-                                <li><span class="spec-icon">🎮</span> RTX 5070 12GB</li>
-                                <li><span class="spec-icon">🧠</span> 32GB DDR5</li>
-                                <li><span class="spec-icon">❄️</span> СЖО 360</li>
-                                <li><span class="spec-icon">🖧</span> B760</li>
-                            </ul>
-                            <div class="pc-fps">⚡ 276 FPS в играх</div>
-                            <div class="pc-price">160 000 <span>₽</span></div>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i5-13600KF</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 12GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 69;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">276 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>160 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2062,16 +2147,16 @@
 <div class="pc-image-frame"><img src="images/pc4.png" alt="ПК Стримерский" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Стримерский</h3>
-                            <ul class="pc-specs">
-  <li><span class="spec-icon">🖥️</span> Core Ultra 7 265K</li>
-  <li><span class="spec-icon">🎴</span> RTX 5070 Ti 16GB</li>
-  <li><span class="spec-icon">🧠</span> 32GB DDR5</li>
-  <li><span class="spec-icon">❄️</span> СЖО 360</li>
-  <li><span class="spec-icon">🏔️</span> Z890</li>
-</ul>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Core Ultra 7 265K</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 Ti 16GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">Z890</span></span></div>
+  </div>
                             
-                            <div class="pc-fps">⚡ 340 FPS (в 4K)</div>
-                            <div class="pc-price">200 000 <span>₽</span></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 85;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">340 FPS</span><span class="fps-sub">Средний FPS (в 4K) <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>200 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2087,15 +2172,15 @@
 <div class="pc-image-frame"><img src="images/pc5.png" alt="ПК Начальный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Начальный</h3>
-                            <ul class="pc-specs">
-                                <li><span class="spec-icon">🖥️</span> Ryzen 5 5500</li>
-                                <li><span class="spec-icon">🎮</span> RTX 5050 8GB</li>
-                                <li><span class="spec-icon">🧠</span> 16GB DDR4 3200MHz</li>
-                                <li><span class="spec-icon">❄️</span> Thermalriright Assasin X120</li>
-                                <li><span class="spec-icon">🖧</span> A520M</li>
-                            </ul>
-                            <div class="pc-fps">⚡ 110 FPS в играх</div>
-                            <div class="pc-price">68 000 <span>₽</span></div>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 5500</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalriright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">A520M</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 28;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">110 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2105,16 +2190,16 @@
 <div class="pc-image-frame"><img src="images/pc6.png" alt="ПК Средний AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Средний</h3>
-                            <ul class="pc-specs">
-  <li><span class="spec-icon">🖥️</span> Ryzen 5 7500F</li>
-  <li><span class="spec-icon">🎴</span> RTX 5060 12GB</li>
-  <li><span class="spec-icon">🧠</span> 16GB DDR5</li>
-  <li><span class="spec-icon">❄️</span> Thermalright Assasin X120</li>
-  <li><span class="spec-icon">🏔️</span> B650</li>
-</ul>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 7500F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
+  </div>
 
-                            <div class="pc-fps">⚡ 208 FPS в играх</div>
-                            <div class="pc-price">105 000 <span>₽</span></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 52;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">208 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2124,15 +2209,15 @@
 <div class="pc-image-frame"><img src="images/pc7.png" alt="ПК Киберспортивный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
-                            <ul class="pc-specs">
-                                <li><span class="spec-icon">🖥️</span> Ryzen 7 7800X3D</li>
-                                <li><span class="spec-icon">🎮</span> RTX 5070 12GB</li>
-                                <li><span class="spec-icon">🧠</span> 32GB DDR5</li>
-                                <li><span class="spec-icon">❄️</span> СЖО 360</li>
-                                <li><span class="spec-icon">🖧</span> B650</li>
-                            </ul>
-                            <div class="pc-fps">⚡ 269 FPS в играх</div>
-                            <div class="pc-price">155 000 <span>₽</span></div>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 7 7800X3D</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 12GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 67;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">269 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>155 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2142,15 +2227,15 @@
 <div class="pc-image-frame"><img src="images/pc8.png" alt="ПК Стримерский AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Стримерский</h3>
-                            <ul class="pc-specs">
-                                <li><span class="spec-icon">🖥️</span> Ryzen 7 9800X3D</li>
-                                <li><span class="spec-icon">🎮</span> RTX 5070 Ti 16GB</li>
-                                <li><span class="spec-icon">🧠</span> 32GB DDR5</li>
-                                <li><span class="spec-icon">❄️</span> 360 СЖО</li>
-                                <li><span class="spec-icon">🖧</span> X870</li>
-                            </ul>
-                            <div class="pc-fps">⚡ 328 FPS в играх</div>
-                            <div class="pc-price">210 000 <span>₽</span></div>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 7 9800X3D</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 Ti 16GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">360 СЖО</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">X870</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 82;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">328 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>210 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
@@ -2395,7 +2480,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>В среднем сборка и тестирование занимают несколько дней с момента подтверждения конфигурации — конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
+                            <p>В среднем сборка и тестирование занимают +/- 7 дней с момента подтверждения конфигурации — конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
                         </div>
                     </div>
                     <div class="glass-card faq-item">
