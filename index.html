@@ -382,6 +382,70 @@
         .header-consult-btn .arrow {
             font-size: 0.9rem;
         }
+        .consult-dropdown {
+            position: relative;
+            display: inline-flex;
+        }
+        .consult-dropdown .header-consult-btn {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .consult-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 190px;
+            background: rgba(15, 15, 22, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: var(--transition-smooth);
+            z-index: 200;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .consult-dropdown.open .consult-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .consult-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+        .consult-menu a:hover {
+            background: rgba(180, 130, 255, 0.15);
+        }
+        .consult-menu-icon {
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .consult-menu-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
         .social-icon-btn {
             display: inline-flex;
             align-items: center;
@@ -467,7 +531,8 @@
         .mobile-menu a:hover {
             color: var(--neon-purple);
         }
-        .mobile-menu a.mobile-consult-link {
+        .mobile-menu a.mobile-consult-link,
+        .mobile-menu button.mobile-consult-link {
             margin-top: 8px;
             text-align: center;
             border-bottom: none;
@@ -478,8 +543,14 @@
             letter-spacing: 0.4px;
             background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
             box-shadow: 0 6px 24px rgba(140, 70, 230, 0.4);
+            color: #fff;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
-        .mobile-menu a.mobile-consult-link:hover {
+        .mobile-menu a.mobile-consult-link:hover,
+        .mobile-menu button.mobile-consult-link:hover {
             color: #fff;
         }
 
@@ -1141,6 +1212,38 @@
             margin-top: 32px;
             gap: 14px;
         }
+        .builder-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        .builder-consent input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--neon-purple);
+            cursor: pointer;
+        }
+        .builder-consent span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .builder-consent a {
+            color: var(--neon-cyan);
+            text-decoration: underline;
+        }
+        .builder-submit-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 14px;
+        }
+        .builder-submit-row .btn {
+            width: 100%;
+        }
         .builder-hint {
             font-size: 0.78rem;
             color: var(--text-muted);
@@ -1764,6 +1867,40 @@
             color: var(--text-muted);
             font-size: 0.8rem;
         }
+        .footer-legal {
+            max-width: 1200px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-legal-col .footer-legal-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .footer-legal-col a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
+        }
+        .footer-legal-col a:hover {
+            color: #fff;
+        }
+        .footer-legal-col p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
 
         .reveal {
             opacity: 0;
@@ -1837,6 +1974,29 @@
                 text-decoration: none;
                 white-space: nowrap;
             }
+            .mobile-sticky-cta .consult-dropdown {
+                flex: 1;
+                display: flex;
+            }
+            .mobile-sticky-cta .sticky-primary {
+                flex: 1;
+                width: 100%;
+                text-align: center;
+                padding: 13px 10px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.88rem;
+                border: none;
+                cursor: pointer;
+                font-family: inherit;
+            }
+            .mobile-sticky-cta .consult-menu {
+                bottom: calc(100% + 10px);
+                top: auto;
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
             .mobile-sticky-cta .sticky-secondary {
                 color: #fff;
                 border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -1901,6 +2061,11 @@
             }
             .footer-links {
                 justify-content: center;
+            }
+            .footer-legal {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 24px;
             }
             .logo {
                 font-size: 1.3rem;
@@ -2053,9 +2218,15 @@
                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="social-icon-btn" aria-label="Avito">
   <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
 </a>
-                <a href="https://t.me/XeonShop_pump" target="_blank" class="header-consult-btn">
-                    Консультация <span class="arrow">→</span>
-                </a>
+                <div class="consult-dropdown">
+                    <button type="button" class="header-consult-btn consult-trigger">
+                        Консультация <span class="arrow">→</span>
+                    </button>
+                    <div class="consult-menu">
+                        <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                        <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                    </div>
+                </div>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Меню">
                 <span></span><span></span><span></span>
@@ -2076,7 +2247,13 @@
             <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank">MAX</a>
             <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
             <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank">Avito</a>
-            <a href="https://t.me/XeonShop_pump" target="_blank" class="mobile-consult-link">Консультация →</a>
+            <div class="consult-dropdown" style="display: block; width: 100%;">
+                <button type="button" class="mobile-consult-link consult-trigger" style="width: 100%;">Консультация →</button>
+                <div class="consult-menu" style="left: 0; right: 0; width: 100%;">
+                    <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                </div>
+            </div>
         </div>
 
         <section class="section hero-section" id="hero">
@@ -2458,17 +2635,9 @@
                         </div>
 
                         <div class="builder-step" data-step="5">
-                            <h3>Как с вами связаться?</h3>
-                            <p class="builder-step-desc">Проверим конфигурацию и вернёмся с точной ценой и сроками</p>
+                            <h3>Всё готово</h3>
+                            <p class="builder-step-desc">Проверьте конфигурацию и отправьте заявку любым удобным способом</p>
                             <div class="builder-summary" id="builderSummary"></div>
-                            <div class="builder-field">
-                                <label>Ваше имя</label>
-                                <input type="text" id="builderName" placeholder="Как вас зовут?">
-                            </div>
-                            <div class="builder-field">
-                                <label>Telegram или телефон</label>
-                                <input type="text" id="builderContact" placeholder="@username или +7...">
-                            </div>
                         </div>
                     </div>
 
@@ -2476,7 +2645,10 @@
                         <button class="btn btn-outline" id="builderBack" style="visibility: hidden;">Назад</button>
                         <button class="btn btn-primary" id="builderNext">Далее</button>
                     </div>
-                    <div class="builder-hint">Заявка откроется в Telegram, останется нажать «Отправить»</div>
+                    <div class="builder-submit-row" id="builderSubmitRow" style="display: none;">
+                        <button class="btn btn-outline" id="builderCopyBtn">Скопировать заявку</button>
+                    </div>
+                    <div class="builder-hint">Заявка откроется в Telegram, или скопируйте её и вставьте в MAX/куда удобно</div>
                 </div>
             </div>
         </section>
@@ -2684,6 +2856,19 @@
                     <a href="#reviews">Отзывы</a>
                 </div>
                 <span class="footer-copy">© 2026 Xeon Shop</span>
+            </div>
+            <div class="footer-legal">
+                <div class="footer-legal-col">
+                    <div class="footer-legal-title">Документы</div>
+                    <a href="privacy-policy.html" target="_blank">Политика конфиденциальности</a>
+                    <a href="pdn-consent.html" target="_blank">Согласие на обработку персональных данных</a>
+                </div>
+                <div class="footer-legal-col">
+                    <div class="footer-legal-title">Реквизиты</div>
+                    <p>ИП Бровкин Игорь Юрьевич</p>
+                    <p>ИНН 010517235460</p>
+                    <p>ОГРНИП 320010500022017 от 18.12.2020</p>
+                </div>
             </div>
         </footer>
     </div>
@@ -2936,6 +3121,8 @@ startAutoPlay();
                 const progressItems = Array.from(document.querySelectorAll('.builder-progress-item'));
                 const backBtn = document.getElementById('builderBack');
                 const nextBtn = document.getElementById('builderNext');
+                const submitRow = document.getElementById('builderSubmitRow');
+                const copyBtn = document.getElementById('builderCopyBtn');
                 const summaryBox = document.getElementById('builderSummary');
                 if (!steps.length || !nextBtn) return;
 
@@ -2981,8 +3168,10 @@ startAutoPlay();
                     if (step === totalSteps) {
                         buildSummary();
                         nextBtn.textContent = 'Отправить в Telegram';
+                        submitRow.style.display = 'flex';
                     } else {
                         nextBtn.textContent = 'Далее';
+                        submitRow.style.display = 'none';
                     }
                 }
 
@@ -3003,15 +3192,7 @@ startAutoPlay();
                     return true;
                 }
 
-                function sendToTelegram() {
-                    const name = document.getElementById('builderName').value.trim();
-                    const contact = document.getElementById('builderContact').value.trim();
-                    if (!name || !contact) {
-                        [document.getElementById('builderName'), document.getElementById('builderContact')].forEach(input => {
-                            if (!input.value.trim()) input.style.borderColor = 'rgba(255, 70, 100, 0.7)';
-                        });
-                        return;
-                    }
+                function buildRequestText() {
                     const comment = document.getElementById('builderComment').value.trim();
                     let text = 'Заявка на сборку ПК с сайта Xeon Shop\n\n';
                     text += `Платформа: ${answers.platform || '—'}\n`;
@@ -3019,11 +3200,42 @@ startAutoPlay();
                     text += `Задача: ${answers.goal || '—'}\n`;
                     text += `Подсветка: ${answers.rgb || '—'}\n`;
                     if (comment) text += `Пожелания: ${comment}\n`;
-                    text += `\nИмя: ${name}\n`;
-                    text += `Связь: ${contact}`;
+                    return text;
+                }
 
+                function sendToTelegram() {
+                    const text = buildRequestText();
+                    if (!text) return;
                     const url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)}`;
                     window.open(url, '_blank');
+                }
+
+                function copyRequestText() {
+                    const text = buildRequestText();
+                    if (!text) return;
+                    const showCopied = () => {
+                        const original = copyBtn.textContent;
+                        copyBtn.textContent = 'Скопировано ✓';
+                        setTimeout(() => { copyBtn.textContent = original; }, 2000);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+                            fallbackCopy(text, showCopied);
+                        });
+                    } else {
+                        fallbackCopy(text, showCopied);
+                    }
+                }
+
+                function fallbackCopy(text, onSuccess) {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try { document.execCommand('copy'); onSuccess(); } catch (e) {}
+                    document.body.removeChild(textarea);
                 }
 
                 nextBtn.addEventListener('click', () => {
@@ -3036,6 +3248,8 @@ startAutoPlay();
                     showStep(currentStep);
                 });
 
+                copyBtn.addEventListener('click', copyRequestText);
+
                 backBtn.addEventListener('click', () => {
                     currentStep = Math.max(currentStep - 1, 1);
                     showStep(currentStep);
@@ -3043,6 +3257,20 @@ startAutoPlay();
 
                 showStep(currentStep);
             })();
+
+            // CONSULTATION DROPDOWNS (Telegram / MAX choice)
+            document.querySelectorAll('.consult-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dropdown = trigger.closest('.consult-dropdown');
+                    const isOpen = dropdown.classList.contains('open');
+                    document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
+                    if (!isOpen) dropdown.classList.add('open');
+                });
+            });
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
+            });
 
             // FAQ ACCORDION
             document.querySelectorAll('.faq-item').forEach(item => {
@@ -3061,7 +3289,13 @@ startAutoPlay();
 
     <div class="mobile-sticky-cta">
         <a href="#catalog" class="sticky-secondary">Каталог</a>
-        <a href="https://t.me/XeonShop_pump" target="_blank" class="sticky-primary">Консультация →</a>
+        <div class="consult-dropdown">
+            <button type="button" class="sticky-primary consult-trigger">Консультация →</button>
+            <div class="consult-menu">
+                <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
