@@ -294,6 +294,30 @@
             align-items: center;
             gap: 12px;
         }
+        .header-consult-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+            box-shadow: 0 6px 24px rgba(140, 70, 230, 0.4);
+            transition: var(--transition-bounce);
+        }
+        .header-consult-btn:hover {
+            box-shadow: 0 8px 30px rgba(160, 100, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        .header-consult-btn .arrow {
+            font-size: 0.9rem;
+        }
         .social-icon-btn {
             display: inline-flex;
             align-items: center;
@@ -378,6 +402,21 @@
         }
         .mobile-menu a:hover {
             color: var(--neon-purple);
+        }
+        .mobile-menu a.mobile-consult-link {
+            margin-top: 8px;
+            text-align: center;
+            border-bottom: none;
+            border-radius: 30px;
+            padding: 14px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+            box-shadow: 0 6px 24px rgba(140, 70, 230, 0.4);
+        }
+        .mobile-menu a.mobile-consult-link:hover {
+            color: #fff;
         }
 
         .section {
@@ -1480,6 +1519,9 @@
                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="social-icon-btn" aria-label="Avito">
   <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
 </a>
+                <a href="https://t.me/XeonShop_pump" target="_blank" class="header-consult-btn">
+                    Консультация <span class="arrow">→</span>
+                </a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Меню">
                 <span></span><span></span><span></span>
@@ -1497,6 +1539,7 @@
             <a href="https://t.me/xeonpump" target="_blank">Telegram</a>
             <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
             <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank">Avito</a>
+            <a href="https://t.me/XeonShop_pump" target="_blank" class="mobile-consult-link">Консультация →</a>
         </div>
 
         <section class="section hero-section" id="hero">
