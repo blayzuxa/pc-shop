@@ -501,7 +501,109 @@
             padding-bottom: 80px;
         }
         .hero-content {
-            max-width: 750px;
+            width: 100%;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .hero-text {
+            max-width: 620px;
+        }
+        .hero-visual {
+            position: relative;
+        }
+        .hero-visual-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110%;
+            height: 110%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(180, 130, 255, 0.35) 0%, transparent 65%);
+            filter: blur(50px);
+            z-index: -1;
+        }
+        .hero-visual-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(180, 130, 255, 0.15);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+        .hero-visual-frame img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.06) saturate(1.1);
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+        .hero-float-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 16px;
+            z-index: 2;
+            animation: heroFloat 6s ease-in-out infinite;
+            animation-delay: 0.3s;
+        }
+        .hero-float-badge .badge-icon {
+            font-size: 1.3rem;
+        }
+        .hero-float-badge .badge-value {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .hero-float-badge .badge-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+        .hero-float-badge.badge-price {
+            top: -18px;
+            right: -16px;
+        }
+        .hero-float-badge.badge-rating {
+            bottom: -18px;
+            left: -16px;
+            animation-delay: 1s;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .hero-stat-value {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #d4c0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
         }
         .hero-badge {
             display: inline-flex;
@@ -1661,6 +1763,19 @@
             .hero-section {
                 padding-top: 75px;
             }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .hero-visual-frame img {
+                height: 280px;
+            }
+            .hero-float-badge {
+                padding: 10px 14px;
+            }
             .slider-arrow {
                 width: 32px;
                 height: 32px;
@@ -1740,48 +1855,58 @@
 
         <section class="section hero-section" id="hero">
             <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="dot"></span> КРАСНОДАР • СБОРКА С ГАРАНТИЕЙ
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span class="dot"></span> КРАСНОДАР • СБОРКА С ГАРАНТИЕЙ
+                        </div>
+                        <h1 class="hero-title">
+                            СБОРКА<br><span class="highlight">КАСТОМНЫХ <span style="white-space: nowrap;">ИГРОВЫХ ПК</span></span><br>С ЧЕСТНОЙ ГАРАНТИЕЙ
+                        </h1>
+                        <p class="hero-subtitle">
+                            Собираем мощные игровые компьютеры в Краснодаре. Каждый ПК проходит 3 часа стресс-тестов
+                            в OCCT и FurMark. Честные цены без скрытых накруток. Доставка по всей России через Авито.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#catalog" class="btn btn-primary">Открыть каталог</a>
+                            <a href="#steps" class="btn btn-outline">Условия работы</a>
+                        </div>
+                        <div class="hero-stats reveal">
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="230" data-suffix="+">0</span>
+                                <span class="hero-stat-label">Собранных ПК</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="5" data-decimal="1">0</span>
+                                <span class="hero-stat-label">Рейтинг на Авито</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="3">0</span>
+                                <span class="hero-stat-label">Часа стресс-тестов</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="100" data-suffix="%">0</span>
+                                <span class="hero-stat-label">Честная гарантия</span>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="hero-title">
-                        СБОРКА<br><span class="highlight">КАСТОМНЫХ <span style="white-space: nowrap;">ИГРОВЫХ ПК</span></span><br>С ЧЕСТНОЙ ГАРАНТИЕЙ
-                    </h1>
-                    <p class="hero-subtitle">
-                        Собираем мощные игровые компьютеры в Краснодаре. Каждый ПК проходит 3 часа стресс-тестов
-                        в OCCT и FurMark. Честные цены без скрытых накруток. Доставка по всей России через Авито.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#catalog" class="btn btn-primary">Открыть каталог</a>
-                        <a href="#steps" class="btn btn-outline">Условия работы</a>
-                    </div>
-                    <div class="trust-bar reveal">
-                        <div class="trust-item">
-                            <span class="trust-icon">🛡️</span>
+                    <div class="hero-visual reveal">
+                        <div class="hero-visual-glow"></div>
+                        <div class="hero-visual-frame">
+                            <img src="images/work1.jpg" alt="Кастомная сборка Xeon Shop" loading="lazy" decoding="async">
+                        </div>
+                        <div class="hero-float-badge badge-price glass-card">
+                            <span class="badge-icon">💻</span>
                             <span>
-                                <span class="trust-value">Гарантия на сборку</span><br>
-                                <span class="trust-label">на все комплектующие</span>
+                                <span class="badge-value">От 68 000 ₽</span><br>
+                                <span class="badge-label">старт линейки</span>
                             </span>
                         </div>
-                        <div class="trust-item">
-                            <span class="trust-icon">🔥</span>
+                        <div class="hero-float-badge badge-rating glass-card">
+                            <span class="badge-icon">⭐</span>
                             <span>
-                                <span class="trust-value">3 часа тестов</span><br>
-                                <span class="trust-label">OCCT + FurMark на каждом ПК</span>
-                            </span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="trust-icon">📦</span>
-                            <span>
-                                <span class="trust-value">Страховка доставки</span><br>
-                                <span class="trust-label">по всей России через Авито</span>
-                            </span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="trust-icon">⭐</span>
-                            <span>
-                                <span class="trust-value">5.0 · 230+ отзывов</span><br>
-                                <span class="trust-label">рейтинг продавца на Авито</span>
+                                <span class="badge-value">5.0 · 230+ отзывов</span><br>
+                                <span class="badge-label">рейтинг на Авито</span>
                             </span>
                         </div>
                     </div>
@@ -2358,6 +2483,30 @@
                 });
             }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
             revealElements.forEach(el => revealObserver.observe(el));
+
+            // ANIMATED STAT COUNTERS
+            const statEls = document.querySelectorAll('.hero-stat-value');
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.count);
+                    const decimals = parseInt(el.dataset.decimal || '0', 10);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 1400;
+                    const startTime = performance.now();
+                    function tick(now) {
+                        const progress = Math.min((now - startTime) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const value = target * eased;
+                        el.textContent = value.toFixed(decimals) + suffix;
+                        if (progress < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    statObserver.unobserve(el);
+                });
+            }, { threshold: 0.4 });
+            statEls.forEach(el => statObserver.observe(el));
 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
