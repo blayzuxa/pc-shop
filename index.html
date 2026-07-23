@@ -4,6 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xeon Shop — Сборка кастомных игровых ПК | Краснодар</title>
+    <meta name="description" content="Кастомные игровые ПК на заказ в Краснодаре: подбор под бюджет, 3 часа стресс-тестов OCCT/FurMark, честная гарантия и доставка по всей России через Авито.">
+    <meta name="keywords" content="сборка пк краснодар, игровой компьютер на заказ, кастомная сборка пк, купить игровой пк, xeon shop">
+    <meta name="theme-color" content="#040406">
+    <link rel="canonical" href="https://xeon-store.ru/">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Xeon Shop — Сборка кастомных игровых ПК | Краснодар">
+    <meta property="og:description" content="Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, честная гарантия, доставка по всей России.">
+    <meta property="og:image" content="https://xeon-store.ru/images/work1.jpg">
+    <meta property="og:url" content="https://xeon-store.ru/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Xeon Shop — Сборка кастомных игровых ПК | Краснодар">
+    <meta name="twitter:description" content="Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, честная гарантия, доставка по всей России.">
+    <meta name="twitter:image" content="https://xeon-store.ru/images/work1.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Xeon Shop",
+        "image": "https://xeon-store.ru/images/logo.jpg",
+        "url": "https://xeon-store.ru/",
+        "description": "Кастомная сборка игровых ПК на заказ в Краснодаре с гарантией и стресс-тестами.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Краснодар",
+            "addressCountry": "RU"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "230"
+        },
+        "priceRange": "68000-210000 RUB"
+    }
+    </script>
+
     <style>
         :root {
             --bg-deep: #040406;
@@ -62,6 +106,26 @@
             -moz-osx-font-smoothing: grayscale;
             position: relative;
             min-height: 100vh;
+        }
+
+        h1, h2, h3, .logo-text, .pc-card-title, .step-number,
+        .btn, .header-consult-btn, .tab-btn, .budget-btn, .choice-btn,
+        .task-card h3, .builder-step h3, .review-author {
+            font-family: 'Manrope', 'Inter', sans-serif;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--neon-purple);
+            outline-offset: 3px;
         }
 
         .bg-orbs-container {
@@ -1280,6 +1344,67 @@
             margin-top: 30px;
         }
 
+        .faq-list {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .faq-item {
+            padding: 0;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 26px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+        }
+        .faq-question .faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(180, 130, 255, 0.12);
+            border: 1px solid rgba(180, 130, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: var(--transition-smooth);
+        }
+        .faq-item.open .faq-question .faq-icon {
+            transform: rotate(45deg);
+            background: var(--neon-purple);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.4s ease;
+            padding: 0 26px;
+        }
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            padding-bottom: 22px;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
         .footer {
             padding: 50px 40px 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1386,6 +1511,9 @@
                 padding: 70px 24px;
             }
         }
+        .mobile-sticky-cta {
+            display: none;
+        }
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1395,6 +1523,42 @@
             }
             .hamburger {
                 display: flex;
+            }
+            body {
+                padding-bottom: 78px;
+            }
+            .mobile-sticky-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 998;
+                gap: 10px;
+                padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+                background: rgba(6, 6, 10, 0.85);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .mobile-sticky-cta a {
+                flex: 1;
+                text-align: center;
+                padding: 13px 10px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.88rem;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+            .mobile-sticky-cta .sticky-secondary {
+                color: #fff;
+                border: 1.5px solid rgba(255, 255, 255, 0.25);
+            }
+            .mobile-sticky-cta .sticky-primary {
+                color: #fff;
+                background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+                box-shadow: 0 6px 20px rgba(140, 70, 230, 0.4);
             }
             .mobile-menu {
                 display: flex;
@@ -1524,7 +1688,7 @@
         <header class="header" id="header">
            <a href="#" class="logo-link" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
   <img src="images/logo.jpg" alt="Xeon Shop" class="logo-pulse-anim" style="height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
-  <span style="font-weight: 900; font-size: 22px; letter-spacing: 1.5px; color: #ffffff; text-transform: uppercase; font-family: sans-serif;">Xeon Shop</span>
+  <span style="font-weight: 900; font-size: 22px; letter-spacing: 1.5px; color: #ffffff; text-transform: uppercase;" class="logo-text">Xeon Shop</span>
 </a>
 
 
@@ -1536,6 +1700,7 @@
                     <li><a href="#portfolio">Наши работы</a></li>
                     <li><a href="#steps">Этапы работы</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#faq">Вопросы</a></li>
                     <li><a href="#footer">Контакты</a></li>
                 </ul>
             </nav>
@@ -1565,6 +1730,7 @@
             <a href="#portfolio">Наши работы</a>
             <a href="#steps">Этапы работы</a>
             <a href="#reviews">Отзывы</a>
+            <a href="#faq">Вопросы</a>
             <a href="#footer">Контакты</a>
             <a href="https://t.me/xeonpump" target="_blank">Telegram</a>
             <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
@@ -1713,7 +1879,7 @@
                 <div class="catalog-group" id="intel-group">
                     <div class="catalog-grid">
                         <div class="pc-card glass-card reveal" data-budget="1">
-  <div class="pc-image-frame"><img src="images/pc1.png" alt="ПК Начальный" class="pc-card-img"></div>
+  <div class="pc-image-frame"><img src="images/pc1.png" alt="ПК Начальный" class="pc-card-img" loading="lazy" decoding="async"></div>
   <h3 class="pc-card-title">Начальный</h3>
   <ul class="pc-specs">
     <li><span class="spec-icon">🖥️</span> i3-12100F</li>
@@ -1732,7 +1898,7 @@
 
 
                         <div class="pc-card glass-card reveal" data-budget="2">
-<div class="pc-image-frame"><img src="images/pc2.png" alt="ПК Средний" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc2.png" alt="ПК Средний" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Средний</h3>
                             <ul class="pc-specs">
@@ -1750,7 +1916,7 @@
                             </div>
                         </div>
                         <div class="pc-card glass-card reveal" data-budget="3">
-<div class="pc-image-frame"><img src="images/pc3.png" alt="ПК Киберспортивный" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc3.png" alt="ПК Киберспортивный" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
                             <ul class="pc-specs">
@@ -1768,7 +1934,7 @@
                             </div>
                         </div>
                         <div class="pc-card glass-card reveal" data-budget="4">
-<div class="pc-image-frame"><img src="images/pc4.png" alt="ПК Стримерский" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc4.png" alt="ПК Стримерский" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Стримерский</h3>
                             <ul class="pc-specs">
@@ -1793,7 +1959,7 @@
                 <div class="catalog-group hidden" id="amd-group">
                     <div class="catalog-grid">
                         <div class="pc-card glass-card reveal" data-budget="1">
-<div class="pc-image-frame"><img src="images/pc5.png" alt="ПК Начальный AMD" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc5.png" alt="ПК Начальный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Начальный</h3>
                             <ul class="pc-specs">
@@ -1811,7 +1977,7 @@
                             </div>
                         </div>
                         <div class="pc-card glass-card reveal" data-budget="2">
-<div class="pc-image-frame"><img src="images/pc6.png" alt="ПК Средний AMD" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc6.png" alt="ПК Средний AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Средний</h3>
                             <ul class="pc-specs">
@@ -1830,7 +1996,7 @@
                             </div>
                         </div>
                         <div class="pc-card glass-card reveal" data-budget="3">
-<div class="pc-image-frame"><img src="images/pc7.png" alt="ПК Киберспортивный AMD" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc7.png" alt="ПК Киберспортивный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Киберспортивный</h3>
                             <ul class="pc-specs">
@@ -1848,7 +2014,7 @@
                             </div>
                         </div>
                         <div class="pc-card glass-card reveal" data-budget="4">
-<div class="pc-image-frame"><img src="images/pc8.png" alt="ПК Стримерский AMD" class="pc-card-img"></div>
+<div class="pc-image-frame"><img src="images/pc8.png" alt="ПК Стримерский AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
 
                             <h3 class="pc-card-title">Стримерский</h3>
                             <ul class="pc-specs">
@@ -1986,13 +2152,13 @@
                 <div class="slider-wrapper reveal">
                     <div class="slider-viewport" id="sliderViewport">
                         <img src="images/work1.jpg" alt="Кастомная сборка в черном аквариуме" class="active">
-                        <img src="images/work2.jpg" alt="Бюджетная сборка на AM5">
-                        <img src="images/work3.jpg" alt="Сборка в белом аквариуме">
-<img src="images/work4.jpg" alt="Сборка 4">
-<img src="images/work5.jpg" alt="Сборка 5">
-<img src="images/work6.jpg" alt="Сборка 6">
-<img src="images/work7.jpg" alt="Сборка 7">
-<img src="images/work8.jpg" alt="Сборка 8">
+                        <img src="images/work2.jpg" alt="Бюджетная сборка на AM5" loading="lazy" decoding="async">
+                        <img src="images/work3.jpg" alt="Сборка в белом аквариуме" loading="lazy" decoding="async">
+<img src="images/work4.jpg" alt="Сборка 4" loading="lazy" decoding="async">
+<img src="images/work5.jpg" alt="Сборка 5" loading="lazy" decoding="async">
+<img src="images/work6.jpg" alt="Сборка 6" loading="lazy" decoding="async">
+<img src="images/work7.jpg" alt="Сборка 7" loading="lazy" decoding="async">
+<img src="images/work8.jpg" alt="Сборка 8" loading="lazy" decoding="async">
 
 
                     </div>
@@ -2059,6 +2225,63 @@
                         style="font-size: 1.05rem; padding: 16px 36px; border-color: rgba(180,130,255,0.4);">
                         Читать все отзывы на Авито
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Вопросы и ответы</div>
+                    <h2 class="section-title">ЧАСТЫЕ <span class="accent">ВОПРОСЫ</span></h2>
+                    <p class="section-desc">Если не нашли ответ — просто напишите в Telegram, ответим лично</p>
+                </div>
+                <div class="faq-list reveal">
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Что входит в гарантию на сборку?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Гарантия действует на все комплектующие в сборке. Если что-то выйдет из строя не по вашей вине — бесплатно отремонтируем или заменим. Перед отправкой каждый ПК проходит 3 часа стресс-тестов, поэтому скрытый брак практически исключён.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Как проходит доставка и что если ПК придёт повреждённым?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Отправляем через Авито Доставку с полной страховкой — упаковываем в пупырчатую плёнку и пенопласт. Если при получении заметны повреждения из-за транспортировки, это покрывается страховкой Авито, а мы дополнительно поможем всё оформить.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Можно ли внести изменения в готовую конфигурацию?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, любую конфигурацию из каталога можно доработать под себя — заменить видеокарту, увеличить объём памяти или выбрать другой корпус. Просто напишите пожелания при оформлении заявки или воспользуйтесь конструктором «Собери свой ПК».</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Сколько времени занимает сборка?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>В среднем сборка и тестирование занимают несколько дней с момента подтверждения конфигурации — конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Как оплатить и есть ли рассрочка?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Оплата проходит через Авито — это даёт вам дополнительную защиту сделки. По вопросам рассрочки или частичной предоплаты напишите в личный Telegram — обсудим удобный вариант.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2430,9 +2653,24 @@ startAutoPlay();
                 showStep(currentStep);
             })();
 
+            // FAQ ACCORDION
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const wasOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                    if (!wasOpen) item.classList.add('open');
+                });
+            });
+
             updateHeader();
             console.log('🖥️ Xeon Shop — финальная версия');
         })();
     </script>
+
+    <div class="mobile-sticky-cta">
+        <a href="#catalog" class="sticky-secondary">Каталог</a>
+        <a href="https://t.me/XeonShop_pump" target="_blank" class="sticky-primary">Консультация →</a>
+    </div>
 </body>
 </html>
