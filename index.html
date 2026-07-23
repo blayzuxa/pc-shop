@@ -1542,6 +1542,94 @@
             margin-top: 30px;
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .about-text .about-kicker {
+            color: var(--neon-cyan);
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .about-text h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            color: #fff;
+        }
+        .about-text h3 .about-accent {
+            color: var(--neon-purple);
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-signature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .about-signature .sig-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            color: #fff;
+            font-size: 1.05rem;
+        }
+        .about-signature .sig-role {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .about-photos {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 12px;
+            height: 640px;
+        }
+        .about-photos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            filter: contrast(1.05) saturate(1.08);
+        }
+        .about-photos img:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+        .about-photos img:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+        }
+        .about-photos img:nth-child(3) {
+            grid-column: 3;
+            grid-row: 2;
+        }
+        .about-photos img:nth-child(4) {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .about-photos img:nth-child(5) {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        .about-photos img:nth-child(6) {
+            grid-column: 3;
+            grid-row: 3;
+        }
         .faq-list {
             max-width: 780px;
             margin: 0 auto;
@@ -1872,6 +1960,42 @@
             .hero-float-badge {
                 padding: 10px 14px;
             }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-text h3 {
+                font-size: 2rem;
+            }
+            .about-photos {
+                height: auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 160px);
+                order: -1;
+            }
+            .about-photos img:nth-child(1) {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+            .about-photos img:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .about-photos img:nth-child(3) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+            .about-photos img:nth-child(4) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+            .about-photos img:nth-child(5) {
+                grid-column: 2;
+                grid-row: 3;
+            }
+            .about-photos img:nth-child(6) {
+                display: none;
+            }
             .slider-arrow {
                 width: 32px;
                 height: 32px;
@@ -1908,6 +2032,7 @@
                     <li><a href="#task-picker">Подбор ПК</a></li>
                     <li><a href="#catalog">Каталог</a></li>
                     <li><a href="#build">Собрать ПК</a></li>
+                    <li><a href="#about">О нас</a></li>
                     <li><a href="#portfolio">Наши работы</a></li>
                     <li><a href="#steps">Этапы работы</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
@@ -1918,6 +2043,9 @@
             <div class="header-social">
                 <a href="https://t.me/xeonpump" target="_blank" class="social-icon-btn" aria-label="Telegram">
                     <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="social-icon-btn" aria-label="MAX">
+                    <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
                 </a>
                 <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank" class="social-icon-btn" aria-label="TikTok">
                     <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
@@ -1938,12 +2066,14 @@
             <a href="#task-picker">Подбор ПК</a>
             <a href="#catalog">Каталог</a>
             <a href="#build">Собрать ПК</a>
+            <a href="#about">О нас</a>
             <a href="#portfolio">Наши работы</a>
             <a href="#steps">Этапы работы</a>
             <a href="#reviews">Отзывы</a>
             <a href="#faq">Вопросы</a>
             <a href="#footer">Контакты</a>
             <a href="https://t.me/xeonpump" target="_blank">Telegram</a>
+            <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank">MAX</a>
             <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank">TikTok</a>
             <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank">Avito</a>
             <a href="https://t.me/XeonShop_pump" target="_blank" class="mobile-consult-link">Консультация →</a>
@@ -2004,7 +2134,7 @@
                 <div class="section-header reveal">
                     <div class="section-label">Как мы работаем</div>
                     <h2 class="section-title">ЭТАПЫ <span class="accent">РАБОТЫ</span></h2>
-                    <p class="section-desc">Прозрачный процесс — от подбора комплектующих до безопасной доставки</p>
+                    <p class="section-desc">Прозрачный процесс: от подбора комплектующих до безопасной доставки</p>
                 </div>
                 <div class="steps-grid">
                     <div class="glass-card step-card reveal">
@@ -2016,8 +2146,7 @@
                     <div class="glass-card step-card reveal">
                         <div class="step-number">02</div>
                         <h3>Профессиональная сборка и 3 часа тестов</h3>
-                        <p>Собираем ПК с идеальным кабель-менеджментом. Запускаем OCCT и FurMark на 3 часа —
-                            проверяем стабильность системы под максимальной нагрузкой.</p>
+                        <p>Собираем ПК с идеальным кабель-менеджментом. Запускаем OCCT и FurMark на 3 часа, проверяем стабильность системы под максимальной нагрузкой.</p>
                     </div>
                     <div class="glass-card step-card reveal">
                         <div class="step-number">03</div>
@@ -2034,7 +2163,7 @@
                 <div class="section-header reveal">
                     <div class="section-label">Подбор</div>
                     <h2 class="section-title">КАКОЙ ПК <span class="accent">ВАМ НУЖЕН</span></h2>
-                    <p class="section-desc">Выберите задачу — мы сразу отфильтруем каталог по подходящему бюджету</p>
+                    <p class="section-desc">Выберите задачу, и мы сразу отфильтруем каталог по подходящему бюджету</p>
                 </div>
                 <div class="task-cards reveal">
                     <div class="glass-card task-card" data-goto-budget="1">
@@ -2251,7 +2380,7 @@
                 <div class="section-header reveal">
                     <div class="section-label">Индивидуальная сборка</div>
                     <h2 class="section-title">СОБЕРИ СВОЙ <span class="accent">ПК</span></h2>
-                    <p class="section-desc">Не нашли готовую конфигурацию под себя? Пройдите 5 шагов — соберём индивидуальный вариант под ваш бюджет и задачи</p>
+                    <p class="section-desc">Не нашли готовую конфигурацию под себя? Пройдите 5 шагов, и мы соберём индивидуальный вариант под ваш бюджет и задачи</p>
                 </div>
 
                 <div class="builder-wrapper glass-card reveal">
@@ -2281,7 +2410,7 @@
                     <div class="builder-steps">
                         <div class="builder-step active" data-step="1">
                             <h3>Какая платформа нужна?</h3>
-                            <p class="builder-step-desc">Если не уверены — выберите «Не важно», подберём по цене/производительности</p>
+                            <p class="builder-step-desc">Если не уверены, выберите «Не важно», подберём по цене и производительности</p>
                             <div class="choice-grid" data-group="platform">
                                 <button class="choice-btn" data-value="Intel">Intel</button>
                                 <button class="choice-btn" data-value="AMD">AMD</button>
@@ -2291,7 +2420,7 @@
 
                         <div class="builder-step" data-step="2">
                             <h3>Какой у вас бюджет?</h3>
-                            <p class="builder-step-desc">Ориентировочно — точную сумму обсудим после консультации</p>
+                            <p class="builder-step-desc">Ориентировочно. Точную сумму обсудим после консультации</p>
                             <div class="choice-grid" data-group="budget">
                                 <button class="choice-btn" data-value="До 90 000 ₽">До 90 000 ₽</button>
                                 <button class="choice-btn" data-value="90 000–130 000 ₽">90 000–130 000 ₽</button>
@@ -2313,7 +2442,7 @@
 
                         <div class="builder-step" data-step="4">
                             <h3>Пожелания по стилю</h3>
-                            <p class="builder-step-desc">RGB-подсветка и корпус — необязательно, можно пропустить</p>
+                            <p class="builder-step-desc">RGB-подсветка и корпус необязательны, можно пропустить</p>
                             <div class="builder-field">
                                 <label>Подсветка</label>
                                 <div class="choice-grid" data-group="rgb">
@@ -2347,7 +2476,29 @@
                         <button class="btn btn-outline" id="builderBack" style="visibility: hidden;">Назад</button>
                         <button class="btn btn-primary" id="builderNext">Далее</button>
                     </div>
-                    <div class="builder-hint">Заявка откроется в Telegram — останется нажать «Отправить»</div>
+                    <div class="builder-hint">Заявка откроется в Telegram, останется нажать «Отправить»</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-photos reveal">
+                        <img src="images/about1.jpg" alt="Мастерская Xeon Shop" loading="lazy" decoding="async">
+                        <img src="images/about2.jpg" alt="Процесс сборки ПК" loading="lazy" decoding="async">
+                        <img src="images/about3.jpg" alt="Кабель-менеджмент при сборке" loading="lazy" decoding="async">
+                        <img src="images/about4.jpg" alt="Тестирование готовой сборки" loading="lazy" decoding="async">
+                        <img src="images/about5.jpg" alt="Упаковка ПК перед отправкой" loading="lazy" decoding="async">
+                        <img src="images/about6.jpg" alt="Рабочее место Xeon Shop" loading="lazy" decoding="async">
+                    </div>
+                    <div class="about-text reveal">
+                        <div class="about-kicker">О нас</div>
+                        <h3>Привет, я <span class="about-accent">Игорь</span>. Собираю ПК не по инструкции, а по любви к делу</h3>
+                        <p>Свой первый компьютер я собрал для себя 10 лет назад. С тех пор это переросло из хобби в дело, которым я живу каждый день. За это время через мои руки прошли сотни сборок: от первого игрового ПК студенту до топовых станций для стриминга и работы.</p>
+                        <p>Для меня каждая сборка это не просто набор комплектующих в корпусе. Это чья-то мечта: первый серьёзный компьютер, инструмент для работы мечты или подарок близкому человеку. Поэтому я лично подбираю каждую конфигурацию, сам собираю, сам тестирую и отдаю только то, за что готов поставить свою гарантию.</p>
+                        <p>Xeon Shop это не безликий магазин, а я и моя репутация. Если у вас есть вопрос или сомнение, просто напишите, отвечаю сам.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2444,7 +2595,7 @@
                 <div class="section-header reveal">
                     <div class="section-label">Вопросы и ответы</div>
                     <h2 class="section-title">ЧАСТЫЕ <span class="accent">ВОПРОСЫ</span></h2>
-                    <p class="section-desc">Если не нашли ответ — просто напишите в Telegram, ответим лично</p>
+                    <p class="section-desc">Если не нашли ответ, просто напишите в Telegram, ответим лично</p>
                 </div>
                 <div class="faq-list reveal">
                     <div class="glass-card faq-item">
@@ -2453,7 +2604,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Гарантия действует на все комплектующие в сборке. Если что-то выйдет из строя не по вашей вине — бесплатно отремонтируем или заменим. Перед отправкой каждый ПК проходит 3 часа стресс-тестов, поэтому скрытый брак практически исключён.</p>
+                            <p>Гарантия действует на все комплектующие в сборке. Если что-то выйдет из строя не по вашей вине, бесплатно отремонтируем или заменим. Перед отправкой каждый ПК проходит 3 часа стресс-тестов, поэтому скрытый брак практически исключён.</p>
                         </div>
                     </div>
                     <div class="glass-card faq-item">
@@ -2462,7 +2613,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Отправляем через Авито Доставку с полной страховкой — упаковываем в пупырчатую плёнку и пенопласт. Если при получении заметны повреждения из-за транспортировки, это покрывается страховкой Авито, а мы дополнительно поможем всё оформить.</p>
+                            <p>Отправляем через Авито Доставку с полной страховкой: упаковываем в пупырчатую плёнку и пенопласт. Если при получении заметны повреждения из-за транспортировки, это покрывается страховкой Авито, а мы дополнительно поможем всё оформить.</p>
                         </div>
                     </div>
                     <div class="glass-card faq-item">
@@ -2471,7 +2622,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Да, любую конфигурацию из каталога можно доработать под себя — заменить видеокарту, увеличить объём памяти или выбрать другой корпус. Просто напишите пожелания при оформлении заявки или воспользуйтесь конструктором «Собери свой ПК».</p>
+                            <p>Да, любую конфигурацию из каталога можно доработать под себя: заменить видеокарту, увеличить объём памяти или выбрать другой корпус. Просто напишите пожелания при оформлении заявки или воспользуйтесь конструктором «Собери свой ПК».</p>
                         </div>
                     </div>
                     <div class="glass-card faq-item">
@@ -2480,7 +2631,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>В среднем сборка и тестирование занимают +/- 7 дней с момента подтверждения конфигурации — конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
+                            <p>В среднем сборка и тестирование занимают +/- 7 дней с момента подтверждения конфигурации. Конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
                         </div>
                     </div>
                     <div class="glass-card faq-item">
@@ -2489,7 +2640,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Оплата проходит через Авито — это даёт вам дополнительную защиту сделки. По вопросам рассрочки или частичной предоплаты напишите в личный Telegram — обсудим удобный вариант.</p>
+                            <p>Оплата проходит через Авито, это даёт вам дополнительную защиту сделки. По вопросам рассрочки или частичной предоплаты напишите в личный Telegram, обсудим удобный вариант.</p>
                         </div>
                     </div>
                 </div>
@@ -2508,6 +2659,12 @@
                             <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
                         </span>
                         <span class="footer-social-label">Telegram</span>
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="footer-social-item">
+                        <span class="social-icon-btn">
+                            <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
+                        </span>
+                        <span class="footer-social-label">MAX</span>
                     </a>
                     <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank" class="footer-social-item">
                         <span class="social-icon-btn">
