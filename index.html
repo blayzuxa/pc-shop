@@ -1626,17 +1626,48 @@
             min-height: 1.5em;
         }
 
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+        .reviews-slider-wrapper {
+            position: relative;
             margin-bottom: 40px;
+        }
+        .reviews-grid {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 4px 4px 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .reviews-grid::-webkit-scrollbar {
+            display: none;
         }
         .review-card {
             padding: 28px;
             display: flex;
             flex-direction: column;
             gap: 14px;
+            flex: 0 0 340px;
+            scroll-snap-align: start;
+        }
+        .review-photos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        .review-photos.two-up {
+            grid-template-columns: 1fr 1fr;
+        }
+        .review-photos img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.05) saturate(1.08);
         }
         .review-source {
             align-self: flex-start;
@@ -2009,9 +2040,6 @@
             .task-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .reviews-grid {
-                grid-template-columns: 1fr 1fr;
-            }
             .header {
                 padding: 14px 24px;
             }
@@ -2164,8 +2192,8 @@
             .task-cards {
                 grid-template-columns: 1fr;
             }
-            .reviews-grid {
-                grid-template-columns: 1fr;
+            .review-card {
+                flex-basis: 85vw;
             }
             .hero-buttons {
                 flex-direction: column;
@@ -2883,43 +2911,75 @@
                         Рейтинг на Авито <span>5.0 ★</span> | <span>230+ отзывов</span>
                     </div>
                 </div>
-                <div class="reviews-grid">
+                <div class="reviews-slider-wrapper">
+                    <div class="slider-arrow prev" id="reviewsPrev">❮</div>
+                    <div class="slider-arrow next" id="reviewsNext">❯</div>
+                    <div class="reviews-grid" id="reviewsGrid">
                     <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_kirill.jpg" alt="Фото отзыва — Кирилл Маклаков">
+                        </div>
                         <div class="review-source">Источник: Авито</div>
-                        <div class="review-author">Саня Донбасс</div>
+                        <div class="review-author">Кирилл Маклаков</div>
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">«Все пришло целым и рабочим! Продавец учёл все пожелания перед отправкой. Всё чотенько и простыми словами, рекомендую!»</p>
+                        <p class="review-text">«Вчера обратился за компьютером. Меня проконсультировали, на все вопросы ответили, провели диагностику компьютера (всё чётко работает). Спасибо вам🙏»</p>
                         <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
                             Проверить отзыв <span class="review-check-arrow">→</span>
                         </a>
                     </div>
                     <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_ogurchik.jpg" alt="Фото отзыва — Ogurchik">
+                        </div>
                         <div class="review-source">Источник: Авито</div>
-                        <div class="review-author">Константин</div>
+                        <div class="review-author">Ogurchik</div>
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">«Рекомендую Игоря как надежного продавца. Отличная сборка, комплектующие новые, с гарантией. Подробная консультация по всем вопросам, всегда на связи. Огромное спасибо за компьютер!»</p>
+                        <p class="review-text">«Очень хороший компьютер, все комплектующие на месте, с целостности и сохранности. Быстрая отправка, полностью доволен продавцом)»</p>
                         <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
                             Проверить отзыв <span class="review-check-arrow">→</span>
                         </a>
                     </div>
                     <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_vidana_1.jpg" alt="Фото отзыва — Видана">
+                        </div>
                         <div class="review-source">Источник: Авито</div>
-                        <div class="review-author">clouzyx</div>
+                        <div class="review-author">Видана</div>
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">«Крутой тип, за все шарит! Всё собрал по красоте, тесты прогнал, даже с проблемами по видеосвязи помог. Цены очень адекватные, короче — лучший!»</p>
+                        <p class="review-text">«Просто лучший! Всей семьёй прослезились от того, насколько круто подошёл продавец к тому, что компьютер покупался для десятилетнего ребёнка 😢 подарочки-фигурки из 3D принтера и рукописная открытка — просто кайф 🌸 ребёнок оценил!! Сам компьютер был запакован максимально качественно, дошло всё в сохранности!! Брательник уже вовсю качает себе игры и радуется жизни!! Спасибо огромное, Xeon Shop!!»</p>
                         <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
                             Проверить отзыв <span class="review-check-arrow">→</span>
                         </a>
                     </div>
                     <div class="glass-card review-card reveal">
-                        <div class="review-source">Источник: Авито</div>
-                        <div class="review-author">Матвей</div>
+                        <div class="review-photos">
+                            <img src="images/review_yakrut.jpg" alt="Фото отзыва — я крут">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">«я крут»</div>
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">«Продавец хороший, компьютер пришёл полностью целый. Всё было в точности как в объявлении. Большое спасибо!»</p>
-                        <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
-                            Проверить отзыв <span class="review-check-arrow">→</span>
-                        </a>
+                        <p class="review-text">«Комп имба, уже как пол года работает, магазин имба»</p>
                     </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos two-up">
+                            <img src="images/review_alexey_1.jpg" alt="Фото отзыва — Alexey">
+                            <img src="images/review_alexey_2.jpg" alt="Фото отзыва — Alexey, подарок">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">Alexey</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Благодарю Xeon Shop за компьютер 😌, всё хорошо работает 😀, в подарок ещё пришла вместе с компьютером очень милая игрушка 🥹 и новогоднее поздравление 🎄🎉, это очень приятный бонус 😌! Благодарю за компьютер 😌!)»</p>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_alexandr_1.jpg" alt="Фото отзыва — Александр">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">Александр</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Как я рад его видеть по приходу домой… Плёночки пока снимать со стёкол не рискнул) Огромное спасибо за комп, радуюсь как ребёнок 💞🥺»</p>
+                    </div>
+                </div>
                 </div>
                 <div class="reviews-cta-wrapper reveal">
                     <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline"
@@ -3470,6 +3530,22 @@ startAutoPlay();
             mobileOverlay.querySelectorAll('.mobile-overlay-link').forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
             });
+
+            // REVIEWS SLIDER
+            (function() {
+                const grid = document.getElementById('reviewsGrid');
+                const prev = document.getElementById('reviewsPrev');
+                const next = document.getElementById('reviewsNext');
+                if (!grid || !prev || !next) return;
+                function scrollByCard(dir) {
+                    const card = grid.querySelector('.review-card');
+                    const gap = 24;
+                    const amount = card ? (card.getBoundingClientRect().width + gap) : 340;
+                    grid.scrollBy({ left: dir * amount, behavior: 'smooth' });
+                }
+                prev.addEventListener('click', () => scrollByCard(-1));
+                next.addEventListener('click', () => scrollByCard(1));
+            })();
 
             // FAQ ACCORDION
             document.querySelectorAll('.faq-item').forEach(item => {
