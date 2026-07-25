@@ -265,25 +265,36 @@
 
         .header {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 1280px;
             z-index: 1000;
-            padding: 16px 40px;
+            padding: 18px 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(4, 4, 6, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            transition: var(--transition-smooth);
+            background: rgba(4, 4, 6, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid transparent;
+            border-radius: 24px;
+            box-shadow: none;
+            transition: background-color 0.4s ease, border-color 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+            will-change: background-color, border-radius, box-shadow;
         }
         .header.scrolled {
-            padding: 10px 40px;
-            background: rgba(4, 4, 6, 0.9);
-            border-bottom: 1px solid rgba(180, 130, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+            padding: 10px 26px;
+            background: rgba(16, 16, 22, 0.72);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+        .logo-link {
+            margin-left: 6px;
         }
         .logo {
             font-size: 1.65rem;
@@ -325,29 +336,142 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-        .logo-emblem::before {
-            content: '';
-            position: absolute;
-            inset: -55%;
-            background: radial-gradient(circle, rgba(77, 240, 255, 0.4) 0%, rgba(180, 80, 255, 0.28) 42%, transparent 72%);
-            filter: blur(12px);
-            z-index: 0;
-            animation: logoGlowPulse 4s ease-in-out infinite;
-            pointer-events: none;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: #0a0a10;
         }
         .logo-emblem img {
-            position: relative;
-            z-index: 1;
+            border-radius: 50%;
             display: block;
-            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-        .logo-link:hover .logo-emblem img {
-            transform: scale(1.07) rotate(-2deg);
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            flex-shrink: 0;
+            z-index: 1001;
         }
-        @keyframes logoGlowPulse {
-            0%, 100% { opacity: 0.55; transform: scale(0.92); }
-            50% { opacity: 1; transform: scale(1.1); }
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: #fff;
+            border-radius: 3px;
+            transition: var(--transition-smooth);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: rgba(6, 6, 10, 0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.97);
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        .mobile-overlay-close {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .mobile-overlay-content {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+            width: 100%;
+            max-width: 360px;
+            padding: 100px 24px 50px;
+            box-sizing: border-box;
+        }
+        .mobile-overlay-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            transition: var(--transition-smooth);
+        }
+        .mobile-overlay-link .arrow {
+            color: var(--neon-purple);
+            font-weight: 400;
+        }
+        .mobile-overlay-link:active,
+        .mobile-overlay-link:hover {
+            background: rgba(180, 130, 255, 0.12);
+            border-color: rgba(180, 130, 255, 0.35);
+        }
+        .mobile-overlay-social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 12px;
+        }
+        .mobile-overlay-social .social-icon-btn {
+            width: 46px;
+            height: 46px;
+        }
+        .mobile-overlay-social .social-icon-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+        .mobile-overlay-consult {
+            margin-top: 6px;
+            width: 100%;
+            display: block;
+        }
+        .mobile-overlay-consult .header-consult-btn {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 1rem;
+            border-radius: 20px;
         }
         .nav-menu {
             display: flex;
@@ -513,7 +637,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 90px;
+            padding-top: 120px;
             padding-bottom: 80px;
         }
         .hero-content {
@@ -1884,30 +2008,30 @@
         }
         @media (max-width: 1439px) {
             .header {
-                padding: 14px 8px;
+                padding: 14px 24px;
             }
             .nav-menu {
-                gap: 5px;
+                gap: 18px;
             }
             .nav-menu a {
-                font-size: 0.64rem;
-                letter-spacing: 0;
+                font-size: 0.85rem;
+                letter-spacing: 0.1px;
             }
             .header-social {
-                gap: 2px;
+                gap: 8px;
             }
             .social-icon-btn {
-                width: 26px;
-                height: 26px;
+                width: 32px;
+                height: 32px;
             }
             .social-icon-btn svg {
-                width: 13px;
-                height: 13px;
+                width: 16px;
+                height: 16px;
             }
             .header-consult-btn {
-                padding: 6px 10px;
-                font-size: 0.6rem;
-                gap: 3px;
+                padding: 8px 16px;
+                font-size: 0.75rem;
+                gap: 5px;
             }
             .logo {
                 font-size: 1.3rem;
@@ -1919,30 +2043,32 @@
         }
         @media (max-width: 768px) {
             .logo-emblem img {
-                height: 40px !important;
-                width: 40px !important;
+                height: 36px !important;
+                width: 36px !important;
             }
             .header {
-                flex-wrap: wrap;
-                row-gap: 8px;
-                padding: 10px 10px;
+                padding: 10px 10px 10px 16px;
+                border-radius: 100px;
+            }
+            .header.scrolled {
+                border-radius: 100px;
+                width: calc(100% - 16px);
+                padding: 8px 8px 8px 14px;
             }
             .nav-menu {
-                order: 3;
-                width: 100%;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 4px 8px;
+                display: none;
             }
-            .nav-menu a {
-                font-size: 0.62rem;
-                padding: 3px 0;
+            .header-social a.social-icon-btn {
+                display: none;
             }
             .header-social {
-                gap: 2px;
+                gap: 0;
+            }
+            .hamburger {
+                display: flex;
             }
             .hero-section {
-                padding-top: 110px;
+                padding-top: 100px;
             }
             body {
                 padding-bottom: 78px;
@@ -2104,7 +2230,7 @@
                 padding: 18px;
             }
             .hero-section {
-                padding-top: 130px;
+                padding-top: 190px;
             }
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -2182,22 +2308,18 @@
         <header class="header" id="header">
            <a href="#" class="logo-link" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
   <span class="logo-emblem">
-    <img src="images/logo-tight.png" alt="Xeon Shop" style="height: 54px; width: 54px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
+    <img src="images/logo-circle.png" alt="Xeon Shop" style="height: 44px; width: 44px; object-fit: cover;">
   </span>
 </a>
 
 
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#task-picker">Подбор ПК</a></li>
-                    <li><a href="#catalog">Каталог</a></li>
-                    <li><a href="#build">Собрать ПК</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#portfolio">Наши работы</a></li>
+                    <li><a href="#catalog">Каталог ПК</a></li>
                     <li><a href="#steps">Этапы работы</a></li>
+                    <li><a href="#portfolio">Фото</a></li>
+                    <li><a href="#build">Кастомный ПК</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
-                    <li><a href="#faq">Вопросы</a></li>
-                    <li><a href="#footer">Контакты</a></li>
                 </ul>
             </nav>
             <div class="header-social">
@@ -2223,7 +2345,46 @@
                     </div>
                 </div>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <button class="mobile-overlay-close" id="mobileMenuClose" aria-label="Закрыть">×</button>
+            <div class="mobile-overlay-content">
+                <a href="#catalog" class="mobile-overlay-link"><span>Каталог ПК</span><span class="arrow">→</span></a>
+                <a href="#steps" class="mobile-overlay-link"><span>Этапы работы</span><span class="arrow">→</span></a>
+                <a href="#portfolio" class="mobile-overlay-link"><span>Фото</span><span class="arrow">→</span></a>
+                <a href="#build" class="mobile-overlay-link"><span>Кастомный ПК</span><span class="arrow">→</span></a>
+                <a href="#reviews" class="mobile-overlay-link"><span>Отзывы</span><span class="arrow">→</span></a>
+
+                <div class="mobile-overlay-social">
+                    <a href="https://t.me/xeonpump" target="_blank" class="social-icon-btn" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="social-icon-btn" aria-label="MAX">
+                        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@hochu_xeon?_r=1&_t=ZS-97nuhS4eMpY" target="_blank" class="social-icon-btn" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="social-icon-btn" aria-label="Avito">
+                        <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
+                    </a>
+                </div>
+
+                <div class="consult-dropdown mobile-overlay-consult">
+                    <button type="button" class="header-consult-btn consult-trigger" style="width: 100%; justify-content: center;">
+                        Консультация <span class="arrow">→</span>
+                    </button>
+                    <div class="consult-menu" style="left: 0; right: 0; width: 100%;">
+                        <a href="https://t.me/XeonShop_pump" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                        <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="section hero-section" id="hero">
             <div class="container">
@@ -2792,7 +2953,7 @@
             <div class="footer-inner">
                 <a href="#" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
   <span class="logo-emblem">
-    <img src="images/logo-tight.png" alt="Xeon Shop" style="height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
+    <img src="images/logo-circle.png" alt="Xeon Shop" style="height: 40px; width: 40px; object-fit: cover;">
   </span>
 </a>
 
@@ -3231,11 +3392,45 @@ startAutoPlay();
                     const dropdown = trigger.closest('.consult-dropdown');
                     const isOpen = dropdown.classList.contains('open');
                     document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
-                    if (!isOpen) dropdown.classList.add('open');
+                    if (!isOpen) {
+                        dropdown.classList.add('open');
+                        const overlay = dropdown.closest('#mobileMenuOverlay');
+                        if (overlay) {
+                            setTimeout(() => {
+                                const menu = dropdown.querySelector('.consult-menu');
+                                if (menu) menu.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                            }, 60);
+                        }
+                    }
                 });
             });
             document.addEventListener('click', () => {
                 document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
+            });
+
+            // MOBILE FULL-SCREEN MENU
+            const hamburger = document.getElementById('hamburger');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileClose = document.getElementById('mobileMenuClose');
+            function openMobileMenu() {
+                hamburger.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMobileMenu() {
+                hamburger.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    if (mobileOverlay.classList.contains('active')) closeMobileMenu();
+                    else openMobileMenu();
+                });
+            }
+            if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.querySelectorAll('.mobile-overlay-link').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
             });
 
             // FAQ ACCORDION
