@@ -1482,17 +1482,79 @@
             font-size: 0.68rem;
             color: var(--text-muted);
         }
+        .fps-info-wrap {
+            position: relative;
+            display: inline-flex;
+        }
         .fps-info {
             width: 14px;
             height: 14px;
             border-radius: 50%;
             border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-muted);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 0.6rem;
-            cursor: help;
+            cursor: pointer;
             flex-shrink: 0;
+            padding: 0;
+        }
+        .fps-popover {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            width: 230px;
+            background: rgba(15, 15, 22, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 14px 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            z-index: 50;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+        .fps-info-wrap.open .fps-popover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .fps-popover-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .fps-popover ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .fps-popover li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .fps-popover li span:last-child {
+            color: #fff;
+            font-weight: 700;
+        }
+        .fps-popover-note {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.66rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
         .pc-price {
             font-size: 1.4rem;
@@ -2624,10 +2686,10 @@
     <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i3-12100F</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
-    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">H610M</span></span></div>
   </div>
-  <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 28;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">111 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+  <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 29;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">116 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>235 FPS</span></li><li><span>Dota 2</span><span>185 FPS</span></li><li><span>Valorant</span><span>275 FPS</span></li><li><span>Fortnite</span><span>140 FPS</span></li><li><span>GTA V / Online</span><span>110 FPS</span></li><li><span>RDR2</span><span>60 FPS</span></li><li><span>Cyberpunk 2077</span><span>58 FPS</span></li><li><span>Apex Legends</span><span>122 FPS</span></li><li><span>Warzone</span><span>76 FPS</span></li><li><span>PUBG</span><span>86 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
   <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
   <div class="pc-actions">
     <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2644,10 +2706,10 @@
     <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i5-13400F</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR4</span></span></div>
-    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760M</span></span></div>
   </div>
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 50;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">200 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 38;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">150 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>300 FPS</span></li><li><span>Dota 2</span><span>230 FPS</span></li><li><span>Valorant</span><span>330 FPS</span></li><li><span>Fortnite</span><span>250 FPS</span></li><li><span>GTA V / Online</span><span>140 FPS</span></li><li><span>RDR2</span><span>78 FPS</span></li><li><span>Cyberpunk 2077</span><span>89 FPS</span></li><li><span>Apex Legends</span><span>160 FPS</span></li><li><span>Warzone</span><span>95 FPS</span></li><li><span>PUBG</span><span>110 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2665,7 +2727,7 @@
     <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760</span></span></div>
   </div>
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 69;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">276 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 46;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">185 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>430 FPS</span></li><li><span>Dota 2</span><span>270 FPS</span></li><li><span>Valorant</span><span>380 FPS</span></li><li><span>Fortnite</span><span>250 FPS</span></li><li><span>GTA V / Online</span><span>165 FPS</span></li><li><span>RDR2</span><span>100 FPS</span></li><li><span>Cyberpunk 2077</span><span>118 FPS</span></li><li><span>Apex Legends</span><span>205 FPS</span></li><li><span>Warzone</span><span>138 FPS</span></li><li><span>PUBG</span><span>148 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>175 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2684,7 +2746,7 @@
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">Z890</span></span></div>
   </div>
                             
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 85;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">340 FPS</span><span class="fps-sub">Средний FPS (в 4K) <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 52;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">208 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>500 FPS</span></li><li><span>Dota 2</span><span>300 FPS</span></li><li><span>Valorant</span><span>420 FPS</span></li><li><span>Fortnite</span><span>280 FPS</span></li><li><span>GTA V / Online</span><span>185 FPS</span></li><li><span>RDR2</span><span>120 FPS</span></li><li><span>Cyberpunk 2077</span><span>131 FPS</span></li><li><span>Apex Legends</span><span>230 FPS</span></li><li><span>Warzone</span><span>158 FPS</span></li><li><span>PUBG</span><span>168 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>220 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2705,10 +2767,10 @@
     <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 5500</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
-    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalriright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">A520M</span></span></div>
   </div>
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 28;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">110 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 27;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">109 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>210 FPS</span></li><li><span>Dota 2</span><span>165 FPS</span></li><li><span>Valorant</span><span>245 FPS</span></li><li><span>Fortnite</span><span>128 FPS</span></li><li><span>GTA V / Online</span><span>106 FPS</span></li><li><span>RDR2</span><span>58 FPS</span></li><li><span>Cyberpunk 2077</span><span>56 FPS</span></li><li><span>Apex Legends</span><span>112 FPS</span></li><li><span>Warzone</span><span>74 FPS</span></li><li><span>PUBG</span><span>84 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2723,11 +2785,11 @@
     <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 7500F</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR5</span></span></div>
-    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assasin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
   </div>
 
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 52;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">208 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 38;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">151 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>310 FPS</span></li><li><span>Dota 2</span><span>238 FPS</span></li><li><span>Valorant</span><span>340 FPS</span></li><li><span>Fortnite</span><span>255 FPS</span></li><li><span>GTA V / Online</span><span>138 FPS</span></li><li><span>RDR2</span><span>77 FPS</span></li><li><span>Cyberpunk 2077</span><span>88 FPS</span></li><li><span>Apex Legends</span><span>163 FPS</span></li><li><span>Warzone</span><span>94 FPS</span></li><li><span>PUBG</span><span>109 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2745,7 +2807,7 @@
     <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
   </div>
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 67;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">269 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 50;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">198 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>540 FPS</span></li><li><span>Dota 2</span><span>330 FPS</span></li><li><span>Valorant</span><span>460 FPS</span></li><li><span>Fortnite</span><span>285 FPS</span></li><li><span>GTA V / Online</span><span>170 FPS</span></li><li><span>RDR2</span><span>103 FPS</span></li><li><span>Cyberpunk 2077</span><span>120 FPS</span></li><li><span>Apex Legends</span><span>225 FPS</span></li><li><span>Warzone</span><span>142 FPS</span></li><li><span>PUBG</span><span>155 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>175 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -2763,7 +2825,7 @@
     <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">360 СЖО</span></span></div>
     <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">X870</span></span></div>
   </div>
-                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 82;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">328 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info" title="Тестируем в разрешении 1080p/1440p на актуальных играх с высокими настройками графики">?</span></span></div></div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 56;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">222 FPS</span><span class="fps-sub">Медиана FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, High)</div><ul><li><span>CS2</span><span>640 FPS</span></li><li><span>Dota 2</span><span>375 FPS</span></li><li><span>Valorant</span><span>510 FPS</span></li><li><span>Fortnite</span><span>320 FPS</span></li><li><span>GTA V / Online</span><span>192 FPS</span></li><li><span>RDR2</span><span>124 FPS</span></li><li><span>Cyberpunk 2077</span><span>134 FPS</span></li><li><span>Apex Legends</span><span>252 FPS</span></li><li><span>Warzone</span><span>163 FPS</span></li><li><span>PUBG</span><span>176 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт.</div></div></span></span></div></div>
                             <div class="pc-price"><span class="price-prefix">от</span>220 000 <span>₽</span></div>
                             <div class="pc-actions">
                                 <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
@@ -3565,6 +3627,20 @@ startAutoPlay();
             if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
             mobileOverlay.querySelectorAll('.mobile-overlay-link').forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
+            });
+
+            // FPS INFO POPOVERS
+            document.querySelectorAll('.fps-info').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wrap = btn.closest('.fps-info-wrap');
+                    const isOpen = wrap.classList.contains('open');
+                    document.querySelectorAll('.fps-info-wrap.open').forEach(w => w.classList.remove('open'));
+                    if (!isOpen) wrap.classList.add('open');
+                });
+            });
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.fps-info-wrap.open').forEach(w => w.classList.remove('open'));
             });
 
             // REVIEWS SLIDER
