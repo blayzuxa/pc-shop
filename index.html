@@ -320,11 +320,34 @@
                 box-shadow: 0 0 35px rgba(180, 130, 255, 0.7), 0 0 70px rgba(180, 130, 255, 0.35);
             }
         }
-        .logo-text {
-            background: linear-gradient(135deg, #fff 0%, #d4c0ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .logo-emblem {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-emblem::before {
+            content: '';
+            position: absolute;
+            inset: -55%;
+            background: radial-gradient(circle, rgba(77, 240, 255, 0.4) 0%, rgba(180, 80, 255, 0.28) 42%, transparent 72%);
+            filter: blur(12px);
+            z-index: 0;
+            animation: logoGlowPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .logo-emblem img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .logo-link:hover .logo-emblem img {
+            transform: scale(1.07) rotate(-2deg);
+        }
+        @keyframes logoGlowPulse {
+            0%, 100% { opacity: 0.55; transform: scale(0.92); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
         .nav-menu {
             display: flex;
@@ -1895,6 +1918,10 @@
             }
         }
         @media (max-width: 768px) {
+            .logo-emblem img {
+                height: 40px !important;
+                width: 40px !important;
+            }
             .header {
                 flex-wrap: wrap;
                 row-gap: 8px;
@@ -2154,8 +2181,9 @@
     <div class="main-wrapper">
         <header class="header" id="header">
            <a href="#" class="logo-link" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-  <img src="images/logo.jpg" alt="Xeon Shop" class="logo-pulse-anim" style="height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
-  <span style="font-weight: 900; font-size: 22px; letter-spacing: 1.5px; color: #ffffff; text-transform: uppercase;" class="logo-text">Xeon Shop</span>
+  <span class="logo-emblem">
+    <img src="images/logo-tight.png" alt="Xeon Shop" style="height: 54px; width: 54px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
+  </span>
 </a>
 
 
@@ -2763,7 +2791,9 @@
         <footer class="footer" id="footer">
             <div class="footer-inner">
                 <a href="#" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
-  <img src="images/logo.jpg" alt="Xeon Shop" class="logo-pulse-anim" style="height: 45px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
+  <span class="logo-emblem">
+    <img src="images/logo-tight.png" alt="Xeon Shop" style="height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));">
+  </span>
 </a>
 
                 <div class="footer-social">
