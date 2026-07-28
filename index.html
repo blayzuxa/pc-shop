@@ -63,6 +63,8 @@
             scroll-behavior: smooth;
             scrollbar-width: thin;
             scrollbar-color: rgba(180, 130, 255, 0.3) transparent;
+            overflow-x: hidden;
+            width: 100%;
         }
         ::-webkit-scrollbar {
             width: 6px;
@@ -1089,8 +1091,18 @@
             text-decoration: underline;
         }
         .location-consult-trigger .consult-menu {
-            left: 0;
+            left: 50%;
             right: auto;
+            transform: translateX(-50%) translateY(-8px);
+        }
+        .location-consult-trigger.consult-dropdown.open .consult-menu {
+            transform: translateX(-50%) translateY(0);
+        }
+        @media (max-width: 480px) {
+            .location-consult-trigger .consult-menu {
+                min-width: 160px;
+                max-width: calc(100vw - 48px);
+            }
         }
         @media (max-width: 600px) {
             .location-map-frame iframe {
