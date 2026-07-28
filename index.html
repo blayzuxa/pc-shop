@@ -827,6 +827,25 @@
             flex-wrap: wrap;
             animation: fadeInUp 1.1s ease-out;
         }
+        .hero-location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            width: fit-content;
+        }
+        .hero-location-badge:hover {
+            border-color: var(--neon-cyan);
+            color: var(--text-primary);
+        }
         .trust-bar {
             display: flex;
             gap: 28px;
@@ -2781,6 +2800,7 @@
                             <a href="#build" class="btn btn-primary">Собрать ПК</a>
                             <a href="#catalog" class="btn btn-outline">Готовые сборки</a>
                         </div>
+                        <a href="#location" class="hero-location-badge">📍 Есть офлайн-точка в Краснодаре — как добраться</a>
                         <div class="hero-stats reveal">
                             <div class="hero-stat">
                                 <span class="hero-stat-value" data-count="5" data-decimal="1">0</span>
