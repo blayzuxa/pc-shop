@@ -1,0 +1,4054 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoutPC — Сборка кастомных игровых ПК | Краснодар</title>
+    <meta name="description" content="Кастомные игровые ПК на заказ в Краснодаре: подбор под бюджет, 3 часа стресс-тестов OCCT/FurMark, честная гарантия и доставка по всей России через Авито.">
+    <meta name="keywords" content="сборка пк краснодар, игровой компьютер на заказ, кастомная сборка пк, купить игровой пк, scoutpc, scout pc">
+    <meta name="theme-color" content="#040406">
+    <link rel="canonical" href="https://scoutpc.ru/">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="ScoutPC — Сборка кастомных игровых ПК | Краснодар">
+    <meta property="og:description" content="Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, честная гарантия, доставка по всей России.">
+    <meta property="og:image" content="https://scoutpc.ru/images/work1.jpg">
+    <meta property="og:url" content="https://scoutpc.ru/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ScoutPC — Сборка кастомных игровых ПК | Краснодар">
+    <meta name="twitter:description" content="Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, честная гарантия, доставка по всей России.">
+    <meta name="twitter:image" content="https://scoutpc.ru/images/work1.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #040406;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-card: rgba(255, 255, 255, 0.07);
+            --border-hover: rgba(180, 130, 255, 0.35);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.45);
+            --neon-purple: #b882ff;
+            --neon-cyan: #4df0ff;
+            --neon-pink: #ff4da6;
+            --neon-blue: #4d7cff;
+            --accent-glow: rgba(180, 130, 255, 0.5);
+            --accent-glow-strong: rgba(180, 130, 255, 0.8);
+            --glass-blur: 12px;
+            --radius-lg: 20px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition-smooth: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(180, 130, 255, 0.3) transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(180, 130, 255, 0.35);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(180, 130, 255, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .logo-text, .pc-card-title, .step-number,
+        .btn, .header-consult-btn, .tab-btn, .budget-btn, .choice-btn,
+        .task-card h3, .builder-step h3, .review-author {
+            font-family: 'Manrope', 'Inter', sans-serif;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--neon-purple);
+            outline-offset: 3px;
+        }
+
+        .bg-orbs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.55;
+            will-change: transform;
+        }
+        .orb-1 {
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(140, 60, 255, 0.7) 0%, rgba(80, 20, 180, 0.25) 50%, transparent 70%);
+            top: -15%;
+            left: -10%;
+            animation: orbFloat1 18s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 200, 255, 0.55) 0%, rgba(0, 100, 200, 0.2) 50%, transparent 70%);
+            top: 40%;
+            right: -12%;
+            animation: orbFloat2 22s ease-in-out infinite;
+        }
+        .orb-3 {
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, rgba(255, 70, 160, 0.5) 0%, rgba(180, 30, 100, 0.2) 50%, transparent 70%);
+            bottom: -18%;
+            left: 25%;
+            animation: orbFloat3 20s ease-in-out infinite;
+        }
+        .orb-4 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(160, 100, 255, 0.45) 0%, rgba(100, 40, 200, 0.18) 50%, transparent 70%);
+            top: 55%;
+            left: 55%;
+            animation: orbFloat4 24s ease-in-out infinite;
+        }
+        .orb-5 {
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(60, 200, 220, 0.4) 0%, rgba(20, 120, 180, 0.15) 50%, transparent 70%);
+            top: 10%;
+            right: 30%;
+            animation: orbFloat5 16s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat1 {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(120px, 90px) scale(1.15);
+            }
+            50% {
+                transform: translate(40px, -40px) scale(0.9);
+            }
+            75% {
+                transform: translate(-60px, 70px) scale(1.08);
+            }
+        }
+        @keyframes orbFloat2 {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(-100px, -80px) scale(1.12);
+            }
+            50% {
+                transform: translate(-30px, 60px) scale(0.88);
+            }
+            75% {
+                transform: translate(80px, -50px) scale(1.05);
+            }
+        }
+        @keyframes orbFloat3 {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(70px, -100px) scale(1.1);
+            }
+            50% {
+                transform: translate(-80px, -20px) scale(0.92);
+            }
+            75% {
+                transform: translate(30px, 80px) scale(1.07);
+            }
+        }
+        @keyframes orbFloat4 {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(-90px, -60px) scale(1.13);
+            }
+            66% {
+                transform: translate(60px, 50px) scale(0.87);
+            }
+        }
+        @keyframes orbFloat5 {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(-70px, 70px) scale(1.18);
+            }
+        }
+
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            position: fixed;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 1280px;
+            z-index: 1000;
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(4, 4, 6, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid transparent;
+            border-radius: 24px;
+            box-shadow: none;
+            transition: background-color 0.4s ease, border-color 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+            will-change: background-color, border-radius, box-shadow;
+        }
+        .header.scrolled {
+            padding: 10px 26px;
+            background: rgba(16, 16, 22, 0.72);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+        .logo-link {
+            margin-left: 6px;
+        }
+        .logo {
+            font-size: 1.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+            user-select: none;
+        }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #6b30d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 0 0 25px rgba(180, 130, 255, 0.5), 0 0 50px rgba(180, 130, 255, 0.2);
+            animation: logoPulse 3s ease-in-out infinite;
+        }
+        @keyframes logoPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 25px rgba(180, 130, 255, 0.5), 0 0 50px rgba(180, 130, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(180, 130, 255, 0.7), 0 0 70px rgba(180, 130, 255, 0.35);
+            }
+        }
+        .logo-emblem {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: #0a0a10;
+        }
+        .logo-emblem img {
+            border-radius: 50%;
+            display: block;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            flex-shrink: 0;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: #fff;
+            border-radius: 3px;
+            transition: var(--transition-smooth);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: rgba(6, 6, 10, 0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.97);
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        .mobile-overlay-close {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .mobile-overlay-content {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+            width: 100%;
+            max-width: 360px;
+            padding: 100px 24px 50px;
+            box-sizing: border-box;
+        }
+        .mobile-overlay-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            transition: var(--transition-smooth);
+        }
+        .mobile-overlay-link .arrow {
+            color: var(--neon-purple);
+            font-weight: 400;
+        }
+        .mobile-overlay-link:active,
+        .mobile-overlay-link:hover {
+            background: rgba(180, 130, 255, 0.12);
+            border-color: rgba(180, 130, 255, 0.35);
+        }
+        .mobile-overlay-social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 12px;
+        }
+        .mobile-overlay-social .social-icon-btn {
+            width: 46px;
+            height: 46px;
+        }
+        .mobile-overlay-social .social-icon-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+        .mobile-overlay-consult {
+            margin-top: 6px;
+            width: 100%;
+            display: block;
+        }
+        .mobile-overlay-consult .header-consult-btn {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 1rem;
+            border-radius: 20px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 6px 0;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-purple);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: #fff;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        .header-social {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-consult-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+            box-shadow: 0 6px 24px rgba(140, 70, 230, 0.4);
+            transition: var(--transition-bounce);
+        }
+        .header-consult-btn:hover {
+            box-shadow: 0 8px 30px rgba(160, 100, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        .header-consult-btn .arrow {
+            font-size: 0.9rem;
+        }
+        .consult-dropdown {
+            position: relative;
+            display: inline-flex;
+        }
+        .consult-dropdown .header-consult-btn {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .consult-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 190px;
+            background: rgba(15, 15, 22, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: var(--transition-smooth);
+            z-index: 200;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .consult-dropdown.open .consult-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .consult-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+        .consult-menu a:hover {
+            background: rgba(180, 130, 255, 0.15);
+        }
+        .consult-menu-icon {
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .consult-menu-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+        .social-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .social-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .social-icon-btn:hover {
+            background: rgba(180, 130, 255, 0.15);
+            border-color: rgba(180, 130, 255, 0.5);
+            box-shadow: 0 0 18px rgba(180, 130, 255, 0.4);
+            transform: scale(1.12);
+            color: #fff;
+        }
+        .section {
+            padding: 100px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+        .hero-content {
+            width: 100%;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .hero-text {
+            max-width: 620px;
+        }
+        .hero-visual {
+            position: relative;
+        }
+        .hero-visual-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110%;
+            height: 110%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(180, 130, 255, 0.35) 0%, transparent 65%);
+            filter: blur(50px);
+            z-index: -1;
+        }
+        .hero-visual-frame {
+            position: relative;
+            display: block;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(180, 130, 255, 0.15);
+            animation: heroFloat 6s ease-in-out infinite;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .hero-visual-frame:hover {
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 80px rgba(180, 130, 255, 0.3);
+        }
+        .hero-visual-frame img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.06) saturate(1.1);
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+        .hero-float-badge {
+            position: absolute;
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 22px;
+            border-radius: 16px;
+            z-index: 2;
+            animation: heroFloat 6s ease-in-out infinite;
+            animation-delay: 0.3s;
+        }
+        .hero-float-badge .badge-icon {
+            font-size: 1.7rem;
+        }
+        .hero-float-badge .badge-value {
+            font-weight: 900;
+            font-size: 1.35rem;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .hero-float-badge .badge-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+        }
+        .hero-float-badge.badge-price {
+            top: -18px;
+            right: -16px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .hero-stat-value {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #d4c0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(180, 130, 255, 0.1);
+            border: 1px solid rgba(180, 130, 255, 0.25);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--neon-purple);
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-purple);
+            box-shadow: 0 0 12px var(--neon-purple);
+            animation: dotBlink 1.5s ease-in-out infinite;
+        }
+        @keyframes dotBlink {
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 12px var(--neon-purple);
+            }
+            50% {
+                opacity: 0.4;
+                box-shadow: 0 0 4px var(--neon-purple);
+            }
+        }
+        .hero-title {
+            animation: fadeInUp 0.9s ease-out;
+        }
+        .hero-title .title-line-sm {
+            display: block;
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+        .hero-title-lg {
+            display: block;
+            font-size: 4.6rem;
+            font-weight: 900;
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin: 4px 0 22px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-title .highlight,
+        .hero-title-lg.highlight {
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #c99fff 50%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            line-height: 1.7;
+            max-width: 560px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-subtitle .lead {
+            display: block;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .hero-subtitle .lead .accent-word {
+            color: var(--neon-cyan);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.1s ease-out;
+        }
+        .hero-location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            width: fit-content;
+        }
+        .hero-location-badge:hover {
+            border-color: var(--neon-cyan);
+            color: var(--text-primary);
+        }
+        .trust-bar {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .trust-item .trust-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(180, 130, 255, 0.08);
+            border: 1px solid rgba(180, 130, 255, 0.2);
+            flex-shrink: 0;
+        }
+        .trust-item .trust-value {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .trust-item .trust-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes shakeInvalid {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            border: none;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+            color: #fff;
+            box-shadow: 0 8px 35px rgba(140, 70, 230, 0.4);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 12px 45px rgba(160, 100, 255, 0.6);
+            transform: translateY(-3px);
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+        .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(180, 130, 255, 0.08);
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .section-title .accent {
+            color: var(--neon-purple);
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .catalog-freshness-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px auto 32px;
+            padding: 12px 20px;
+            max-width: 640px;
+            border-radius: 14px;
+            border: 1px solid rgba(180, 130, 255, 0.25);
+            background: rgba(180, 130, 255, 0.06);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .catalog-freshness-note a {
+            color: var(--neon-cyan);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .catalog-freshness-note a:hover {
+            text-decoration: underline;
+        }
+
+        .location-section {
+            padding: 70px 24px;
+            text-align: center;
+        }
+        .location-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .location-map-frame {
+            margin-top: 30px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(184, 130, 255, 0.15);
+        }
+        .location-map-frame iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+        .location-details {
+            margin-top: 18px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .location-details a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+        .location-details a:hover {
+            text-decoration: underline;
+        }
+        .location-consult-trigger {
+            position: relative;
+            display: inline-flex;
+        }
+        .location-consult-trigger .location-consult-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+        .location-consult-trigger .location-consult-btn:hover {
+            text-decoration: underline;
+        }
+        .location-consult-trigger .consult-menu {
+            left: 0;
+            right: auto;
+        }
+        @media (max-width: 600px) {
+            .location-map-frame iframe {
+                height: 320px;
+            }
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .step-card {
+            text-align: left;
+            padding: 32px 28px;
+        }
+        .step-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, rgba(180, 130, 255, 0.5) 0%, rgba(180, 130, 255, 0.05) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .step-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .catalog-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.8px;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            background: rgba(180, 130, 255, 0.2);
+            border-color: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(180, 130, 255, 0.4);
+        }
+        .tab-btn:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+
+        .task-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .task-card {
+            text-align: left;
+            padding: 26px 24px;
+            cursor: pointer;
+        }
+        .task-card .task-icon {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .task-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+        }
+        .task-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+        .task-card .task-link {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--neon-purple);
+            letter-spacing: 0.3px;
+        }
+        .task-card:hover .task-link {
+            color: var(--neon-cyan);
+        }
+
+        .budget-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .budget-filters .budget-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        .budget-btn {
+            padding: 9px 20px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+        .budget-btn.active {
+            background: rgba(77, 240, 255, 0.15);
+            border-color: var(--neon-cyan);
+            color: #fff;
+            box-shadow: 0 0 16px rgba(77, 240, 255, 0.3);
+        }
+        .budget-btn:hover {
+            border-color: rgba(255, 255, 255, 0.45);
+            color: #fff;
+        }
+        .pc-card.budget-hidden {
+            display: none;
+        }
+
+        .builder-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 44px;
+        }
+        .builder-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 6px;
+        }
+        .builder-progress-item {
+            flex: 1;
+            text-align: center;
+        }
+        .builder-progress-dot {
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            transition: var(--transition-smooth);
+        }
+        .builder-progress-item.active .builder-progress-dot,
+        .builder-progress-item.done .builder-progress-dot {
+            background: var(--neon-purple);
+            box-shadow: 0 0 10px rgba(180, 130, 255, 0.6);
+        }
+        .builder-progress-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .builder-progress-item.active .builder-progress-label {
+            color: #fff;
+            font-weight: 700;
+        }
+        .builder-step {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        .builder-step.active {
+            display: block;
+        }
+        .builder-step h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .builder-step .builder-step-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .choice-btn {
+            padding: 18px 16px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-card);
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+        .choice-btn:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+        .choice-btn.selected {
+            background: rgba(180, 130, 255, 0.18);
+            border-color: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(180, 130, 255, 0.35);
+        }
+        .builder-field {
+            margin-bottom: 20px;
+        }
+        .builder-field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .builder-field input,
+        .builder-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px solid var(--border-card);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            resize: vertical;
+        }
+        .builder-field input:focus,
+        .builder-field textarea:focus {
+            outline: none;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 16px rgba(180, 130, 255, 0.25);
+        }
+        .builder-field input::placeholder,
+        .builder-field textarea::placeholder {
+            color: var(--text-muted);
+        }
+        .builder-summary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .builder-summary strong {
+            color: #fff;
+        }
+        .builder-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            gap: 14px;
+        }
+        .builder-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        .builder-consent input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--neon-purple);
+            cursor: pointer;
+        }
+        .builder-consent span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .builder-consent a {
+            color: var(--neon-cyan);
+            text-decoration: underline;
+        }
+        .builder-submit-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 14px;
+        }
+        .builder-submit-row .btn {
+            width: 100%;
+        }
+        .builder-hint {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .pc-card {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            border-radius: var(--radius-md);
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition-smooth);
+            overflow: visible;
+        }
+        .pc-card:hover {
+            border-color: rgba(180, 130, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+        .pc-image-frame {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0a0a10;
+        }
+        .pc-image-frame .pc-card-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.07) saturate(1.1) brightness(1.03);
+            transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .pc-card:hover .pc-image-frame .pc-card-img {
+            transform: scale(1.06);
+        }
+        .pc-image-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(6, 6, 12, 0.6) 100%),
+                radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+        .pc-card-title {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: -0.2px;
+            color: #fff;
+        }
+        .pc-specs {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .spec-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+        }
+        .spec-icon-box {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #0a0a10;
+            border: 1.5px solid transparent;
+            background-image: linear-gradient(#0a0a10, #0a0a10), linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .spec-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+        }
+        .spec-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .spec-value {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .pc-fps {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(180, 130, 255, 0.07);
+            border: 1px solid rgba(180, 130, 255, 0.18);
+        }
+        .fps-bar-track {
+            position: relative;
+            width: 64px;
+            height: 26px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.09) 0 5px, transparent 5px 8px);
+            overflow: hidden;
+        }
+        .fps-bar-fill {
+            position: absolute;
+            inset: 0;
+            width: calc(var(--fps-pct) * 1%);
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+            -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 8px);
+            mask-image: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 8px);
+            transition: width 0.6s ease;
+        }
+        .fps-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .fps-text .fps-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .fps-text .fps-sub {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+        .fps-info-wrap {
+            position: relative;
+            display: inline-flex;
+        }
+        .fps-info {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 0;
+        }
+        .fps-popover {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            margin-left: -115px;
+            width: 230px;
+            background: rgba(15, 15, 22, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: none;
+            z-index: 50;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+        .fps-info-wrap.open .fps-popover {
+            display: block;
+        }
+        .fps-popover.below {
+            bottom: auto;
+            top: calc(100% + 10px);
+        }
+        .fps-popover-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .fps-popover ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .fps-popover li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .fps-popover li span:last-child {
+            color: #fff;
+            font-weight: 700;
+        }
+        .fps-popover-note {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.66rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .pc-price {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .pc-price .price-prefix {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-right: 2px;
+        }
+        .pc-price span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .pc-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .pc-actions .btn {
+            justify-content: center;
+            font-size: 0.85rem;
+            padding: 10px 16px;
+        }
+
+        .catalog-group {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .catalog-group.hidden {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .slider-viewport {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid rgba(180, 130, 255, 0.25);
+            box-shadow: 0 0 35px rgba(180, 130, 255, 0.15);
+            background: #000;
+        }
+        .slider-viewport img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+        }
+        .slider-viewport img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+            z-index: 10;
+            user-select: none;
+        }
+        .slider-arrow:hover {
+            background: rgba(180, 130, 255, 0.2);
+            border-color: rgba(180, 130, 255, 0.5);
+            box-shadow: 0 0 20px rgba(180, 130, 255, 0.3);
+            transform: translateY(-50%) scale(1.08);
+        }
+        .slider-arrow.prev {
+            left: -22px;
+        }
+        .slider-arrow.next {
+            right: -22px;
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .slider-dot.active {
+            background: var(--neon-purple);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 12px var(--neon-purple);
+            transform: scale(1.3);
+        }
+        .slider-caption {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+            min-height: 1.5em;
+        }
+
+        .reviews-slider-wrapper {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .reviews-slider-wrapper .slider-arrow.prev {
+            left: -56px;
+        }
+        .reviews-slider-wrapper .slider-arrow.next {
+            right: -56px;
+        }
+        .reviews-grid {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 4px 4px 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .reviews-grid::-webkit-scrollbar {
+            display: none;
+        }
+        .review-card {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex: 0 0 340px;
+            scroll-snap-align: start;
+        }
+        .review-photos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        .review-photos.two-up {
+            grid-template-columns: 1fr 1fr;
+        }
+        .review-photos img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.05) saturate(1.08);
+        }
+        .review-source {
+            align-self: flex-start;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            background: rgba(77, 240, 255, 0.1);
+            border: 1px solid rgba(77, 240, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .review-author {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.3px;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+        .review-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: normal;
+        }
+        .review-check {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            align-self: flex-start;
+            margin-top: 4px;
+            padding: 8px 8px 8px 20px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 18px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.2px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .review-check:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .review-check .review-check-arrow {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+        .review-check:hover .review-check-arrow {
+            background: var(--neon-purple);
+        }
+        .reviews-counter {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            letter-spacing: 0.4px;
+        }
+        .reviews-counter span {
+            color: var(--neon-purple);
+            font-weight: 800;
+        }
+        .reviews-cta-wrapper {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .about-text .about-kicker {
+            color: var(--neon-cyan);
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .about-text h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            color: #fff;
+        }
+        .about-text h3 .about-accent {
+            color: var(--neon-purple);
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-signature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .about-signature .sig-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            color: #fff;
+            font-size: 1.05rem;
+        }
+        .about-signature .sig-role {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .about-photos {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 12px;
+            height: 640px;
+        }
+        .about-photos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            filter: contrast(1.05) saturate(1.08);
+        }
+        .about-photos img:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+        .about-photos img:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+        }
+        .about-photos img:nth-child(3) {
+            grid-column: 3;
+            grid-row: 2;
+        }
+        .about-photos img:nth-child(4) {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .about-photos img:nth-child(5) {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        .about-photos img:nth-child(6) {
+            grid-column: 3;
+            grid-row: 3;
+        }
+        .faq-list {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .faq-item {
+            padding: 0;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 26px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+        }
+        .faq-question .faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(180, 130, 255, 0.12);
+            border: 1px solid rgba(180, 130, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: var(--transition-smooth);
+        }
+        .faq-item.open .faq-question .faq-icon {
+            transform: rotate(45deg);
+            background: var(--neon-purple);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.4s ease;
+            padding: 0 26px;
+        }
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            padding-bottom: 22px;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        .footer {
+            padding: 50px 40px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(4, 4, 6, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .footer-social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: var(--transition-smooth);
+        }
+        .footer-social-item .social-icon-btn {
+            width: 36px;
+            height: 36px;
+        }
+        .footer-social-item .social-icon-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        .footer-social-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .footer-social-item:hover {
+            color: #fff;
+        }
+        .footer-social-item:hover .social-icon-btn {
+            background: rgba(180, 130, 255, 0.15);
+            border-color: rgba(180, 130, 255, 0.5);
+            box-shadow: 0 0 18px rgba(180, 130, 255, 0.4);
+            transform: scale(1.12);
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-phone {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .footer-phone:hover {
+            color: var(--neon-cyan);
+        }
+        .footer-legal {
+            max-width: 1200px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-legal-col .footer-legal-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .footer-legal-col a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
+        }
+        .footer-legal-col a:hover {
+            color: #fff;
+        }
+        .footer-legal-col p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-title .title-line-sm {
+                font-size: 1.6rem;
+            }
+            .hero-title-lg {
+                font-size: 3.2rem;
+            }
+            .section-title {
+                font-size: 2.1rem;
+            }
+            .steps-grid,
+            .catalog-grid,
+            .task-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header {
+                padding: 14px 24px;
+            }
+            .section {
+                padding: 70px 24px;
+            }
+        }
+        .mobile-sticky-cta {
+            display: none;
+        }
+        @media (max-width: 1439px) {
+            .reviews-slider-wrapper .slider-arrow.prev {
+                left: -46px;
+            }
+            .reviews-slider-wrapper .slider-arrow.next {
+                right: -46px;
+            }
+            .header {
+                padding: 14px 24px;
+            }
+            .nav-menu {
+                gap: 18px;
+            }
+            .nav-menu a {
+                font-size: 0.85rem;
+                letter-spacing: 0.1px;
+            }
+            .header-social {
+                gap: 8px;
+            }
+            .social-icon-btn {
+                width: 32px;
+                height: 32px;
+            }
+            .social-icon-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            .header-consult-btn {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+                gap: 5px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .reviews-grid {
+                overflow-x: hidden;
+                scroll-snap-type: none;
+                touch-action: pan-y;
+            }
+            .reviews-slider-wrapper .slider-arrow.prev {
+                left: 2px;
+                width: 38px;
+                height: 38px;
+            }
+            .reviews-slider-wrapper .slider-arrow.next {
+                right: 2px;
+                width: 38px;
+                height: 38px;
+            }
+            .logo-emblem img {
+                height: 36px !important;
+                width: 36px !important;
+            }
+            .header {
+                padding: 10px 10px 10px 16px;
+                border-radius: 100px;
+            }
+            .header.scrolled {
+                border-radius: 100px;
+                width: calc(100% - 16px);
+                padding: 8px 8px 8px 14px;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .header-social a.social-icon-btn {
+                display: none;
+            }
+            .header-social {
+                gap: 0;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-section {
+                padding-top: 90px;
+            }
+            body {
+                padding-bottom: 78px;
+            }
+            .mobile-sticky-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 998;
+                gap: 10px;
+                padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+                background: rgba(6, 6, 10, 0.85);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .mobile-sticky-cta a {
+                flex: 1;
+                text-align: center;
+                padding: 13px 10px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.88rem;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+            .mobile-sticky-cta .consult-dropdown {
+                flex: 1;
+                display: flex;
+            }
+            .mobile-sticky-cta .sticky-primary {
+                flex: 1;
+                width: 100%;
+                text-align: center;
+                padding: 13px 10px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.88rem;
+                border: none;
+                cursor: pointer;
+                font-family: inherit;
+            }
+            .mobile-sticky-cta .consult-menu {
+                bottom: calc(100% + 10px);
+                top: auto;
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+            .mobile-sticky-cta .sticky-secondary {
+                color: #fff;
+                border: 1.5px solid rgba(255, 255, 255, 0.25);
+            }
+            .mobile-sticky-cta .sticky-primary {
+                color: #fff;
+                background: linear-gradient(135deg, var(--neon-purple) 0%, #7b3fd4 100%);
+                box-shadow: 0 6px 20px rgba(140, 70, 230, 0.4);
+            }
+            .hero-title .title-line-sm {
+                font-size: 1.4rem;
+                letter-spacing: 0;
+            }
+            .hero-title-lg {
+                font-size: 2.6rem;
+                letter-spacing: -1px;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .steps-grid,
+            .catalog-grid,
+            .task-cards {
+                grid-template-columns: 1fr;
+            }
+            .review-card {
+                flex-basis: 85vw;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .trust-bar {
+                flex-direction: column;
+                gap: 18px;
+                align-items: flex-start;
+            }
+            .budget-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 4px;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .header {
+                padding: 12px 18px;
+            }
+            .section {
+                padding: 50px 18px;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .footer-links {
+                justify-content: center;
+            }
+            .footer-legal {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 24px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            .pc-price {
+                font-size: 1.3rem;
+            }
+            .slider-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            .slider-arrow.prev {
+                left: -10px;
+            }
+            .slider-arrow.next {
+                right: -10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .builder-nav {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+            .builder-nav .btn {
+                display: block;
+                width: 100%;
+                white-space: normal;
+                text-align: center;
+                font-size: 0.85rem;
+                line-height: 1.3;
+                padding: 14px 12px;
+            }
+            .hero-title .title-line-sm {
+                font-size: 1.15rem;
+            }
+            .hero-title-lg {
+                font-size: 2.1rem;
+                letter-spacing: -0.5px;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .header {
+                padding: 10px 14px;
+            }
+            .section {
+                padding: 40px 14px;
+            }
+            .glass-card {
+                padding: 20px;
+            }
+            .pc-card {
+                padding: 18px;
+            }
+            .hero-section {
+                padding-top: 95px;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .hero-visual-frame img {
+                height: 280px;
+            }
+            .hero-float-badge {
+                padding: 10px 14px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-text h3 {
+                font-size: 2rem;
+            }
+            .about-photos {
+                height: auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 160px);
+                order: -1;
+            }
+            .about-photos img:nth-child(1) {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+            .about-photos img:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .about-photos img:nth-child(3) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+            .about-photos img:nth-child(4) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+            .about-photos img:nth-child(5) {
+                grid-column: 2;
+                grid-row: 3;
+            }
+            .about-photos img:nth-child(6) {
+                display: none;
+            }
+            .slider-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            .slider-arrow.prev {
+                left: -6px;
+            }
+            .slider-arrow.next {
+                right: -6px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ElectronicsStore"],
+      "@id": "https://scoutpc.ru/#organization",
+      "name": "ScoutPC",
+      "alternateName": "ИП Бровкин Игорь Юрьевич",
+      "url": "https://scoutpc.ru/",
+      "logo": "https://scoutpc.ru/images/logo-circle.png",
+      "image": ["https://scoutpc.ru/images/work1.jpg", "https://scoutpc.ru/images/favicon-512.png"],
+      "description": "Сборка кастомных игровых ПК на заказ в Краснодаре: подбор под бюджет, 3 часа стресс-тестов OCCT/FurMark, честная гарантия, доставка по всей России.",
+      "priceRange": "68000-220000 RUB",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Краснодар",
+        "addressCountry": "RU"
+      },
+      "taxID": "010517235460",
+      "vatID": "320010500022017",
+      "sameAs": [
+        "https://t.me/ScoutPC",
+        "https://www.tiktok.com/@scout.pc",
+        "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika",
+        "https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "reviewCount": "230"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://scoutpc.ru/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что входит в гарантию на сборку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Гарантия действует на все комплектующие в сборке. Если что-то выйдет из строя не по вашей вине, бесплатно отремонтируем или заменим. Перед отправкой каждый ПК проходит 3 часа стресс-тестов, поэтому скрытый брак практически исключён."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проходит доставка и что если ПК придёт повреждённым?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Отправляем через Авито Доставку с полной страховкой: упаковываем в пупырчатую плёнку и пенопласт. Если при получении заметны повреждения из-за транспортировки, это покрывается страховкой Авито, а мы дополнительно поможем всё оформить."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли внести изменения в готовую конфигурацию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, любую конфигурацию из каталога можно доработать под себя: заменить видеокарту, увеличить объём памяти или выбрать другой корпус. Просто напишите пожелания при оформлении заявки или воспользуйтесь конструктором «Собери свой ПК»."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает сборка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В среднем сборка и тестирование занимают +/- 7 дней с момента подтверждения конфигурации. Конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как оплатить и есть ли рассрочка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Оплата проходит через Авито, это даёт вам дополнительную защиту сделки. По вопросам рассрочки или частичной предоплаты напишите в личный Telegram, обсудим удобный вариант."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Начальный» (Intel i3-12100F, RTX 5050 8GB)",
+      "image": "https://scoutpc.ru/images/pc1.png",
+      "description": "Игровой ПК на Intel i3-12100F, RTX 5050 8GB, 16GB DDR4 3200MHz, охлаждение Thermalright Assassin X120, материнская плата H610M.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing",
+        "priceCurrency": "RUB",
+        "price": "68000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Средний» (Intel i5-13400F, RTX 5060 8GB)",
+      "image": "https://scoutpc.ru/images/pc2.png",
+      "description": "Игровой ПК на Intel i5-13400F, RTX 5060 8GB, 32GB DDR4, охлаждение Thermalright Assassin X120, материнская плата B760M.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "105000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Киберспортивный» (Intel i5-13600KF, RTX 5070 12GB)",
+      "image": "https://scoutpc.ru/images/pc3.png",
+      "description": "Игровой ПК на Intel i5-13600KF, RTX 5070 12GB, 32GB DDR5, СЖО 360, материнская плата B760.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing",
+        "priceCurrency": "RUB",
+        "price": "175000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Стримерский» (Intel Core Ultra 7 265K, RTX 5070 Ti 16GB)",
+      "image": "https://scoutpc.ru/images/pc4.png",
+      "description": "Игровой ПК на Intel Core Ultra 7 265K, RTX 5070 Ti 16GB, 32GB DDR5, СЖО 360, материнская плата Z890.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "220000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Начальный» (AMD Ryzen 5 5500, RTX 5050 8GB)",
+      "image": "https://scoutpc.ru/images/pc5.png",
+      "description": "Игровой ПК на AMD Ryzen 5 5500, RTX 5050 8GB, 16GB DDR4 3200MHz, охлаждение Thermalright Assassin X120, материнская плата A520M.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "68000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Средний» (AMD Ryzen 5 7500F, RTX 5060 8GB)",
+      "image": "https://scoutpc.ru/images/pc6.png",
+      "description": "Игровой ПК на AMD Ryzen 5 7500F, RTX 5060 8GB, 16GB DDR5, охлаждение Thermalright Assassin X120, материнская плата B650.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "105000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Киберспортивный» (AMD Ryzen 7 7800X3D, RTX 5070 12GB)",
+      "image": "https://scoutpc.ru/images/pc7.png",
+      "description": "Игровой ПК на AMD Ryzen 7 7800X3D, RTX 5070 12GB, 32GB DDR5, СЖО 360, материнская плата B650.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "175000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Игровой ПК «Стримерский» (AMD Ryzen 7 9800X3D, RTX 5070 Ti 16GB)",
+      "image": "https://scoutpc.ru/images/pc8.png",
+      "description": "Игровой ПК на AMD Ryzen 7 9800X3D, RTX 5070 Ti 16GB, 32GB DDR5, 360 СЖО, материнская плата X870.",
+      "brand": { "@type": "Brand", "name": "ScoutPC" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823",
+        "priceCurrency": "RUB",
+        "price": "220000",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@id": "https://scoutpc.ru/#organization" }
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="bg-orbs-container">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+        <div class="bg-orb orb-4"></div>
+        <div class="bg-orb orb-5"></div>
+    </div>
+
+    <div class="main-wrapper">
+        <header class="header" id="header">
+           <a href="#" class="logo-link" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+  <span class="logo-emblem">
+    <img src="images/logo-circle.png" alt="ScoutPC" style="height: 44px; width: 44px; object-fit: cover;">
+  </span>
+</a>
+
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#catalog">Каталог ПК</a></li>
+                    <li><a href="#steps">Этапы работы</a></li>
+                    <li><a href="#portfolio">Фото</a></li>
+                    <li><a href="#build">Кастомный ПК</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+            </nav>
+            <div class="header-social">
+                <a href="https://t.me/ScoutPC" target="_blank" class="social-icon-btn" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="social-icon-btn" aria-label="MAX">
+                    <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@scout.pc" target="_blank" class="social-icon-btn" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="social-icon-btn" aria-label="Avito">
+  <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
+</a>
+                <div class="consult-dropdown">
+                    <button type="button" class="header-consult-btn consult-trigger">
+                        Консультация <span class="arrow">→</span>
+                    </button>
+                    <div class="consult-menu">
+                        <a href="tel:+79531171331"><span class="consult-menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></span> Позвонить</a>
+                        <a href="https://t.me/Scout_PC" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                        <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <button class="mobile-overlay-close" id="mobileMenuClose" aria-label="Закрыть">×</button>
+            <div class="mobile-overlay-content">
+                <a href="#catalog" class="mobile-overlay-link"><span>Каталог ПК</span><span class="arrow">→</span></a>
+                <a href="#steps" class="mobile-overlay-link"><span>Этапы работы</span><span class="arrow">→</span></a>
+                <a href="#portfolio" class="mobile-overlay-link"><span>Фото</span><span class="arrow">→</span></a>
+                <a href="#build" class="mobile-overlay-link"><span>Кастомный ПК</span><span class="arrow">→</span></a>
+                <a href="#reviews" class="mobile-overlay-link"><span>Отзывы</span><span class="arrow">→</span></a>
+
+                <div class="mobile-overlay-social">
+                    <a href="https://t.me/ScoutPC" target="_blank" class="social-icon-btn" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="social-icon-btn" aria-label="MAX">
+                        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@scout.pc" target="_blank" class="social-icon-btn" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="social-icon-btn" aria-label="Avito">
+                        <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
+                    </a>
+                </div>
+
+                <div class="consult-dropdown mobile-overlay-consult">
+                    <button type="button" class="header-consult-btn consult-trigger" style="width: 100%; justify-content: center;">
+                        Консультация <span class="arrow">→</span>
+                    </button>
+                    <div class="consult-menu" style="left: 0; right: 0; width: 100%;">
+                        <a href="tel:+79531171331"><span class="consult-menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></span> Позвонить</a>
+                        <a href="https://t.me/Scout_PC" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                        <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span class="dot"></span> КРАСНОДАР • СБОРКА С ГАРАНТИЕЙ
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="title-line-sm">Сборка</span>
+                            <span class="hero-title-lg highlight">Кастомных<br><span style="white-space: nowrap;">игровых ПК</span></span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Собираем мощные игровые компьютеры в Краснодаре. Каждый ПК проходит 3 часа стресс-тестов
+                            в OCCT и FurMark. Честные цены без скрытых накруток. Доставка по всей России через Авито.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#build" class="btn btn-primary">Собрать ПК</a>
+                            <a href="#catalog" class="btn btn-outline">Готовые сборки</a>
+                        </div>
+                        <a href="#location" class="hero-location-badge">📍 Есть офлайн-точка в Краснодаре — как добраться</a>
+                        <div class="hero-stats reveal">
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="5" data-decimal="1">0</span>
+                                <span class="hero-stat-label">230+ отзывов на Авито</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="3">0</span>
+                                <span class="hero-stat-label">Часа стресс-тестов</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value" data-count="100" data-suffix="%">0</span>
+                                <span class="hero-stat-label">Честная гарантия</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual reveal">
+                        <div class="hero-visual-glow"></div>
+                        <a href="#catalog" class="hero-visual-frame">
+                            <img src="images/pc7.png" alt="Кастомная сборка ScoutPC — Киберспортивный" loading="lazy" decoding="async">
+                        </a>
+                        <a href="#catalog" class="hero-float-badge badge-price glass-card">
+                            <span class="badge-icon">💻</span>
+                            <span>
+                                <span class="badge-label">Серия Игровые ПК</span><br>
+                                <span class="badge-value">От 68 000 ₽</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="steps">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Как мы работаем</div>
+                    <h2 class="section-title">ЭТАПЫ <span class="accent">РАБОТЫ</span></h2>
+                    <p class="section-desc">Прозрачный процесс: от подбора комплектующих до безопасной доставки</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="glass-card step-card reveal">
+                        <div class="step-number">01</div>
+                        <h3>Подбор под бюджет без переплат</h3>
+                        <p>Анализируем ваши задачи и бюджет. Предлагаем оптимальную конфигурацию без навязанных
+                            комплектующих. Вы платите только за реальную производительность.</p>
+                    </div>
+                    <div class="glass-card step-card reveal">
+                        <div class="step-number">02</div>
+                        <h3>Профессиональная сборка и 3 часа тестов</h3>
+                        <p>Собираем ПК с идеальным кабель-менеджментом. Запускаем OCCT и FurMark на 3 часа, проверяем стабильность системы под максимальной нагрузкой.</p>
+                    </div>
+                    <div class="glass-card step-card reveal">
+                        <div class="step-number">03</div>
+                        <h3>Безопасная Авито Доставка</h3>
+                        <p>Упаковываем в пупырчатую плёнку и пенопласт. Отправляем через Авито Доставку с полной
+                            страховкой. Ваш ПК приедет в целости и сохранности.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="task-picker">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Подбор</div>
+                    <h2 class="section-title">КАКОЙ ПК <span class="accent">ВАМ НУЖЕН</span></h2>
+                    <p class="section-desc">Выберите задачу, и мы сразу отфильтруем каталог по подходящему бюджету</p>
+                </div>
+                <div class="task-cards reveal">
+                    <div class="glass-card task-card" data-goto-budget="1">
+                        <span class="task-icon">💼</span>
+                        <h3>Учёба, офис, нетребовательные игры</h3>
+                        <p>Веб, документы, YouTube и киберспортивные тайтлы на средних настройках.</p>
+                        <span class="task-link">До 90 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="2">
+                        <span class="task-icon">🎮</span>
+                        <h3>Комфортный гейминг</h3>
+                        <p>Актуальные игры на высоких настройках со стабильным 100+ FPS.</p>
+                        <span class="task-link">90 000 – 130 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="3">
+                        <span class="task-icon">🏆</span>
+                        <h3>Киберспорт</h3>
+                        <p>Максимальный FPS в соревновательных играх, минимальные задержки.</p>
+                        <span class="task-link">130 000 – 180 000 ₽ →</span>
+                    </div>
+                    <div class="glass-card task-card" data-goto-budget="4">
+                        <span class="task-icon">🎬</span>
+                        <h3>Стриминг и 4K</h3>
+                        <p>Игра, запись и стрим одновременно, топовые настройки в 4K.</p>
+                        <span class="task-link">От 180 000 ₽ →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="catalog">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Конфигуратор</div>
+                    <h2 class="section-title">КАТАЛОГ <span class="accent">ИГРОВЫХ ПК</span></h2>
+                    <p class="section-desc">Выберите платформу и найдите идеальную сборку под свои задачи</p>
+                </div>
+                <div class="catalog-freshness-note reveal">
+                    📦 Цены и наличие обновляются на сайте не мгновенно — самые свежие сборки и актуальные остатки смотрите в
+                    <a href="https://t.me/ScoutPC" target="_blank">Telegram-канале</a>
+                </div>
+                <div class="catalog-tabs reveal">
+                    <button class="tab-btn active" data-tab="amd">Конфигурации AMD</button>
+                    <button class="tab-btn" data-tab="intel">Конфигурации INTEL</button>
+                </div>
+                <div class="budget-filters reveal">
+                    <span class="budget-label">Бюджет:</span>
+                    <button class="budget-btn active" data-budget="all">Все</button>
+                    <button class="budget-btn" data-budget="1">До 90 000 ₽</button>
+                    <button class="budget-btn" data-budget="2">90 000–130 000 ₽</button>
+                    <button class="budget-btn" data-budget="3">130 000–180 000 ₽</button>
+                    <button class="budget-btn" data-budget="4">От 180 000 ₽</button>
+                </div>
+
+                <!-- INTEL сборки -->
+                <div class="catalog-group hidden" id="intel-group">
+                    <div class="catalog-grid">
+                        <div class="pc-card glass-card reveal" data-budget="1">
+  <div class="pc-image-frame"><img src="images/pc1.png" alt="ПК Начальный" class="pc-card-img" loading="lazy" decoding="async"></div>
+  <h3 class="pc-card-title">Начальный</h3>
+  <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i3-12100F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">H610M</span></span></div>
+  </div>
+  <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 29;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">116 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>235 FPS</span></li><li><span>Dota 2</span><span>185 FPS</span></li><li><span>Valorant</span><span>275 FPS</span></li><li><span>Fortnite</span><span>140 FPS</span></li><li><span>GTA V / Online</span><span>110 FPS</span></li><li><span>RDR2</span><span>60 FPS</span></li><li><span>Cyberpunk 2077</span><span>58 FPS</span></li><li><span>Apex Legends</span><span>122 FPS</span></li><li><span>Warzone</span><span>76 FPS</span></li><li><span>PUBG</span><span>86 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+  <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
+  <div class="pc-actions">
+    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
+    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+  </div>
+</div>
+
+
+                        <div class="pc-card glass-card reveal" data-budget="2">
+<div class="pc-image-frame"><img src="images/pc2.png" alt="ПК Средний" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Средний</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i5-13400F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR4</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760M</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 38;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">150 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>300 FPS</span></li><li><span>Dota 2</span><span>230 FPS</span></li><li><span>Valorant</span><span>330 FPS</span></li><li><span>Fortnite</span><span>250 FPS</span></li><li><span>GTA V / Online</span><span>140 FPS</span></li><li><span>RDR2</span><span>78 FPS</span></li><li><span>Cyberpunk 2077</span><span>89 FPS</span></li><li><span>Apex Legends</span><span>160 FPS</span></li><li><span>Warzone</span><span>95 FPS</span></li><li><span>PUBG</span><span>110 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                        <div class="pc-card glass-card reveal" data-budget="3">
+<div class="pc-image-frame"><img src="images/pc3.png" alt="ПК Киберспортивный" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Киберспортивный</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">i5-13600KF</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 12GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B760</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 46;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">185 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>430 FPS</span></li><li><span>Dota 2</span><span>270 FPS</span></li><li><span>Valorant</span><span>380 FPS</span></li><li><span>Fortnite</span><span>250 FPS</span></li><li><span>GTA V / Online</span><span>165 FPS</span></li><li><span>RDR2</span><span>100 FPS</span></li><li><span>Cyberpunk 2077</span><span>118 FPS</span></li><li><span>Apex Legends</span><span>205 FPS</span></li><li><span>Warzone</span><span>138 FPS</span></li><li><span>PUBG</span><span>148 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>175 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                        <div class="pc-card glass-card reveal" data-budget="4">
+<div class="pc-image-frame"><img src="images/pc4.png" alt="ПК Стримерский" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Стримерский</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Core Ultra 7 265K</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 Ti 16GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">Z890</span></span></div>
+  </div>
+                            
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 52;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">208 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>500 FPS</span></li><li><span>Dota 2</span><span>300 FPS</span></li><li><span>Valorant</span><span>420 FPS</span></li><li><span>Fortnite</span><span>280 FPS</span></li><li><span>GTA V / Online</span><span>185 FPS</span></li><li><span>RDR2</span><span>120 FPS</span></li><li><span>Cyberpunk 2077</span><span>131 FPS</span></li><li><span>Apex Legends</span><span>230 FPS</span></li><li><span>Warzone</span><span>158 FPS</span></li><li><span>PUBG</span><span>168 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>220 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AMD сборки (изначально скрыты) -->
+                <div class="catalog-group" id="amd-group">
+                    <div class="catalog-grid">
+                        <div class="pc-card glass-card reveal" data-budget="1">
+<div class="pc-image-frame"><img src="images/pc5.png" alt="ПК Начальный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Начальный</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 5500</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5050 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR4 3200MHz</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">A520M</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 27;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">109 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>210 FPS</span></li><li><span>Dota 2</span><span>165 FPS</span></li><li><span>Valorant</span><span>245 FPS</span></li><li><span>Fortnite</span><span>128 FPS</span></li><li><span>GTA V / Online</span><span>106 FPS</span></li><li><span>RDR2</span><span>58 FPS</span></li><li><span>Cyberpunk 2077</span><span>56 FPS</span></li><li><span>Apex Legends</span><span>112 FPS</span></li><li><span>Warzone</span><span>74 FPS</span></li><li><span>PUBG</span><span>84 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>68 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                        <div class="pc-card glass-card reveal" data-budget="2">
+<div class="pc-image-frame"><img src="images/pc6.png" alt="ПК Средний AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Средний</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 5 7500F</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5060 8GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">16GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">Thermalright Assassin X120</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
+  </div>
+
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 38;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">151 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>310 FPS</span></li><li><span>Dota 2</span><span>238 FPS</span></li><li><span>Valorant</span><span>340 FPS</span></li><li><span>Fortnite</span><span>255 FPS</span></li><li><span>GTA V / Online</span><span>138 FPS</span></li><li><span>RDR2</span><span>77 FPS</span></li><li><span>Cyberpunk 2077</span><span>88 FPS</span></li><li><span>Apex Legends</span><span>163 FPS</span></li><li><span>Warzone</span><span>94 FPS</span></li><li><span>PUBG</span><span>109 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>105 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                        <div class="pc-card glass-card reveal" data-budget="3">
+<div class="pc-image-frame"><img src="images/pc7.png" alt="ПК Киберспортивный AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Киберспортивный</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 7 7800X3D</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 12GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">СЖО 360</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">B650</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 50;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">198 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>540 FPS</span></li><li><span>Dota 2</span><span>330 FPS</span></li><li><span>Valorant</span><span>460 FPS</span></li><li><span>Fortnite</span><span>285 FPS</span></li><li><span>GTA V / Online</span><span>170 FPS</span></li><li><span>RDR2</span><span>103 FPS</span></li><li><span>Cyberpunk 2077</span><span>120 FPS</span></li><li><span>Apex Legends</span><span>225 FPS</span></li><li><span>Warzone</span><span>142 FPS</span></li><li><span>PUBG</span><span>155 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>175 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                        <div class="pc-card glass-card reveal" data-budget="4">
+<div class="pc-image-frame"><img src="images/pc8.png" alt="ПК Стримерский AMD" class="pc-card-img" loading="lazy" decoding="async"></div>
+
+                            <h3 class="pc-card-title">Стримерский</h3>
+                            <div class="pc-specs">
+    <div class="spec-row"><span class="spec-icon-box">🧩</span><span class="spec-text"><span class="spec-label">Процессор</span><span class="spec-value">Ryzen 7 9800X3D</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🎮</span><span class="spec-text"><span class="spec-label">Видеокарта</span><span class="spec-value">RTX 5070 Ti 16GB</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🧠</span><span class="spec-text"><span class="spec-label">ОЗУ</span><span class="spec-value">32GB DDR5</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">❄️</span><span class="spec-text"><span class="spec-label">Охлаждение</span><span class="spec-value">360 СЖО</span></span></div>
+    <div class="spec-row"><span class="spec-icon-box">🖧</span><span class="spec-text"><span class="spec-label">Мат. плата</span><span class="spec-value">X870</span></span></div>
+  </div>
+                            <div class="pc-fps"><div class="fps-bar-track" style="--fps-pct: 56;"><div class="fps-bar-fill"></div></div><div class="fps-text"><span class="fps-title">222 FPS</span><span class="fps-sub">Средний FPS в играх <span class="fps-info-wrap"><button type="button" class="fps-info">?</button><div class="fps-popover"><div class="fps-popover-title">FPS по играм (1080p, высокие)</div><ul><li><span>CS2</span><span>640 FPS</span></li><li><span>Dota 2</span><span>375 FPS</span></li><li><span>Valorant</span><span>510 FPS</span></li><li><span>Fortnite</span><span>320 FPS</span></li><li><span>GTA V / Online</span><span>192 FPS</span></li><li><span>RDR2</span><span>124 FPS</span></li><li><span>Cyberpunk 2077</span><span>134 FPS</span></li><li><span>Apex Legends</span><span>252 FPS</span></li><li><span>Warzone</span><span>163 FPS</span></li><li><span>PUBG</span><span>176 FPS</span></li></ul><div class="fps-popover-note">Медиана по 10 играм, без DLSS и генерации кадров. Замеры ориентировочные, по открытым бенчмаркам актуальных видеокарт. С DLSS показатели будут выше.</div></div></span></span></div></div>
+                            <div class="pc-price"><span class="price-prefix">от</span>220 000 <span>₽</span></div>
+                            <div class="pc-actions">
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-primary">Купить ПК</a>
+                                <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="btn btn-outline">Подробнее о сборке</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="build">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Индивидуальная сборка</div>
+                    <h2 class="section-title">СОБЕРИ СВОЙ <span class="accent">ПК</span></h2>
+                    <p class="section-desc">Не нашли готовую конфигурацию под себя? Пройдите 5 шагов, и мы соберём индивидуальный вариант под ваш бюджет и задачи</p>
+                </div>
+
+                <div class="builder-wrapper glass-card reveal">
+                    <div class="builder-progress" id="builderProgress">
+                        <div class="builder-progress-item active" data-step="1">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Платформа</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="2">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Бюджет</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="3">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Задача</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="4">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Стиль</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="5">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Контакты</div>
+                        </div>
+                    </div>
+
+                    <div class="builder-steps">
+                        <div class="builder-step active" data-step="1">
+                            <h3>Какая платформа нужна?</h3>
+                            <p class="builder-step-desc">Если не уверены, выберите «Не важно», подберём по цене и производительности</p>
+                            <div class="choice-grid" data-group="platform">
+                                <button class="choice-btn" data-value="Intel">Intel</button>
+                                <button class="choice-btn" data-value="AMD">AMD</button>
+                                <button class="choice-btn" data-value="Не важно">Не важно, что оптимальнее</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="2">
+                            <h3>Какой у вас бюджет?</h3>
+                            <p class="builder-step-desc">Ориентировочно. Точную сумму обсудим после консультации</p>
+                            <div class="choice-grid" data-group="budget">
+                                <button class="choice-btn" data-value="До 90 000 ₽">До 90 000 ₽</button>
+                                <button class="choice-btn" data-value="90 000–130 000 ₽">90 000–130 000 ₽</button>
+                                <button class="choice-btn" data-value="130 000–180 000 ₽">130 000–180 000 ₽</button>
+                                <button class="choice-btn" data-value="От 180 000 ₽">От 180 000 ₽</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="3">
+                            <h3>Для чего в основном нужен ПК?</h3>
+                            <p class="builder-step-desc">Это определяет баланс между процессором, видеокартой и охлаждением</p>
+                            <div class="choice-grid" data-group="goal">
+                                <button class="choice-btn" data-value="Игры">Игры</button>
+                                <button class="choice-btn" data-value="Стриминг / запись контента">Стриминг / запись контента</button>
+                                <button class="choice-btn" data-value="Киберспорт, максимальный FPS">Киберспорт, максимальный FPS</button>
+                                <button class="choice-btn" data-value="Работа, монтаж, нейросети">Работа, монтаж, нейросети</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="4">
+                            <h3>Пожелания по стилю</h3>
+                            <p class="builder-step-desc">RGB-подсветка и корпус необязательны, можно пропустить</p>
+                            <div class="builder-field">
+                                <label>Подсветка</label>
+                                <div class="choice-grid" data-group="rgb">
+                                    <button class="choice-btn" data-value="Яркая RGB-подсветка">Яркая RGB-подсветка</button>
+                                    <button class="choice-btn" data-value="Сдержанная / без подсветки">Сдержанная / без подсветки</button>
+                                    <button class="choice-btn" data-value="Не важно">Не важно</button>
+                                </div>
+                            </div>
+                            <div class="builder-field">
+                                <label>Доп. пожелания (необязательно)</label>
+                                <textarea id="builderComment" rows="3" placeholder="Например: нужен тихий ПК, хочу белый корпус, есть старые комплектующие для переноса..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="5">
+                            <h3>Всё готово</h3>
+                            <p class="builder-step-desc">Проверьте конфигурацию и отправьте заявку любым удобным способом</p>
+                            <div class="builder-summary" id="builderSummary"></div>
+                        </div>
+                    </div>
+
+                    <div class="builder-nav">
+                        <button class="btn btn-outline" id="builderBack" style="visibility: hidden;">Назад</button>
+                        <button class="btn btn-primary" id="builderNext">Далее</button>
+                    </div>
+                    <div class="builder-submit-row" id="builderSubmitRow" style="display: none;">
+                        <button class="btn btn-outline" id="builderCopyBtn">Скопировать заявку</button>
+                    </div>
+                    <div class="builder-hint">Заявка откроется в Telegram, или скопируйте её и вставьте в MAX/куда удобно</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-photos reveal">
+                        <img src="images/about1.jpg" alt="Мастерская ScoutPC" loading="lazy" decoding="async">
+                        <img src="images/about2.jpg" alt="Процесс сборки ПК" loading="lazy" decoding="async">
+                        <img src="images/about3.jpg" alt="Кабель-менеджмент при сборке" loading="lazy" decoding="async">
+                        <img src="images/about4.jpg" alt="Тестирование готовой сборки" loading="lazy" decoding="async">
+                        <img src="images/about5.jpg" alt="Упаковка ПК перед отправкой" loading="lazy" decoding="async">
+                        <img src="images/about6.jpg" alt="Рабочее место ScoutPC" loading="lazy" decoding="async">
+                    </div>
+                    <div class="about-text reveal">
+                        <div class="about-kicker">О нас</div>
+                        <h3>Привет, я <span class="about-accent">Игорь</span>. Собираю ПК не по инструкции, а по любви к делу</h3>
+                        <p>Свой первый компьютер я собрал для себя 10 лет назад. С тех пор это переросло из хобби в дело, которым я живу каждый день. За это время через мои руки прошли сотни сборок: от первого игрового ПК студенту до топовых станций для стриминга и работы.</p>
+                        <p>Для меня каждая сборка это не просто набор комплектующих в корпусе. Это чья-то мечта: первый серьёзный компьютер, инструмент для работы мечты или подарок близкому человеку. Поэтому я лично подбираю каждую конфигурацию, сам собираю, сам тестирую и отдаю только то, за что готов поставить свою гарантию.</p>
+                        <p>ScoutPC это не безликий магазин, а я и моя репутация. Если у вас есть вопрос или сомнение, просто напишите, отвечаю сам.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="portfolio">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Портфолио</div>
+                    <h2 class="section-title">ПРИМЕРЫ НАШИХ <span class="accent">РАБОТ</span></h2>
+                    <p class="section-desc">Реальные сборки, которые мы отправили клиентам</p>
+                </div>
+                <div class="slider-wrapper reveal">
+                    <div class="slider-viewport" id="sliderViewport">
+                        <img src="images/work1.jpg" alt="Кастомная сборка в черном аквариуме" class="active">
+                        <img src="images/work2.jpg" alt="Бюджетная сборка на AM5" loading="lazy" decoding="async">
+                        <img src="images/work3.jpg" alt="Сборка в белом аквариуме" loading="lazy" decoding="async">
+<img src="images/work4.jpg" alt="Сборка 4" loading="lazy" decoding="async">
+<img src="images/work5.jpg" alt="Сборка 5" loading="lazy" decoding="async">
+<img src="images/work6.jpg" alt="Сборка 6" loading="lazy" decoding="async">
+<img src="images/work7.jpg" alt="Сборка 7" loading="lazy" decoding="async">
+<img src="images/work8.jpg" alt="Сборка 8" loading="lazy" decoding="async">
+
+
+                    </div>
+                    <div class="slider-arrow prev" id="prevSlide">❮</div>
+                    <div class="slider-arrow next" id="nextSlide">❯</div>
+                    <div class="slider-dots" id="sliderDots">
+                        <span class="slider-dot active" data-index="0"></span>
+                        <span class="slider-dot" data-index="1"></span>
+                        <span class="slider-dot" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="reviews">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Репутация</div>
+                    <h2 class="section-title">ОТЗЫВЫ <span class="accent">КЛИЕНТОВ</span></h2>
+                    <div class="reviews-counter">
+                        Рейтинг на Авито <span>5.0 ★</span> | <span>230+ отзывов</span>
+                    </div>
+                </div>
+                <div class="reviews-slider-wrapper">
+                    <div class="slider-arrow prev" id="reviewsPrev">❮</div>
+                    <div class="slider-arrow next" id="reviewsNext">❯</div>
+                    <div class="reviews-grid" id="reviewsGrid">
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_kirill.jpg" alt="Фото отзыва — Кирилл Маклаков">
+                        </div>
+                        <div class="review-source">Источник: Авито</div>
+                        <div class="review-author">Кирилл Маклаков</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Вчера обратился за компьютером. Меня проконсультировали, на все вопросы ответили, провели диагностику компьютера (всё чётко работает). Спасибо вам🙏»</p>
+                        <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_ogurchik.jpg" alt="Фото отзыва — Ogurchik">
+                        </div>
+                        <div class="review-source">Источник: Авито</div>
+                        <div class="review-author">Ogurchik</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Очень хороший компьютер, все комплектующие на месте, с целостности и сохранности. Быстрая отправка, полностью доволен продавцом)»</p>
+                        <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_vidana_1.jpg" alt="Фото отзыва — Видана">
+                        </div>
+                        <div class="review-source">Источник: Авито</div>
+                        <div class="review-author">Видана</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Просто лучший! Всей семьёй прослезились от того, насколько круто подошёл продавец к тому, что компьютер покупался для десятилетнего ребёнка 😢 подарочки-фигурки из 3D принтера и рукописная открытка — просто кайф 🌸 ребёнок оценил!! Сам компьютер был запакован максимально качественно, дошло всё в сохранности!! Брательник уже вовсю качает себе игры и радуется жизни!! Спасибо огромное, Xeon Shop!!»</p>
+                        <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_yakrut.jpg" alt="Фото отзыва — я крут">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">«я крут»</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Комп имба, уже как пол года работает, магазин имба»</p>
+                        <a href="https://t.me/ScoutPC" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos two-up">
+                            <img src="images/review_alexey_1.jpg" alt="Фото отзыва — Alexey">
+                            <img src="images/review_alexey_2.jpg" alt="Фото отзыва — Alexey, подарок">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">Alexey</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Благодарю Xeon Shop за компьютер 😌, всё хорошо работает 😀, в подарок ещё пришла вместе с компьютером очень милая игрушка 🥹 и новогоднее поздравление 🎄🎉, это очень приятный бонус 😌! Благодарю за компьютер 😌!)»</p>
+                        <a href="https://t.me/ScoutPC" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card review-card reveal">
+                        <div class="review-photos">
+                            <img src="images/review_alexandr_1.jpg" alt="Фото отзыва — Александр">
+                        </div>
+                        <div class="review-source">Источник: Telegram</div>
+                        <div class="review-author">Александр</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Как я рад его видеть по приходу домой… Плёночки пока снимать со стёкол не рискнул) Огромное спасибо за комп, радуюсь как ребёнок 💞🥺»</p>
+                        <a href="https://t.me/ScoutPC" target="_blank" class="review-check">
+                            Проверить отзыв <span class="review-check-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="reviews-cta-wrapper reveal">
+                    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile?src=sharing" target="_blank" class="btn btn-outline"
+                        style="font-size: 1.05rem; padding: 16px 36px; border-color: rgba(180,130,255,0.4);">
+                        Читать все отзывы на Авито
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">Вопросы и ответы</div>
+                    <h2 class="section-title">ЧАСТЫЕ <span class="accent">ВОПРОСЫ</span></h2>
+                    <p class="section-desc">Если не нашли ответ, просто напишите в Telegram, ответим лично</p>
+                </div>
+                <div class="faq-list reveal">
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Что входит в гарантию на сборку?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Гарантия действует на все комплектующие в сборке. Если что-то выйдет из строя не по вашей вине, бесплатно отремонтируем или заменим. Перед отправкой каждый ПК проходит 3 часа стресс-тестов, поэтому скрытый брак практически исключён.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Как проходит доставка и что если ПК придёт повреждённым?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Отправляем через Авито Доставку с полной страховкой: упаковываем в пупырчатую плёнку и пенопласт. Если при получении заметны повреждения из-за транспортировки, это покрывается страховкой Авито, а мы дополнительно поможем всё оформить.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Можно ли внести изменения в готовую конфигурацию?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, любую конфигурацию из каталога можно доработать под себя: заменить видеокарту, увеличить объём памяти или выбрать другой корпус. Просто напишите пожелания при оформлении заявки или воспользуйтесь конструктором «Собери свой ПК».</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Сколько времени занимает сборка?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>В среднем сборка и тестирование занимают +/- 7 дней с момента подтверждения конфигурации. Конкретные сроки под вашу сборку уточним при обращении, они зависят от загрузки и наличия комплектующих.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card faq-item">
+                        <button class="faq-question">
+                            Как оплатить и есть ли рассрочка?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Оплата проходит через Авито, это даёт вам дополнительную защиту сделки. По вопросам рассрочки или частичной предоплаты напишите в личный Telegram, обсудим удобный вариант.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="location-section" id="location">
+            <div class="location-inner">
+                <h2 class="section-title">Где нас <span class="accent">найти</span></h2>
+                <p class="section-desc">Краснодар, ул. Селезнёва, 136 — вход через магазин «Мой Чехольчик», далее по проходу. Работаем ежедневно, кроме понедельника, с 10:00 до 18:00.</p>
+                <div class="location-map-frame">
+                    <iframe src="https://yandex.ru/map-widget/v1/?z=12&amp;ol=biz&amp;oid=11574117534" loading="lazy" title="ScoutPC на карте"></iframe>
+                </div>
+                <p class="location-details">
+                    Перед визитом уточните наличие нужной сборки по
+                    <a href="tel:+79531171331">телефону</a> или в
+                    <span class="location-consult-trigger consult-dropdown">
+                        <button type="button" class="location-consult-btn consult-trigger">Telegram/MAX</button>
+                        <span class="consult-menu">
+                            <a href="https://t.me/Scout_PC" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                            <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+                        </span>
+                    </span>
+                    —
+                    <a href="https://yandex.ru/maps/-/CTr7uVI4" target="_blank">открыть карточку на Яндекс.Картах</a>
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer" id="footer">
+            <div class="footer-inner">
+                <a href="#" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
+  <span class="logo-emblem">
+    <img src="images/logo-circle.png" alt="ScoutPC" style="height: 40px; width: 40px; object-fit: cover;">
+  </span>
+</a>
+
+                <div class="footer-social">
+                    <a href="https://t.me/ScoutPC" class="footer-social-item">
+                        <span class="social-icon-btn">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg>
+                        </span>
+                        <span class="footer-social-label">Telegram</span>
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank" class="footer-social-item">
+                        <span class="social-icon-btn">
+                            <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg>
+                        </span>
+                        <span class="footer-social-label">MAX</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@scout.pc" target="_blank" class="footer-social-item">
+                        <span class="social-icon-btn">
+                            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </span>
+                        <span class="footer-social-label">TikTok</span>
+                    </a>
+                    <a href="https://www.avito.ru/user/277dd12ab25bcd4585fc47b47e86f823/profile/all/bytovaya_elektronika?src=sharing&sellerId=277dd12ab25bcd4585fc47b47e86f823" target="_blank" class="footer-social-item">
+                        <span class="social-icon-btn">
+                            <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><circle cx="9" cy="9" r="5.5"/><circle cx="23" cy="10" r="4.5"/><circle cx="10" cy="23" r="4"/><circle cx="22.5" cy="22.5" r="6.5"/></svg>
+                        </span>
+                        <span class="footer-social-label">Avito</span>
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <a href="#catalog">Каталог</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#location">Как добраться</a>
+                </div>
+                <a href="tel:+79531171331" class="footer-phone">+7 (953) 117-13-31</a>
+                <span class="footer-copy">© 2026 ScoutPC</span>
+            </div>
+            <div class="footer-legal">
+                <div class="footer-legal-col">
+                    <div class="footer-legal-title">Документы</div>
+                    <a href="privacy-policy.html" target="_blank">Политика конфиденциальности</a>
+                    <a href="pdn-consent.html" target="_blank">Согласие на обработку персональных данных</a>
+                </div>
+                <div class="footer-legal-col">
+                    <div class="footer-legal-title">Реквизиты</div>
+                    <p>ИП Бровкин Игорь Юрьевич</p>
+                    <p>ИНН 010517235460</p>
+                    <p>ОГРНИП 320010500022017 от 18.12.2020</p>
+                </div>
+            </div>
+        </footer>
+    <div class="mobile-sticky-cta">
+        <a href="#catalog" class="sticky-secondary">Каталог</a>
+        <div class="consult-dropdown">
+            <button type="button" class="sticky-primary consult-trigger">Консультация →</button>
+            <div class="consult-menu">
+                <a href="tel:+79531171331"><span class="consult-menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></span> Позвонить</a>
+                <a href="https://t.me/Scout_PC" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.356 8.626-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.9-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.063-.173-.04-.248-.024-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.01-1.252-.24-1.865-.44-.752-.244-1.35-.374-1.297-.79.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.1-.002.32.023.464.14.12.098.153.228.17.32.016.092.036.3.02.463z"/></svg></span> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y" target="_blank"><span class="consult-menu-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a12 12 0 100 24 12 12 0 000-24zm0 5.9a6.1 6.1 0 110 12.2 6.1 6.1 0 010-12.2z"/><path d="M2.2 18c1.8 1 4.2 1.4 6.8 1.1-1.7 2.3-3.3 4-4.7 4.9-1.6-1.2-2.7-3.4-2.1-6z"/></svg></span> MAX</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        (function() {
+            const header = document.getElementById('header');
+            function updateHeader() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', updateHeader, { passive: true });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // ANIMATED STAT COUNTERS
+            const statEls = document.querySelectorAll('.hero-stat-value');
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.count);
+                    const decimals = parseInt(el.dataset.decimal || '0', 10);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 1400;
+                    const startTime = performance.now();
+                    function tick(now) {
+                        const progress = Math.min((now - startTime) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const value = target * eased;
+                        el.textContent = value.toFixed(decimals) + suffix;
+                        if (progress < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    statObserver.unobserve(el);
+                });
+            }, { threshold: 0.4 });
+            statEls.forEach(el => statObserver.observe(el));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const orbs = document.querySelectorAll('.bg-orb');
+            let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+            document.addEventListener('mousemove', function(e) {
+                targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+            function animateOrbs() {
+                mouseX += (targetMouseX - mouseX) * 0.03;
+                mouseY += (targetMouseY - mouseY) * 0.03;
+                if (orbs[0]) orbs[0].style.transform = `translate(${mouseX * 40}px, ${mouseY * 40}px)`;
+                if (orbs[1]) orbs[1].style.transform = `translate(${mouseX * -35}px, ${mouseY * -30}px)`;
+                if (orbs[2]) orbs[2].style.transform = `translate(${mouseX * 25}px, ${mouseY * -35}px)`;
+                if (orbs[3]) orbs[3].style.transform = `translate(${mouseX * -30}px, ${mouseY * 25}px)`;
+                if (orbs[4]) orbs[4].style.transform = `translate(${mouseX * 20}px, ${mouseY * -20}px)`;
+                requestAnimationFrame(animateOrbs);
+            }
+            animateOrbs();
+
+            const glassCards = document.querySelectorAll('.glass-card');
+            glassCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -4;
+                    const rotateY = ((x - centerX) / centerX) * 4;
+                    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                });
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+                card.addEventListener('mouseenter', function() {
+                    card.style.transition = 'transform 0.15s ease-out';
+                });
+            });
+
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.35);
+                        transform: scale(0);
+                        animation: rippleAnim 0.7s ease-out forwards;
+                        pointer-events: none;
+                        left: ${e.clientX - btn.getBoundingClientRect().left}px;
+                        top: ${e.clientY - btn.getBoundingClientRect().top}px;
+                        width: 20px;
+                        height: 20px;
+                        margin-left: -10px;
+                        margin-top: -10px;
+                    `;
+                    btn.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            });
+            const rippleStyle = document.createElement('style');
+            rippleStyle.textContent = `@keyframes rippleAnim { to { transform: scale(30); opacity: 0; } }`;
+            document.head.appendChild(rippleStyle);
+
+            // PORTFOLIO SLIDER (УНИВЕРСАЛЬНЫЙ)
+const slides = document.querySelectorAll('#sliderViewport img');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+const dotsContainer = document.querySelector('.slider-dots');
+let currentIndex = 0;
+let autoPlayInterval;
+
+function initDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function goToSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    const activeDots = document.querySelectorAll('.slider-dot');
+    activeDots.forEach(d => d.classList.remove('active'));
+    
+    slides[index].classList.add('active');
+    if (activeDots[index]) activeDots[index].classList.add('active');
+    
+    currentIndex = index;
+}
+
+function nextSlide() {
+    let next = (currentIndex + 1) % slides.length;
+    goToSlide(next);
+}
+
+function prevSlide() {
+    let prev = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(prev);
+}
+
+if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+
+function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 5000);
+}
+
+function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    startAutoPlay();
+}
+
+initDots();
+if (slides.length > 0) goToSlide(0);
+startAutoPlay();
+
+
+            // CATALOG TABS
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const intelGroup = document.getElementById('intel-group');
+            const amdGroup = document.getElementById('amd-group');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const tab = btn.dataset.tab;
+                    if (tab === 'intel') {
+                        intelGroup.classList.remove('hidden');
+                        amdGroup.classList.add('hidden');
+                    } else {
+                        amdGroup.classList.remove('hidden');
+                        intelGroup.classList.add('hidden');
+                    }
+                });
+            });
+
+            // BUDGET FILTER
+            const budgetBtns = document.querySelectorAll('.budget-btn');
+            const allPcCards = document.querySelectorAll('.pc-card');
+            function applyBudgetFilter(value) {
+                budgetBtns.forEach(b => b.classList.toggle('active', b.dataset.budget === value));
+                allPcCards.forEach(card => {
+                    const matches = value === 'all' || card.dataset.budget === value;
+                    card.classList.toggle('budget-hidden', !matches);
+                });
+            }
+            budgetBtns.forEach(btn => {
+                btn.addEventListener('click', () => applyBudgetFilter(btn.dataset.budget));
+            });
+
+            // TASK PICKER CARDS -> jump to catalog with matching budget filter
+            document.querySelectorAll('.task-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    applyBudgetFilter(card.dataset.gotoBudget);
+                    const catalogSection = document.getElementById('catalog');
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = catalogSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                });
+            });
+
+            // PC BUILDER WIZARD
+            (function() {
+                const TELEGRAM_USERNAME = 'Scout_PC';
+                const steps = Array.from(document.querySelectorAll('.builder-step'));
+                const progressItems = Array.from(document.querySelectorAll('.builder-progress-item'));
+                const backBtn = document.getElementById('builderBack');
+                const nextBtn = document.getElementById('builderNext');
+                const submitRow = document.getElementById('builderSubmitRow');
+                const copyBtn = document.getElementById('builderCopyBtn');
+                const summaryBox = document.getElementById('builderSummary');
+                if (!steps.length || !nextBtn) return;
+
+                let currentStep = 1;
+                const totalSteps = steps.length;
+                const answers = { platform: '', budget: '', goal: '', rgb: '' };
+
+                document.querySelectorAll('.choice-grid').forEach(grid => {
+                    const group = grid.dataset.group;
+                    grid.querySelectorAll('.choice-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+                            btn.classList.add('selected');
+                            answers[group] = btn.dataset.value;
+                        });
+                    });
+                });
+
+                function updateProgress() {
+                    progressItems.forEach(item => {
+                        const step = parseInt(item.dataset.step, 10);
+                        item.classList.remove('active', 'done');
+                        if (step === currentStep) item.classList.add('active');
+                        else if (step < currentStep) item.classList.add('done');
+                    });
+                }
+
+                function buildSummary() {
+                    const comment = document.getElementById('builderComment').value.trim();
+                    let html = '';
+                    if (answers.platform) html += `<strong>Платформа:</strong> ${answers.platform}<br>`;
+                    if (answers.budget) html += `<strong>Бюджет:</strong> ${answers.budget}<br>`;
+                    if (answers.goal) html += `<strong>Задача:</strong> ${answers.goal}<br>`;
+                    if (answers.rgb) html += `<strong>Подсветка:</strong> ${answers.rgb}<br>`;
+                    if (comment) html += `<strong>Пожелания:</strong> ${comment}`;
+                    summaryBox.innerHTML = html || 'Пока ничего не выбрано';
+                }
+
+                function showStep(step) {
+                    steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step, 10) === step));
+                    updateProgress();
+                    backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+                    if (step === totalSteps) {
+                        buildSummary();
+                        nextBtn.textContent = window.innerWidth <= 480 ? 'В Telegram →' : 'Отправить в Telegram';
+                        submitRow.style.display = 'flex';
+                    } else {
+                        nextBtn.textContent = 'Далее';
+                        submitRow.style.display = 'none';
+                    }
+                }
+
+                function validateStep(step) {
+                    if (step >= 1 && step <= 4) {
+                        const groupMap = { 1: 'platform', 2: 'budget', 3: 'goal', 4: 'rgb' };
+                        const group = groupMap[step];
+                        if (group === 'rgb') return true; // style step is optional
+                        if (!answers[group]) {
+                            const grid = document.querySelector(`.choice-grid[data-group="${group}"]`);
+                            if (grid) {
+                                grid.style.animation = 'none';
+                                requestAnimationFrame(() => { grid.style.animation = 'shakeInvalid 0.4s'; });
+                            }
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                function buildRequestText() {
+                    const comment = document.getElementById('builderComment').value.trim();
+                    let text = 'Заявка на сборку ПК с сайта ScoutPC\n\n';
+                    text += `Платформа: ${answers.platform || '—'}\n`;
+                    text += `Бюджет: ${answers.budget || '—'}\n`;
+                    text += `Задача: ${answers.goal || '—'}\n`;
+                    text += `Подсветка: ${answers.rgb || '—'}\n`;
+                    if (comment) text += `Пожелания: ${comment}\n`;
+                    return text;
+                }
+
+                function sendToTelegram() {
+                    const text = buildRequestText();
+                    if (!text) return;
+                    const url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)}`;
+                    window.open(url, '_blank');
+                }
+
+                function copyRequestText() {
+                    const text = buildRequestText();
+                    if (!text) return;
+                    const showCopied = () => {
+                        const original = copyBtn.textContent;
+                        copyBtn.textContent = 'Скопировано ✓';
+                        setTimeout(() => { copyBtn.textContent = original; }, 2000);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+                            fallbackCopy(text, showCopied);
+                        });
+                    } else {
+                        fallbackCopy(text, showCopied);
+                    }
+                }
+
+                function fallbackCopy(text, onSuccess) {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try { document.execCommand('copy'); onSuccess(); } catch (e) {}
+                    document.body.removeChild(textarea);
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentStep === totalSteps) {
+                        sendToTelegram();
+                        return;
+                    }
+                    if (!validateStep(currentStep)) return;
+                    currentStep = Math.min(currentStep + 1, totalSteps);
+                    showStep(currentStep);
+                });
+
+                copyBtn.addEventListener('click', copyRequestText);
+
+                backBtn.addEventListener('click', () => {
+                    currentStep = Math.max(currentStep - 1, 1);
+                    showStep(currentStep);
+                });
+
+                showStep(currentStep);
+            })();
+
+            // CONSULTATION DROPDOWNS (Telegram / MAX choice)
+            document.querySelectorAll('.consult-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dropdown = trigger.closest('.consult-dropdown');
+                    const isOpen = dropdown.classList.contains('open');
+                    document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
+                    if (!isOpen) {
+                        dropdown.classList.add('open');
+                        const overlay = dropdown.closest('#mobileMenuOverlay');
+                        if (overlay) {
+                            setTimeout(() => {
+                                const menu = dropdown.querySelector('.consult-menu');
+                                if (menu) menu.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                            }, 60);
+                        }
+                    }
+                });
+            });
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.consult-dropdown.open').forEach(d => d.classList.remove('open'));
+            });
+
+            // MOBILE FULL-SCREEN MENU
+            const hamburger = document.getElementById('hamburger');
+            const mobileOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileClose = document.getElementById('mobileMenuClose');
+            function openMobileMenu() {
+                hamburger.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMobileMenu() {
+                hamburger.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    if (mobileOverlay.classList.contains('active')) closeMobileMenu();
+                    else openMobileMenu();
+                });
+            }
+            if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.querySelectorAll('.mobile-overlay-link').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // FPS INFO POPOVERS
+            function closeAllFpsPopovers() {
+                document.querySelectorAll('.fps-info-wrap.open').forEach(w => {
+                    w.classList.remove('open');
+                    const pop = w.querySelector('.fps-popover');
+                    if (pop) {
+                        pop.style.marginLeft = '';
+                        pop.style.transform = '';
+                        pop.classList.remove('below');
+                    }
+                });
+            }
+            document.querySelectorAll('.fps-info').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wrap = btn.closest('.fps-info-wrap');
+                    const isOpen = wrap.classList.contains('open');
+                    closeAllFpsPopovers();
+                    if (!isOpen) {
+                        wrap.classList.add('open');
+                        const popover = wrap.querySelector('.fps-popover');
+                        requestAnimationFrame(() => {
+                            const margin = 12;
+                            let rect = popover.getBoundingClientRect();
+                            if (rect.top < margin) {
+                                popover.classList.add('below');
+                                rect = popover.getBoundingClientRect();
+                            }
+                            const viewportWidth = document.documentElement.clientWidth;
+                            // Clamp against the card's own edges first so the popover
+                            // never spills into a neighbouring catalog card, then also
+                            // clamp against the viewport as a fallback.
+                            const card = btn.closest('.pc-card');
+                            const cardRect = card ? card.getBoundingClientRect() : null;
+                            const leftBound = Math.max(margin, cardRect ? cardRect.left + margin : margin);
+                            const rightBound = Math.min(viewportWidth - margin, cardRect ? cardRect.right - margin : viewportWidth - margin);
+                            let shiftX = 0;
+                            if (rect.right > rightBound) {
+                                shiftX = rightBound - rect.right;
+                            } else if (rect.left < leftBound) {
+                                shiftX = leftBound - rect.left;
+                            }
+                            if (shiftX !== 0) {
+                                popover.style.marginLeft = (-115 + shiftX) + 'px';
+                            }
+                            rect = popover.getBoundingClientRect();
+                            const viewportHeight = document.documentElement.clientHeight;
+                            let shiftY = 0;
+                            if (rect.bottom > viewportHeight - margin) {
+                                shiftY = (viewportHeight - margin) - rect.bottom;
+                            } else if (rect.top < margin) {
+                                shiftY = margin - rect.top;
+                            }
+                            if (shiftY !== 0) {
+                                popover.style.transform = `translateY(${shiftY}px)`;
+                            }
+                        });
+                    }
+                });
+            });
+            document.addEventListener('click', closeAllFpsPopovers);
+
+            // REVIEWS SLIDER
+            (function() {
+                const grid = document.getElementById('reviewsGrid');
+                const prev = document.getElementById('reviewsPrev');
+                const next = document.getElementById('reviewsNext');
+                if (!grid || !prev || !next) return;
+                function scrollByCard(dir) {
+                    const card = grid.querySelector('.review-card');
+                    const gap = 24;
+                    const amount = card ? (card.getBoundingClientRect().width + gap) : 340;
+                    grid.scrollBy({ left: dir * amount, behavior: 'smooth' });
+                }
+                prev.addEventListener('click', () => scrollByCard(-1));
+                next.addEventListener('click', () => scrollByCard(1));
+            })();
+
+            // FAQ ACCORDION
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const wasOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                    if (!wasOpen) item.classList.add('open');
+                });
+            });
+
+            updateHeader();
+            console.log('🖥️ ScoutPC — финальная версия');
+        })();
+    </script>
+
+</body>
+</html>
