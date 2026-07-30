@@ -2897,10 +2897,110 @@
                             с личной проверкой каждой детали перед тем, как отдать его вам.
                         </p>
                         <div class="hero-buttons">
-                            <a href="index.html#build" class="btn btn-primary">Рассчитать стоимость ПК</a>
+                            <a href="#build" class="btn btn-primary">Рассчитать стоимость ПК</a>
                             <a href="index.html#catalog" class="btn btn-outline">Смотреть готовые сборки</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="build">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Соберите <span class="accent">свою конфигурацию</span></h2>
+                    <p class="section-desc">5 быстрых шагов — и заявка с готовой конфигурацией уйдёт в Telegram или MAX</p>
+                </div>
+
+                <div class="builder-wrapper glass-card reveal">
+                    <div class="builder-progress" id="builderProgress">
+                        <div class="builder-progress-item active" data-step="1">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Платформа</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="2">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Бюджет</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="3">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Задача</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="4">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Стиль</div>
+                        </div>
+                        <div class="builder-progress-item" data-step="5">
+                            <div class="builder-progress-dot"></div>
+                            <div class="builder-progress-label">Контакты</div>
+                        </div>
+                    </div>
+
+                    <div class="builder-steps">
+                        <div class="builder-step active" data-step="1">
+                            <h3>Какая платформа нужна?</h3>
+                            <p class="builder-step-desc">Если не уверены, выберите «Не важно», подберём по цене и производительности</p>
+                            <div class="choice-grid" data-group="platform">
+                                <button class="choice-btn" data-value="Intel">Intel</button>
+                                <button class="choice-btn" data-value="AMD">AMD</button>
+                                <button class="choice-btn" data-value="Не важно">Не важно, что оптимальнее</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="2">
+                            <h3>Какой у вас бюджет?</h3>
+                            <p class="builder-step-desc">Ориентировочно. Точную сумму обсудим после консультации</p>
+                            <div class="choice-grid" data-group="budget">
+                                <button class="choice-btn" data-value="До 90 000 ₽">До 90 000 ₽</button>
+                                <button class="choice-btn" data-value="90 000–130 000 ₽">90 000–130 000 ₽</button>
+                                <button class="choice-btn" data-value="130 000–180 000 ₽">130 000–180 000 ₽</button>
+                                <button class="choice-btn" data-value="От 180 000 ₽">От 180 000 ₽</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="3">
+                            <h3>Для чего в основном нужен ПК?</h3>
+                            <p class="builder-step-desc">Это определяет баланс между процессором, видеокартой и охлаждением</p>
+                            <div class="choice-grid" data-group="goal">
+                                <button class="choice-btn" data-value="Игры">Игры</button>
+                                <button class="choice-btn" data-value="Стриминг / запись контента">Стриминг / запись контента</button>
+                                <button class="choice-btn" data-value="Киберспорт, максимальный FPS">Киберспорт, максимальный FPS</button>
+                                <button class="choice-btn" data-value="Работа, монтаж, нейросети">Работа, монтаж, нейросети</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="4">
+                            <h3>Пожелания по стилю</h3>
+                            <p class="builder-step-desc">RGB-подсветка и корпус необязательны, можно пропустить</p>
+                            <div class="builder-field">
+                                <label>Подсветка</label>
+                                <div class="choice-grid" data-group="rgb">
+                                    <button class="choice-btn" data-value="Яркая RGB-подсветка">Яркая RGB-подсветка</button>
+                                    <button class="choice-btn" data-value="Сдержанная / без подсветки">Сдержанная / без подсветки</button>
+                                    <button class="choice-btn" data-value="Не важно">Не важно</button>
+                                </div>
+                            </div>
+                            <div class="builder-field">
+                                <label>Доп. пожелания (необязательно)</label>
+                                <textarea id="builderComment" rows="3" placeholder="Например: нужен тихий ПК, хочу белый корпус, есть старые комплектующие для переноса..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="builder-step" data-step="5">
+                            <h3>Всё готово</h3>
+                            <p class="builder-step-desc">Проверьте конфигурацию и отправьте заявку любым удобным способом</p>
+                            <div class="builder-summary" id="builderSummary"></div>
+                        </div>
+                    </div>
+
+                    <div class="builder-nav">
+                        <button class="btn btn-outline" id="builderBack" style="visibility: hidden;">Назад</button>
+                        <button class="btn btn-primary" id="builderNext">Далее</button>
+                    </div>
+                    <div class="builder-submit-row" id="builderSubmitRow" style="display: none;">
+                        <button class="btn btn-outline" id="builderCopyBtn">Скопировать заявку</button>
+                    </div>
+                    <div class="builder-hint">Заявка откроется в Telegram, или скопируйте её и вставьте в MAX/куда удобно</div>
                 </div>
             </div>
         </section>
