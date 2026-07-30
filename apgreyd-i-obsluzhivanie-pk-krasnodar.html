@@ -2642,6 +2642,24 @@
             padding: 48px 32px;
             overflow: visible;
         }
+        .page-hero-image {
+            margin-top: 36px;
+            max-width: 460px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(184, 130, 255, 0.2);
+        }
+        .page-hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            .page-hero-image {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2758,6 +2776,9 @@
                         <div class="hero-buttons">
                             <a href="https://t.me/Scout_PC" target="_blank" class="btn btn-primary">Написать в Telegram</a>
                             <a href="index.html#catalog" class="btn btn-outline">Смотреть готовые ПК</a>
+                        </div>
+                        <div class="page-hero-image">
+                            <img src="images/scoutpc-service.png" alt="ScoutPC — чистка и обслуживание ПК в Краснодаре" loading="lazy">
                         </div>
                     </div>
                 </div>
