@@ -3,18 +3,15 @@
   const consentPanel = document.getElementById('privacyConsent');
   const acceptButton = document.getElementById('privacyAccept');
   const declineButton = document.getElementById('privacyDecline');
-  const settingsButton = document.getElementById('privacySettings');
 
   const showConsent = () => {
     consentPanel?.classList.add('is-visible');
     consentPanel?.setAttribute('aria-hidden', 'false');
-    settingsButton?.classList.remove('is-visible');
   };
 
   const hideConsent = () => {
     consentPanel?.classList.remove('is-visible');
     consentPanel?.setAttribute('aria-hidden', 'true');
-    settingsButton?.classList.add('is-visible');
   };
 
   const loadMetrika = () => {
@@ -70,7 +67,6 @@
 
   acceptButton?.addEventListener('click', () => saveConsent('accepted'));
   declineButton?.addEventListener('click', () => saveConsent('declined'));
-  settingsButton?.addEventListener('click', showConsent);
 
   // The main page keeps its original, proven interaction bundle intact.
   if (document.body.dataset.page === 'index') return;
