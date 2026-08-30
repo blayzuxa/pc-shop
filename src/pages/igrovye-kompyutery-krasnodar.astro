@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/igrovye-kompyutery-krasnodar.html?raw';
+import '../styles/igrovye-kompyutery-krasnodar.css';
+const page = data['igrovye-kompyutery-krasnodar'];
+---
+<BaseLayout {...page} page="igrovye-kompyutery-krasnodar"><Fragment set:html={content} /></BaseLayout>

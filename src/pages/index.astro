@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/index.html?raw';
+import '../styles/index.css';
+const page = data.index;
+---
+<BaseLayout {...page} page="index"><Fragment set:html={content} /></BaseLayout>

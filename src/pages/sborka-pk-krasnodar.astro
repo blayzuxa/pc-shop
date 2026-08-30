@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/sborka-pk-krasnodar.html?raw';
+import '../styles/sborka-pk-krasnodar.css';
+const page = data['sborka-pk-krasnodar'];
+---
+<BaseLayout {...page} page="sborka-pk-krasnodar"><Fragment set:html={content} /></BaseLayout>

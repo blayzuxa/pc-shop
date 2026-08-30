@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/apgreyd-i-obsluzhivanie-pk-krasnodar.html?raw';
+import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
+const page = data['apgreyd-i-obsluzhivanie-pk-krasnodar'];
+---
+<BaseLayout {...page} page="apgreyd-i-obsluzhivanie-pk-krasnodar"><Fragment set:html={content} /></BaseLayout>

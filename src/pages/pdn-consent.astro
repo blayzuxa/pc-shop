@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/pdn-consent.html?raw';
+import '../styles/pdn-consent.css';
+const page = data['pdn-consent'];
+---
+<BaseLayout {...page} page="pdn-consent"><Fragment set:html={content} /></BaseLayout>

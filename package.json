@@ -1,0 +1,19 @@
+{
+  "name": "scoutpc-refactor-preview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "optimize:css": "node scripts/prune-css.mjs",
+    "build": "npm run optimize:css && astro check && astro build",
+    "check": "astro check && node scripts/audit-site.mjs",
+    "test": "npm run build && node scripts/audit-dist.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.13.5",
+    "purgecss": "^7.0.2",
+    "typescript": "^5.9.2"
+  }
+}

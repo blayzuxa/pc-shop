@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../page-data.json';
+import content from '../content/privacy-policy.html?raw';
+import '../styles/privacy-policy.css';
+const page = data['privacy-policy'];
+---
+<BaseLayout {...page} page="privacy-policy"><Fragment set:html={content} /></BaseLayout>
