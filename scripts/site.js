@@ -1,4 +1,77 @@
 (() => {
+  const CONSENT_KEY = 'scoutpc_analytics_consent_v1';
+  const consentPanel = document.getElementById('privacyConsent');
+  const acceptButton = document.getElementById('privacyAccept');
+  const declineButton = document.getElementById('privacyDecline');
+  const settingsButton = document.getElementById('privacySettings');
+
+  const showConsent = () => {
+    consentPanel?.classList.add('is-visible');
+    consentPanel?.setAttribute('aria-hidden', 'false');
+    settingsButton?.classList.remove('is-visible');
+  };
+
+  const hideConsent = () => {
+    consentPanel?.classList.remove('is-visible');
+    consentPanel?.setAttribute('aria-hidden', 'true');
+    settingsButton?.classList.add('is-visible');
+  };
+
+  const loadMetrika = () => {
+    if (window.__scoutpcMetrikaLoaded) return;
+    window.__scoutpcMetrikaLoaded = true;
+    window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+    window.ym.l = Date.now();
+    const script = document.createElement('script');
+    script.async = true;
+    script.dataset.scoutpcMetrika = 'true';
+    script.src = 'https://mc.yandex.ru/metrika/tag.js?id=112081790';
+    document.head.appendChild(script);
+    window.ym(112081790, 'init', {
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      ecommerce: 'dataLayer',
+      referrer: document.referrer,
+      url: location.href,
+      accurateTrackBounce: true,
+      trackLinks: true,
+    });
+  };
+
+  const disableMetrika = () => {
+    if (window.__scoutpcMetrikaLoaded && typeof window.ym === 'function') {
+      try { window.ym(112081790, 'destruct'); } catch (_) { /* counter may still be loading */ }
+    }
+    document.querySelectorAll('script[data-scoutpc-metrika]').forEach(script => script.remove());
+    ['_ym_uid', '_ym_d', '_ym_isad', '_ym_visorc', '_ym_wv2rf'].forEach(name => {
+      document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+    });
+    window.__scoutpcMetrikaLoaded = false;
+  };
+
+  const saveConsent = value => {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (_) { /* storage can be unavailable */ }
+    hideConsent();
+    if (value === 'accepted') loadMetrika();
+    else disableMetrika();
+  };
+
+  let consent = null;
+  try { consent = localStorage.getItem(CONSENT_KEY); } catch (_) { /* storage can be unavailable */ }
+  if (consent === 'accepted') {
+    hideConsent();
+    loadMetrika();
+  } else if (consent === 'declined') {
+    hideConsent();
+  } else {
+    showConsent();
+  }
+
+  acceptButton?.addEventListener('click', () => saveConsent('accepted'));
+  declineButton?.addEventListener('click', () => saveConsent('declined'));
+  settingsButton?.addEventListener('click', showConsent);
+
   // The main page keeps its original, proven interaction bundle intact.
   if (document.body.dataset.page === 'index') return;
 

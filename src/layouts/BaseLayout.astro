@@ -21,6 +21,25 @@ const { title, description = '', canonical, headHtml = '', page } = Astro.props;
   </head>
   <body data-page={page}>
     <slot />
+    <aside class="privacy-consent" id="privacyConsent" aria-hidden="true" aria-labelledby="privacyConsentTitle">
+      <div class="privacy-consent-glow" aria-hidden="true"></div>
+      <div class="privacy-consent-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3.2 4.8 6.1v5.1c0 4.6 2.9 8.8 7.2 10.1 4.3-1.3 7.2-5.5 7.2-10.1V6.1L12 3.2Zm0 2.1 5.2 2.1v3.8c0 3.5-2.1 6.8-5.2 8-3.1-1.2-5.2-4.5-5.2-8V7.4L12 5.3Zm-.9 3.2v4.2l3.6 2.1.9-1.5-2.7-1.6V8.5h-1.8Z"/></svg>
+      </div>
+      <div class="privacy-consent-copy">
+        <span class="privacy-consent-kicker">Конфиденциальность</span>
+        <h2 id="privacyConsentTitle">Можно немного аналитики?</h2>
+        <p>Яндекс.Метрика помогает нам понимать, какие страницы полезны. Она включится только с вашего разрешения. Подробнее — в <a href="/privacy-policy.html">политике конфиденциальности</a>.</p>
+      </div>
+      <div class="privacy-consent-actions">
+        <button class="privacy-consent-button privacy-consent-button-secondary" id="privacyDecline" type="button">Только необходимые</button>
+        <button class="privacy-consent-button privacy-consent-button-primary" id="privacyAccept" type="button">Разрешить аналитику</button>
+      </div>
+    </aside>
+    <button class="privacy-settings-button" id="privacySettings" type="button" aria-label="Изменить настройки аналитики">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 4.8 6.1v5.1c0 4.6 2.9 8.8 7.2 10.1 4.3-1.3 7.2-5.5 7.2-10.1V6.1L12 3.2Zm0 2.1 5.2 2.1v3.8c0 3.5-2.1 6.8-5.2 8-3.1-1.2-5.2-4.5-5.2-8V7.4L12 5.3Z"/></svg>
+      Настройки cookies
+    </button>
     <script is:inline src="/scripts/site.js" defer></script>
     <script is:inline src={`/scripts/${page}.js`} defer></script>
   </body>
