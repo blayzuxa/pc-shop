@@ -8,6 +8,7 @@ on:
       - 'src/content/vykup-videokart-i-komplektuyushchih-krasnodar.html'
       - 'src/styles/vykup-videokart-i-komplektuyushchih-krasnodar.css'
       - 'public/images/scoutpc-buyback.avif'
+      - 'public/images/scoutpc-buyback-v2.avif'
       - '.github/workflows/fix-buyback-publish.yml'
 
 permissions:
@@ -15,6 +16,7 @@ permissions:
 
 jobs:
   build:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +24,10 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      - name: Switch buyback hero to cache-busted asset
+        run: |
+          sed -i 's#scoutpc-buyback\.avif#scoutpc-buyback-v2.avif#g' src/content/vykup-videokart-i-komplektuyushchih-krasnodar.html
+          sed -i 's#scoutpc-buyback\.avif#scoutpc-buyback-v2.avif#g' src/pages/vykup-videokart-i-komplektuyushchih-krasnodar.astro
       - run: npm ci --no-audit --no-fund
       - run: npm run build
       - name: Copy built site to repository root
@@ -34,6 +40,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes"
           else
-            git commit -m "Publish fixed buyback hero image"
+            git commit -m "Publish cache-busted buyback hero"
             git push
           fi
