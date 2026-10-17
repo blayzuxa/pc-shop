@@ -10,6 +10,7 @@ const firstSectionIndex = shell.indexOf('<section class="section hero-section"')
 const footerIndex = shell.indexOf('<footer class="footer"');
 
 const shellStart = (firstSectionIndex >= 0 ? shell.slice(0, firstSectionIndex) : '')
+  .replace(/<nav class="breadcrumb-nav"[\s\S]*?<\/nav>/, '')
   .replace(
     '<li><a href="index.html#reviews">Отзывы</a></li>',
     `<li><a href="index.html#reviews">Отзывы</a></li>\n<li><a href="${buybackUrl}">Выкуп железа</a></li>`,
