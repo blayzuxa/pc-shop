@@ -14,6 +14,10 @@ const pageContent = content
   .replace(
     '<a class="mobile-overlay-link" href="#reviews"><span>Отзывы</span><span class="arrow">→</span></a>',
     `<a class="mobile-overlay-link" href="#reviews"><span>Отзывы</span><span class="arrow">→</span></a>\n<a class="mobile-overlay-link" href="${buybackUrl}"><span>Выкуп железа</span><span class="arrow">→</span></a>`,
+  )
+  .replace(
+    '<a href="#location">Как добраться</a>',
+    `<a href="#location">Как добраться</a>\n<a href="${buybackUrl}">Выкуп видеокарт</a>`,
   );
 ---
 <BaseLayout {...page} page="index"><Fragment set:html={pageContent} /></BaseLayout>
