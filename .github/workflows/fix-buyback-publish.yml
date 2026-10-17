@@ -9,6 +9,7 @@ on:
       - 'src/styles/vykup-videokart-i-komplektuyushchih-krasnodar.css'
       - 'public/images/scoutpc-buyback.avif'
       - 'public/images/scoutpc-buyback-v2.avif'
+      - 'public/sitemap.xml'
       - '.github/workflows/fix-buyback-publish.yml'
 
 permissions:
