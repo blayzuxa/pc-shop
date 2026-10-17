@@ -18,6 +18,10 @@ const pageContent = content
   .replace(
     '<a href="#location">Как добраться</a>',
     `<a href="#location">Как добраться</a>\n<a href="${buybackUrl}">Выкуп видеокарт</a>`,
+  )
+  .replace(
+    '<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>',
+    `<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>\n<a href="${buybackUrl}">Выкуп видеокарт и комплектующих</a>`,
   );
 ---
 <BaseLayout {...page} page="index"><Fragment set:html={pageContent} /></BaseLayout>
