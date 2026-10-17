@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import content from '../content/vykup-videokart-komplektuyushchih-krasnodar.html?raw';
+import '../styles/vykup-videokart-komplektuyushchih-krasnodar.css';
+
+const page = {
+  title: 'Выкуп видеокарт и комплектующих в Краснодаре | ScoutPC',
+  description: 'Выкуп видеокарт, игровых ПК и современных комплектующих в Краснодаре. Предварительная оценка по фото, проверка в ScoutPC и расчёт после проверки. Trade-in старого железа в новую сборку.',
+  canonical: 'https://scoutpc.ru/vykup-videokart-komplektuyushchih-krasnodar.html',
+  headHtml: `<meta property="og:type" content="website" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Выкуп видеокарт и комплектующих в Краснодаре | ScoutPC" />
+<meta property="og:description" content="Оценим видеокарту, комплектующие или игровой ПК по фото. Проверка в ScoutPC и расчёт после проверки." />
+<meta property="og:url" content="https://scoutpc.ru/vykup-videokart-komplektuyushchih-krasnodar.html" />
+<meta property="og:image" content="https://scoutpc.ru/images/work1.jpg" />
+<meta name="twitter:card" content="summary_large_image" />`
+};
+---
+<BaseLayout {...page} page="vykup-videokart-komplektuyushchih-krasnodar"><Fragment set:html={content} /></BaseLayout>
