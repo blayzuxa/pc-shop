@@ -3,6 +3,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../page-data.json';
 import content from '../content/index.html?raw';
 import '../styles/index.css';
+
 const page = data.index;
+const buybackUrl = '/vykup-videokart-i-komplektuyushchih-krasnodar.html';
+const pageContent = content
+  .replace(
+    '<li><a href="#reviews">Отзывы</a></li>',
+    `<li><a href="#reviews">Отзывы</a></li>\n<li><a href="${buybackUrl}">Выкуп железа</a></li>`,
+  )
+  .replace(
+    '<a class="mobile-overlay-link" href="#reviews"><span>Отзывы</span><span class="arrow">→</span></a>',
+    `<a class="mobile-overlay-link" href="#reviews"><span>Отзывы</span><span class="arrow">→</span></a>\n<a class="mobile-overlay-link" href="${buybackUrl}"><span>Выкуп железа</span><span class="arrow">→</span></a>`,
+  )
+  .replace(
+    '<a href="#location">Как добраться</a>',
+    `<a href="#location">Как добраться</a>\n<a href="${buybackUrl}">Выкуп видеокарт</a>`,
+  )
+  .replace(
+    '<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>',
+    `<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>\n<a href="${buybackUrl}">Выкуп видеокарт и комплектующих</a>`,
+  );
 ---
-<BaseLayout {...page} page="index"><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="index"><Fragment set:html={pageContent} /></BaseLayout>
