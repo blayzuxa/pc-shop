@@ -1,0 +1,57 @@
+name: Full repository backup
+
+on:
+  push:
+    branches:
+      - backup/full-repo-2026-10-17
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch all branches and tags
+        run: |
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --tags --prune
+
+      - name: Build full backup package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p backup
+
+          git bundle create backup/scoutpc-all.bundle --all
+          git archive --format=zip --output=backup/site-main.zip origin/main
+          git archive --format=zip --output=backup/site-vykup-draft.zip origin/draft/vykup-astra6-final
+
+          {
+            echo 'ScoutPC GitHub full backup'
+            echo "Created: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            echo "Repository: $GITHUB_REPOSITORY"
+            echo
+            echo 'Files:'
+            echo '- scoutpc-all.bundle: complete Git repository history and refs available to this checkout'
+            echo '- site-main.zip: snapshot of main branch'
+            echo '- site-vykup-draft.zip: snapshot of draft/vykup-astra6-final branch'
+            echo '- BRANCHES_AND_TAGS.txt: refs list'
+            echo '- COMMIT_HISTORY.txt: commit history across refs'
+          } > backup/BACKUP_INFO.txt
+
+          git for-each-ref --format='%(refname) %(objectname)' refs/heads refs/remotes refs/tags > backup/BRANCHES_AND_TAGS.txt
+          git log --all --decorate --oneline --graph > backup/COMMIT_HISTORY.txt
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ScoutPC-GitHub-full-backup-2026-10-17
+          path: backup/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
