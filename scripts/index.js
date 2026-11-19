@@ -240,7 +240,7 @@ startAutoPlay();
                 const totalSteps = steps.length;
                 const answers = { platform: '', goal: '', rgb: '' };
                 // Single source of truth for the approved budget selector.
-                const MIN = 40000, MAX = 500000, STEP = 5000;
+                const MIN = 60000, MAX = 500000, STEP = 5000;
                 let budget = 150000, extra = 0, budgetValid = true;
                 const get = id => document.getElementById(id);
                 const amount = get('builderBudgetAmount'), range = get('builderBudgetRange');
@@ -278,7 +278,7 @@ startAutoPlay();
                     markBudgetChoices(extraGrid, extra);
                     get('builderBudgetMaximum').textContent = budgetValid ? rub(budget + extra) : '—';
                     amount.setAttribute('aria-invalid', String(!budgetValid));
-                    get('builderBudgetError').textContent = budgetValid ? '' : 'Введите сумму от 40 000 до 500 000 ₽.';
+                    get('builderBudgetError').textContent = budgetValid ? '' : 'Введите сумму от 60 000 до 500 000 ₽.';
                     if (currentStep === 2) nextBtn.disabled = !budgetValid;
                 }
                 function setBudget(n) {
