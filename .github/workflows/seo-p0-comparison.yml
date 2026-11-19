@@ -1,0 +1,69 @@
+name: SEO P0 before and after
+on:
+  push:
+    branches: [seo-p0-2026-11-19]
+    paths: ['.github/workflows/seo-p0-comparison.yml']
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: after
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: before
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install chromium
+      - name: Compare actual static pages
+        run: |
+          mkdir -p comparison
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory before >/tmp/before.log 2>&1 &
+          python3 -m http.server 4174 --bind 127.0.0.1 --directory after >/tmp/after.log 2>&1 &
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({headless:true});
+          for (const [device,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+            for(const [version,port] of [['before',4173],['after',4174]]) {
+              const page=await browser.newPage({viewport,deviceScaleFactor:1});
+              await page.route('**/mc.yandex.ru/**',r=>r.abort());
+              for(const [name,path,selector] of [['hero','/','#hero'],['catalog','/','#catalog .section-header'],['pricing','/sborka-pk-krasnodar.html','#pricing-local'],['gaming','/igrovye-kompyutery-krasnodar.html','#tiers-local'],['faq','/','#faq']]){
+                await page.goto('http://127.0.0.1:'+port+path,{waitUntil:'domcontentloaded'});
+                await page.locator('#privacyDecline').click({timeout:3000}).catch(()=>{});
+                await page.evaluate(()=>document.fonts.ready);
+                const el=page.locator(selector).first();
+                if(!await el.count()) continue;
+                await el.scrollIntoViewIfNeeded();
+                if(name==='faq'){
+                  const items=page.locator('#faq .faq-item');
+                  for(const item of await items.all()){
+                    const t=await item.innerText();
+                    if(/гаранти|рассроч|доставк/i.test(t)){
+                      const q=item.locator('.faq-question');
+                      if(await q.count())await q.click().catch(()=>{});
+                    }
+                  }
+                }
+                await page.waitForTimeout(850);
+                if(name==='hero'){await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(700);await page.screenshot({path:'comparison/'+name+'-'+device+'-'+version+'.png',animations:'disabled'});}
+                else await el.screenshot({path:'comparison/'+name+'-'+device+'-'+version+'.png',animations:'disabled'});
+              }
+              await page.close();
+            }
+          }
+          await browser.close();
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scoutpc-before-after
+          path: comparison/
+          retention-days: 3
