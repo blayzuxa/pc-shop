@@ -32,6 +32,7 @@
     ].join('\n');
     telegram.href = 'https://t.me/Scout_PC';
     result.hidden = false;
+    window.scoutpcGoal?.('buyback_prepare');
     return true;
   }
   prepare.addEventListener('click', () => { if (prepareMessage()) output.focus(); });
