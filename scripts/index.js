@@ -320,6 +320,7 @@ startAutoPlay();
                             grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
                             btn.classList.add('selected');
                             answers[group] = btn.dataset.value;
+                            window.scoutpcGoal?.('builder_start');
                         });
                     });
                 });
@@ -351,6 +352,7 @@ startAutoPlay();
                     backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
                     if (step === totalSteps) {
                         buildSummary();
+                        window.scoutpcGoal?.('builder_complete');
                         nextBtn.textContent = window.innerWidth <= 480 ? 'В Telegram →' : 'Отправить в Telegram';
                         submitRow.style.display = 'flex';
                     } else {
@@ -393,6 +395,7 @@ startAutoPlay();
                     const text = buildRequestText();
                     if (!text) return;
                     const url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)}`;
+                    window.scoutpcGoal?.('contact_telegram');
                     window.open(url, '_blank');
                 }
 
