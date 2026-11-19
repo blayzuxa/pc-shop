@@ -1,0 +1,98 @@
+name: SEO P0 private preview
+on:
+  push:
+    branches: [seo-p0-2026-11-19]
+    paths: ['.github/workflows/seo-p0-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/seo-p0-2026-11-19'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - name: Install Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install chromium
+      - name: Verify built and production-root pages
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory dist >/tmp/dist.log 2>&1 &
+          python3 -m http.server 4174 --bind 127.0.0.1 --directory . >/tmp/root.log 2>&1 &
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          import assert from 'node:assert/strict';
+          const browser=await chromium.launch({headless:true});
+          try{
+            for(const port of [4173,4174]) for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
+              const context=await browser.newContext({viewport});
+              await context.addInitScript(()=>{
+                window.__goalLog=[];
+                window.ym=(...args)=>window.__goalLog.push(args);
+                window.open=(...args)=>{window.__opened=args;return null};
+              });
+              await context.route('**/mc.yandex.ru/**',r=>r.fulfill({body:'',contentType:'application/javascript'}));
+              await context.route('**/t.me/**',r=>r.abort());
+              const page=await context.newPage();
+              const errors=[];
+              page.on('pageerror',e=>errors.push(e.message));
+              const base='http://127.0.0.1:'+port;
+              const response=await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+              assert.equal(response.status(),200);
+              assert.match(await page.title(),/60 000/);
+              await page.locator('#privacyAccept').click();
+              await page.locator('#build').scrollIntoViewIfNeeded();
+              await page.locator('.choice-grid[data-group="platform"] .choice-btn').first().click();
+              await page.locator('#builderNext').click();
+              await page.locator('#builderBudgetAmount').fill('65000');
+              await page.locator('#builderBudgetAmount').blur();
+              await page.locator('#builderNext').click();
+              await page.locator('.choice-grid[data-group="goal"] .choice-btn').first().click();
+              await page.locator('#builderNext').click();
+              await page.locator('#builderNext').click();
+              assert.match(await page.locator('#builderSummary').innerText(),/65\s*000/);
+              await page.locator('#builderBack').click();
+              await page.locator('#builderNext').click();
+              await page.locator('#builderNext').click();
+              const events=await page.evaluate(()=>window.__goalLog.filter(x=>x[1]==='reachGoal').map(x=>x[2]));
+              assert.equal(events.filter(x=>x==='builder_start').length,1);
+              assert.equal(events.filter(x=>x==='builder_complete').length,1);
+              assert.equal(events.filter(x=>x==='contact_telegram').length,1);
+              assert.match(await page.evaluate(()=>window.__opened[0]),/t\.me\/Scout_PC/);
+              assert.match(decodeURIComponent(await page.evaluate(()=>window.__opened[0])),/65\s*000/);
+              for(const path of ['/sborka-pk-krasnodar.html','/igrovye-kompyutery-krasnodar.html']){
+                assert.equal((await page.goto(base+path,{waitUntil:'domcontentloaded'})).status(),200);
+                assert.match(await page.locator('body').innerText(),/💸 Бюджетная сборка на заказ/);
+                assert.match(await page.locator('body').textContent(),/проверенных б\/у комплектующих/);
+              }
+              assert.equal((await page.goto(base+'/vykup-videokart-i-komplektuyushchih-krasnodar.html',{waitUntil:'domcontentloaded'})).status(),200);
+              const category=page.locator('select[name="category"]');
+              const options=await category.locator('option').evaluateAll(xs=>xs.filter(x=>x.value&&!x.disabled).map(x=>x.value));
+              await category.selectOption(options[0]);
+              await page.locator('input[name="model"]').fill('TEST GPU');
+              await page.locator('textarea[name="condition"]').fill('TEST only');
+              await page.locator('#prepare-request').click();
+              assert.match(await page.locator('#request-text').inputValue(),/TEST GPU/);
+              assert.equal(await page.evaluate(()=>window.__goalLog.filter(x=>x[1]==='reachGoal'&&x[2]==='buyback_prepare').length),1);
+              assert.deepEqual(errors,[]);
+              await context.close();
+              console.log('PASS',port,viewport.width);
+            }
+            const context=await browser.newContext();
+            await context.addInitScript(()=>{window.__goalLog=[];window.ym=(...a)=>window.__goalLog.push(a)});
+            const page=await context.newPage();
+            await page.goto('http://127.0.0.1:4174/');
+            await page.locator('#privacyDecline').click();
+            await page.evaluate(()=>window.scoutpcGoal('builder_start'));
+            assert.equal(await page.evaluate(()=>window.__goalLog.length),0);
+            await context.close();
+          }finally{await browser.close()}
+          JS

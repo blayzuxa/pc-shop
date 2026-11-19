@@ -68,6 +68,29 @@
   acceptButton?.addEventListener('click', () => saveConsent('accepted'));
   declineButton?.addEventListener('click', () => saveConsent('declined'));
 
+  // Conversion events are anonymous and strictly consent-gated.
+  const goalNames = new Set(['builder_start', 'builder_complete', 'contact_telegram', 'contact_max', 'contact_phone', 'buyback_prepare']);
+  const onceGoals = new Set(['builder_start', 'builder_complete', 'buyback_prepare']);
+  const sentGoals = new Set();
+  window.scoutpcGoal = name => {
+    if (!goalNames.has(name) || !window.__scoutpcMetrikaLoaded || typeof window.ym !== 'function') return;
+    if (onceGoals.has(name) && sentGoals.has(name)) return;
+    try {
+      window.ym(112081790, 'reachGoal', name);
+      if (onceGoals.has(name)) sentGoals.add(name);
+    } catch (_) { /* analytics must never block site interactions */ }
+  };
+  document.addEventListener('click', event => {
+    const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+    if (!link) return;
+    try {
+      const url = new URL(link.href, location.href);
+      if (url.protocol === 'tel:') window.scoutpcGoal('contact_phone');
+      else if (url.hostname === 't.me' && url.pathname.replace(/\/$/, '').toLowerCase() === '/scout_pc') window.scoutpcGoal('contact_telegram');
+      else if (url.hostname === 'max.ru' && url.pathname.startsWith('/u/')) window.scoutpcGoal('contact_max');
+    } catch (_) { /* ignore invalid URLs */ }
+  });
+
   // The main page keeps its original, proven interaction bundle intact.
   if (document.body.dataset.page === 'index') return;
 
