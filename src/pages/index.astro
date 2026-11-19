@@ -6,6 +6,44 @@ import '../styles/index.css';
 
 const page = data.index;
 const buybackUrl = '/vykup-videokart-i-komplektuyushchih-krasnodar.html';
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ComputerStore",
+  "@id": "https://scoutpc.ru/#localbusiness",
+  "name": "ScoutPC",
+  "url": "https://scoutpc.ru/",
+  "description": "Сборка игровых ПК на заказ в Краснодаре. Подбор комплектующих под задачи и бюджет, 3 часа стресс-тестов в OCCT и FurMark, гарантия 12 месяцев, самовывоз и доставка СДЭК.",
+  "image": "https://scoutpc.ru/images/optimized/pc7-960-v2.webp",
+  "logo": "https://scoutpc.ru/images/optimized/logo-circle-96.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Селезнёва, 136",
+    "addressLocality": "Краснодар",
+    "addressRegion": "Краснодарский край",
+    "addressCountry": "RU"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "https://schema.org/Tuesday",
+      "https://schema.org/Wednesday",
+      "https://schema.org/Thursday",
+      "https://schema.org/Friday",
+      "https://schema.org/Saturday",
+      "https://schema.org/Sunday"
+    ],
+    "opens": "10:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://t.me/ScoutPC",
+    "https://www.tiktok.com/@scout.pc",
+    "https://www.avito.ru/brands/i206808792",
+    "https://max.ru/u/f9LHodD0cOIuoMR9phsGgwJ1QB78M0ViDnirwxwIU5k4H0yjtoX9dd6Qr1Y"
+  ],
+  "hasMap": "https://yandex.ru/maps/-/CTr7uVI4"
+};
+const businessJsonLd = `<script type="application/ld+json">${JSON.stringify(businessSchema)}</script>`;
 const pageContent = content
   .replace(
     '<li><a href="#reviews">Отзывы</a></li>',
@@ -24,4 +62,4 @@ const pageContent = content
     `<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>\n<a href="${buybackUrl}">Выкуп видеокарт и комплектующих</a>`,
   );
 ---
-<BaseLayout {...page} page="index" headHtml={'<link rel="stylesheet" href="/styles/builder-budget-v2.css">'}><Fragment set:html={pageContent} /></BaseLayout>
+<BaseLayout {...page} page="index" headHtml={`<link rel="stylesheet" href="/styles/builder-budget-v2.css">${businessJsonLd}`}><Fragment set:html={pageContent} /></BaseLayout>

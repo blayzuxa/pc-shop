@@ -4,5 +4,17 @@ import data from '../page-data.json';
 import content from '../content/sborka-pk-krasnodar.html?raw';
 import '../styles/sborka-pk-krasnodar.css';
 const page = data['sborka-pk-krasnodar'];
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://scoutpc.ru/sborka-pk-krasnodar.html#service",
+  "name": "Сборка ПК на заказ в Краснодаре",
+  "serviceType": "Индивидуальная сборка персональных компьютеров",
+  "description": "Подбор комплектующих под игры, задачи и бюджет, согласование состава и состояния деталей, сборка и 3 часа стресс-тестов в OCCT и FurMark. Гарантия на компьютер — 12 месяцев.",
+  "provider": { "@id": "https://scoutpc.ru/#localbusiness" },
+  "areaServed": { "@type": "City", "name": "Краснодар" },
+  "url": "https://scoutpc.ru/sborka-pk-krasnodar.html"
+};
+const serviceJsonLd = `<script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>`;
 ---
-<BaseLayout {...page} page="sborka-pk-krasnodar"><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="sborka-pk-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={content} /></BaseLayout>
