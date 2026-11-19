@@ -36,6 +36,6 @@ const { title, description = '', canonical, headHtml = '', page } = Astro.props;
       </div>
     </aside>
     <script is:inline src="/scripts/site.js" defer></script>
-    <script is:inline src={`/scripts/${page}.js`} defer></script>
+    <script is:inline src={`/scripts/${page}.js${page === "index" ? "?v=budget-v2" : ""}`} defer></script>
   </body>
 </html>

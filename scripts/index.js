@@ -78,6 +78,7 @@
 
             const glassCards = document.querySelectorAll('.glass-card');
             glassCards.forEach(card => {
+                if (card.classList.contains('builder-wrapper')) return;
                 card.addEventListener('mousemove', function(e) {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
@@ -237,7 +238,80 @@ startAutoPlay();
 
                 let currentStep = 1;
                 const totalSteps = steps.length;
-                const answers = { platform: '', budget: '', goal: '', rgb: '' };
+                const answers = { platform: '', goal: '', rgb: '' };
+                // Single source of truth for the approved budget selector.
+                const MIN = 40000, MAX = 500000, STEP = 5000;
+                let budget = 150000, extra = 0, budgetValid = true;
+                const get = id => document.getElementById(id);
+                const amount = get('builderBudgetAmount'), range = get('builderBudgetRange');
+                const minus = get('builderBudgetMinus'), plus = get('builderBudgetPlus');
+                const quick = get('builderBudgetQuick'), extraGrid = get('builderBudgetExtra');
+                const format = n => new Intl.NumberFormat('ru-RU').format(n).replace(/\u00a0/g, ' ');
+                const rub = n => format(n) + ' ₽';
+                const clamp = n => Math.max(MIN, Math.min(MAX, n));
+                const presets = [60000, 100000, 150000, 200000, 300000];
+                const extras = [[0, 'Строго по бюджету'], [5000, 'До +5 000 ₽'], [10000, 'До +10 000 ₽'], [20000, 'До +20 000 ₽']];
+                function makeBudgetChoice(parent, value, label, onSelect) {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'choice-btn';
+                    b.dataset.value = String(value);
+                    b.textContent = label;
+                    b.addEventListener('click', () => onSelect(value));
+                    parent.append(b);
+                }
+                function markBudgetChoices(parent, value) {
+                    parent.querySelectorAll('button').forEach(b => {
+                        const chosen = b.dataset.value === String(value);
+                        b.classList.toggle('selected', chosen);
+                        b.setAttribute('aria-pressed', String(chosen));
+                    });
+                }
+                function renderBudget(write = true) {
+                    if (write) amount.value = format(budget);
+                    range.value = String(Math.round(budget / STEP) * STEP);
+                    range.style.setProperty('--progress', ((Number(range.value) - MIN) / (MAX - MIN) * 100) + '%');
+                    range.setAttribute('aria-valuetext', rub(Number(range.value)));
+                    minus.disabled = budgetValid && budget === MIN;
+                    plus.disabled = budgetValid && budget === MAX;
+                    markBudgetChoices(quick, budgetValid ? budget : '');
+                    markBudgetChoices(extraGrid, extra);
+                    get('builderBudgetMaximum').textContent = budgetValid ? rub(budget + extra) : '—';
+                    amount.setAttribute('aria-invalid', String(!budgetValid));
+                    get('builderBudgetError').textContent = budgetValid ? '' : 'Введите сумму от 40 000 до 500 000 ₽.';
+                    if (currentStep === 2) nextBtn.disabled = !budgetValid;
+                }
+                function setBudget(n) {
+                    budget = clamp(n);
+                    budgetValid = true;
+                    renderBudget();
+                }
+                presets.forEach(n => makeBudgetChoice(quick, n, n / 1000 + ' тыс.', setBudget));
+                extras.forEach(([n, label]) => makeBudgetChoice(extraGrid, n, label, v => {
+                    extra = v;
+                    renderBudget(false);
+                }));
+                range.addEventListener('input', () => setBudget(Number(range.value)));
+                minus.addEventListener('click', () => setBudget(budget - STEP));
+                plus.addEventListener('click', () => setBudget(budget + STEP));
+                amount.addEventListener('focus', () => {
+                    amount.value = amount.value.replace(/\s/g, '');
+                    amount.select();
+                });
+                amount.addEventListener('input', () => {
+                    const s = amount.value.replace(/\s/g, '');
+                    budgetValid = /^\d+$/.test(s) && Number(s) >= MIN && Number(s) <= MAX;
+                    if (budgetValid) budget = Number(s);
+                    renderBudget(false);
+                });
+                amount.addEventListener('blur', () => {
+                    if (budgetValid) amount.value = format(budget);
+                });
+                amount.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') { e.preventDefault(); amount.blur(); }
+                });
+                renderBudget();
+
 
                 document.querySelectorAll('.choice-grid').forEach(grid => {
                     const group = grid.dataset.group;
@@ -263,16 +337,17 @@ startAutoPlay();
                     const comment = document.getElementById('builderComment').value.trim();
                     let html = '';
                     if (answers.platform) html += `<strong>Платформа:</strong> ${answers.platform}<br>`;
-                    if (answers.budget) html += `<strong>Бюджет:</strong> ${answers.budget}<br>`;
+                    html += `<strong>Бюджет:</strong> ${rub(budget)}<br><strong>Максимальный бюджет:</strong> ${rub(budget + extra)}<br>`;
                     if (answers.goal) html += `<strong>Задача:</strong> ${answers.goal}<br>`;
                     if (answers.rgb) html += `<strong>Подсветка:</strong> ${answers.rgb}<br>`;
-                    if (comment) html += `<strong>Пожелания:</strong> ${comment}`;
+                    if (comment) { const escaped = document.createElement('span'); escaped.textContent = comment; html += `<strong>Пожелания:</strong> ${escaped.innerHTML}`; }
                     summaryBox.innerHTML = html || 'Пока ничего не выбрано';
                 }
 
                 function showStep(step) {
                     steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step, 10) === step));
                     updateProgress();
+                    nextBtn.disabled = step === 2 && !budgetValid;
                     backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
                     if (step === totalSteps) {
                         buildSummary();
@@ -285,6 +360,7 @@ startAutoPlay();
                 }
 
                 function validateStep(step) {
+                    if (step === 2) return budgetValid;
                     if (step >= 1 && step <= 4) {
                         const groupMap = { 1: 'platform', 2: 'budget', 3: 'goal', 4: 'rgb' };
                         const group = groupMap[step];
@@ -305,7 +381,8 @@ startAutoPlay();
                     const comment = document.getElementById('builderComment').value.trim();
                     let text = 'Заявка на сборку ПК с сайта ScoutPC\n\n';
                     text += `Платформа: ${answers.platform || '—'}\n`;
-                    text += `Бюджет: ${answers.budget || '—'}\n`;
+                    text += `Бюджет: ${rub(budget)}\n`;
+                    text += `Максимальный бюджет: ${rub(budget + extra)}\n`;
                     text += `Задача: ${answers.goal || '—'}\n`;
                     text += `Подсветка: ${answers.rgb || '—'}\n`;
                     if (comment) text += `Пожелания: ${comment}\n`;

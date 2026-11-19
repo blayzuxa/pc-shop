@@ -171,13 +171,23 @@
 </div>
 <div class="builder-step" data-step="2">
 <h3>Какой у вас бюджет?</h3>
-<p class="builder-step-desc">Ориентировочно. Точную сумму обсудим после консультации</p>
-<div class="choice-grid" data-group="budget">
-<button class="choice-btn" data-value="До 90 000 ₽">До 90 000 ₽</button>
-<button class="choice-btn" data-value="90 000–130 000 ₽">90 000–130 000 ₽</button>
-<button class="choice-btn" data-value="130 000–250 000 ₽">130 000–250 000 ₽</button>
-<button class="choice-btn" data-value="От 250 000 ₽">От 250 000 ₽</button>
+<p class="builder-step-desc">Выберите сумму, на которую ориентируетесь при покупке компьютера.</p>
+<div class="budget-panel">
+<div class="amount-row">
+<button type="button" class="adjust" id="builderBudgetMinus" aria-label="Уменьшить бюджет на 5 000 рублей">−</button>
+<div class="amount-wrap"><input type="text" class="amount-input" id="builderBudgetAmount" inputmode="numeric" autocomplete="off" maxlength="12" aria-label="Точный бюджет в рублях" aria-describedby="builderBudgetError" value="150 000"></div>
+<button type="button" class="adjust" id="builderBudgetPlus" aria-label="Увеличить бюджет на 5 000 рублей">+</button>
 </div>
+<p class="amount-caption">Нажмите на сумму, чтобы ввести свою</p>
+<input type="range" class="range" id="builderBudgetRange" min="40000" max="500000" step="5000" value="150000" aria-label="Бюджет в рублях">
+<div class="range-labels"><span>40 000 ₽</span><span>500 000 ₽</span></div>
+<div class="quick" id="builderBudgetQuick" aria-label="Популярные бюджеты"></div>
+<p class="budget-error" id="builderBudgetError" role="alert"></p>
+</div>
+<p class="extra-label">Готовы немного увеличить бюджет?</p>
+<p class="extra-caption">Только если это заметно улучшит компьютер.</p>
+<div class="extra-grid" id="builderBudgetExtra" aria-label="Допустимое превышение бюджета"></div>
+<div class="max-row"><span>Максимальный бюджет</span><strong id="builderBudgetMaximum" aria-live="polite">150 000 ₽</strong></div>
 </div>
 <div class="builder-step" data-step="3">
 <h3>Для чего в основном нужен ПК?</h3>
