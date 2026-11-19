@@ -1,0 +1,61 @@
+name: SEO P0 private preview
+on:
+  push:
+    branches: [seo-p0-2026-11-19]
+    paths:
+      - '.github/workflows/seo-p0-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    if: github.ref == 'refs/heads/seo-p0-2026-11-19'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - name: Install Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Capture desktop and mobile
+        run: |
+          mkdir -p preview
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory dist > /tmp/scout-preview.log 2>&1 &
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({headless:true});
+          for (const [device,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+            const page = await browser.newPage({viewport,deviceScaleFactor:1});
+            await page.route('**/mc.yandex.ru/**', route=>route.abort());
+            for (const [name,path] of [['home','/'],['gaming','/igrovye-kompyutery-krasnodar.html'],['assembly','/sborka-pk-krasnodar.html']]) {
+              await page.goto('http://127.0.0.1:4173'+path,{waitUntil:'networkidle'});
+              await page.locator('#privacyDecline').click({timeout:3000}).catch(()=>{});
+              await page.evaluate(async()=>{await document.fonts.ready; for(let y=0;y<document.body.scrollHeight;y+=600){window.scrollTo(0,y); await new Promise(r=>setTimeout(r,50));}window.scrollTo(0,0)});
+              await page.waitForTimeout(700);
+              await page.screenshot({path:'preview/'+name+'-'+device+'.png',fullPage:true,animations:'disabled'});
+              await page.screenshot({path:'preview/'+name+'-'+device+'-hero.png',animations:'disabled'});
+            }
+            await page.close();
+          }
+          await browser.close();
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scoutpc-preview
+          path: preview/
+          if-no-files-found: warn
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: scoutpc-preview-site
+          path: dist/
+          retention-days: 3
