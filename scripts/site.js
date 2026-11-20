@@ -68,6 +68,102 @@
   acceptButton?.addEventListener('click', () => saveConsent('accepted'));
   declineButton?.addEventListener('click', () => saveConsent('declined'));
 
+
+  // Source of a user-initiated request, not an analytics beacon. Never forward
+  // raw referrers, URLs, search queries, campaign tags or other URL parameters.
+  const LEAD_SOURCE_KEY = 'scoutpc_lead_source_v1';
+  const LEAD_SOURCE_TTL_MS = 2 * 60 * 60 * 1000;
+  const knownSourceLabels = new Set([
+    'Google', 'Google Ads', 'Яндекс', 'Яндекс Директ', 'TikTok',
+    'Авито', 'Telegram', 'MAX', 'ВКонтакте', 'Instagram',
+    'YouTube', '2ГИС', 'ChatGPT', 'Gemini', 'Facebook',
+    'Другой сайт', 'Другая метка'
+  ]);
+  const utmSourceLabels = {
+    google: 'Google', google_ads: 'Google Ads', googleads: 'Google Ads',
+    adwords: 'Google Ads', yandex: 'Яндекс', ya: 'Яндекс',
+    yandex_direct: 'Яндекс Директ', direct_yandex: 'Яндекс Директ',
+    tiktok: 'TikTok', tik_tok: 'TikTok', tt: 'TikTok',
+    avito: 'Авито', telegram: 'Telegram', tg: 'Telegram',
+    max: 'MAX', vk: 'ВКонтакте', vkontakte: 'ВКонтакте',
+    instagram: 'Instagram', insta: 'Instagram',
+    youtube: 'YouTube', yt: 'YouTube', '2gis': '2ГИС',
+    chatgpt: 'ChatGPT', openai: 'ChatGPT', gemini: 'Gemini',
+    facebook: 'Facebook', fb: 'Facebook'
+  };
+  const hostIs = (host, domain) => host === domain || host.endsWith('.' + domain);
+  const sourceFromReferrer = host => {
+    if (hostIs(host, 'gemini.google.com')) return 'Gemini';
+    if (hostIs(host, 'chatgpt.com') || hostIs(host, 'chat.openai.com')) return 'ChatGPT';
+    if (['google.com', 'google.ru', 'google.de', 'google.co.uk', 'google.fr',
+      'google.nl', 'google.se', 'google.pl', 'google.kz', 'google.com.tr']
+      .some(domain => hostIs(host, domain))) return 'Google';
+    if (['yandex.ru', 'yandex.com', 'yandex.by', 'yandex.kz', 'ya.ru']
+      .some(domain => hostIs(host, domain))) return 'Яндекс';
+    const sources = [
+      ['tiktok.com', 'TikTok'], ['avito.ru', 'Авито'],
+      ['t.me', 'Telegram'], ['telegram.org', 'Telegram'],
+      ['max.ru', 'MAX'], ['vk.com', 'ВКонтакте'],
+      ['instagram.com', 'Instagram'], ['youtube.com', 'YouTube'],
+      ['youtu.be', 'YouTube'], ['2gis.ru', '2ГИС'],
+      ['facebook.com', 'Facebook']
+    ];
+    return sources.find(([domain]) => hostIs(host, domain))?.[1] || 'Другой сайт';
+  };
+  const detectLeadSource = () => {
+    try {
+      const utm = new URLSearchParams(location.search).get('utm_source');
+      if (utm && utm.trim()) {
+        const source = utmSourceLabels[utm.trim().toLowerCase().replace(/[\s-]+/g, '_')];
+        return { label: source || 'Другая метка', via: 'utm' };
+      }
+      if (!document.referrer) return null;
+      const previous = new URL(document.referrer);
+      if (previous.protocol !== 'http:' && previous.protocol !== 'https:') return null;
+      const host = previous.hostname.toLowerCase().replace(/^www\./, '');
+      const ownHost = location.hostname.toLowerCase().replace(/^www\./, '');
+      if (host === ownHost) return null;
+      return { label: sourceFromReferrer(host), via: 'referrer' };
+    } catch (_) {
+      return null;
+    }
+  };
+  const analyticsAllowed = () => {
+    try { return localStorage.getItem(CONSENT_KEY) === 'accepted'; }
+    catch (_) { return false; }
+  };
+  const readSessionSource = () => {
+    if (!analyticsAllowed()) return null;
+    try {
+      const record = JSON.parse(sessionStorage.getItem(LEAD_SOURCE_KEY) || 'null');
+      const age = Date.now() - record?.savedAt;
+      if (record && knownSourceLabels.has(record.label) &&
+          (record.via === 'utm' || record.via === 'referrer') &&
+          age >= 0 && age <= LEAD_SOURCE_TTL_MS) {
+        return { label: record.label, via: record.via };
+      }
+    } catch (_) { /* storage may be blocked */ }
+    return null;
+  };
+  const detectedLeadSource = detectLeadSource();
+  const leadSource = detectedLeadSource || readSessionSource();
+  const rememberLeadSource = () => {
+    if (!analyticsAllowed() || !detectedLeadSource) return;
+    try {
+      sessionStorage.setItem(LEAD_SOURCE_KEY, JSON.stringify({
+        ...detectedLeadSource, savedAt: Date.now()
+      }));
+    } catch (_) { /* storage may be blocked */ }
+  };
+  rememberLeadSource();
+  acceptButton?.addEventListener('click', rememberLeadSource);
+  declineButton?.addEventListener('click', () => {
+    try { sessionStorage.removeItem(LEAD_SOURCE_KEY); } catch (_) { /* ignore */ }
+  });
+  window.scoutpcLeadSource = () => leadSource
+    ? leadSource.label + (leadSource.via === 'utm' ? ' (метка ссылки)' : ' (сайт перехода)')
+    : 'Не определён';
+
   // Conversion events are anonymous and strictly consent-gated.
   const goalNames = new Set(['builder_start', 'builder_complete', 'contact_telegram', 'contact_max', 'contact_phone', 'buyback_prepare']);
   const onceGoals = new Set(['builder_start', 'builder_complete', 'buyback_prepare']);
