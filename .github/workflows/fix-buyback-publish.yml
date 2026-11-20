@@ -15,6 +15,9 @@ on:
       - 'src/layouts/BaseLayout.astro'
       - 'public/scripts/index.js'
       - 'scripts/index.js'
+      - 'public/scripts/site.js'
+      - 'scripts/site.js'
+      - 'src/content/privacy-policy.html'
       - '.github/workflows/fix-buyback-publish.yml'
 
 permissions:

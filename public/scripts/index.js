@@ -342,6 +342,7 @@ startAutoPlay();
                     if (answers.goal) html += `<strong>Задача:</strong> ${answers.goal}<br>`;
                     if (answers.rgb) html += `<strong>Подсветка:</strong> ${answers.rgb}<br>`;
                     if (comment) { const escaped = document.createElement('span'); escaped.textContent = comment; html += `<strong>Пожелания:</strong> ${escaped.innerHTML}`; }
+                    html += `<br><strong>Источник перехода:</strong> ${window.scoutpcLeadSource?.() || 'Не определён'}`;
                     summaryBox.innerHTML = html || 'Пока ничего не выбрано';
                 }
 
@@ -388,6 +389,7 @@ startAutoPlay();
                     text += `Задача: ${answers.goal || '—'}\n`;
                     text += `Подсветка: ${answers.rgb || '—'}\n`;
                     if (comment) text += `Пожелания: ${comment}\n`;
+                    text += `Источник перехода: ${window.scoutpcLeadSource?.() || 'Не определён'}\n`;
                     return text;
                 }
 
