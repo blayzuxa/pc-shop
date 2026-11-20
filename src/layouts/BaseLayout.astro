@@ -35,7 +35,7 @@ const { title, description = '', canonical, headHtml = '', page } = Astro.props;
         <button class="privacy-consent-button privacy-consent-button-primary" id="privacyAccept" type="button">Разрешить</button>
       </div>
     </aside>
-    <script is:inline src="/scripts/site.js" defer></script>
-    <script is:inline src={`/scripts/${page}.js${page === "index" ? "?v=budget-v3" : ""}`} defer></script>
+    <script is:inline src="/scripts/site.js?v=lead-source-v1" defer></script>
+    <script is:inline src={`/scripts/${page}.js${page === "index" ? "?v=budget-v4" : ""}`} defer></script>
   </body>
 </html>
