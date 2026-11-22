@@ -31,6 +31,30 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://scoutpc.ru/scout-start.html</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://scoutpc.ru/scout-gamer.html</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://scoutpc.ru/scout-pro.html</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://scoutpc.ru/scout-elite.html</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://scoutpc.ru/privacy-policy.html</loc>
         <lastmod>2026-11-20</lastmod>
         <changefreq>yearly</changefreq>
