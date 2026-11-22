@@ -1,7 +1,12 @@
 name: ScoutPC browser smoke tests
 on:
   push:
-    branches: [fix/qa-scoutpc-2026-11-23]
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/browser-smoke.yml'
   pull_request:
     branches: [main]
   workflow_dispatch:
