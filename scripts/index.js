@@ -26,6 +26,12 @@
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
                     const el = entry.target;
+                    // Warranty is a fixed promise, not a counter that can briefly show "2".
+                    if (el.dataset.static === 'true') {
+                        el.textContent = el.dataset.count;
+                        statObserver.unobserve(el);
+                        return;
+                    }
                     const target = parseFloat(el.dataset.count);
                     const decimals = parseInt(el.dataset.decimal || '0', 10);
                     const suffix = el.dataset.suffix || '';
