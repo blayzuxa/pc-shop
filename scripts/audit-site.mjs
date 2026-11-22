@@ -27,7 +27,7 @@ for (const ref of imageRefs) {
 }
 
 const sitemap = await readFile('public/sitemap.xml', 'utf8');
-for (const route of ['sborka-pk-krasnodar.html','igrovye-kompyutery-krasnodar.html','apgreyd-i-obsluzhivanie-pk-krasnodar.html']) {
+for (const route of ['sborka-pk-krasnodar.html','igrovye-kompyutery-krasnodar.html','apgreyd-i-obsluzhivanie-pk-krasnodar.html','scout-start.html','scout-gamer.html','scout-pro.html','scout-elite.html']) {
   if (!sitemap.includes(route)) errors.push(`Sitemap misses ${route}`);
 }
 
