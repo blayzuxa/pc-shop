@@ -12,6 +12,7 @@ on:
       - 'public/sitemap.xml'
       - 'src/content/index.html'
       - 'src/styles/index.css'
+      - 'src/styles-raw/index.css'
       - 'src/pages/index.astro'
       - 'src/pages/[product].astro'
       - 'src/data/products.ts'
