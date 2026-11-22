@@ -30,9 +30,11 @@ try {
       assert.ok((await page.title()).includes('ScoutPC'), device + ' ' + path + ': title missing');
       if (device !== 'desktop' && await page.locator('#hamburger').count()) {
         await page.locator('#hamburger').click();
-        assert.equal(await page.locator('#mobileMenuOverlay').evaluate(
-          el => getComputedStyle(el).visibility), 'visible',
-          device + ' ' + path + ': mobile menu not visible');
+        // visibility transitions for 0.4s: wait for the rendered state, not the click tick.
+        await page.waitForFunction(() => {
+          const menu = document.getElementById('mobileMenuOverlay');
+          return menu?.classList.contains('active') && getComputedStyle(menu).visibility === 'visible';
+        }, null, { timeout: 3000 });
         assert.equal(await page.locator('#hamburger').getAttribute('aria-expanded'), 'true');
         await page.locator('#mobileMenuClose').click();
         assert.equal(await page.locator('#hamburger').getAttribute('aria-expanded'), 'false');
