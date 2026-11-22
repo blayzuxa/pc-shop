@@ -1,0 +1,30 @@
+name: ScoutPC browser smoke tests
+on:
+  push:
+    branches: [fix/qa-scoutpc-2026-11-23]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - run: node scripts/audit-dist.mjs
+      - name: Install test browser
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Test site behaviors on desktop and mobile
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory dist >/tmp/scoutpc-smoke.log 2>&1 &
+          node scripts/e2e-smoke.mjs
