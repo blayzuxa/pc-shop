@@ -77,6 +77,10 @@ export function enhanceNavigation(content: string): string {
     .replace(
       'Перед визитом уточните наличие нужной сборки в',
       'Перед визитом уточните наличие по телефону <a href="tel:+79531171331">+7 953 117-13-31</a> или в',
+    )
+    .replace(
+      /(<(?:div|span) class="consult-menu"[^>]*>)/g,
+      '$1\n<a href="tel:+79531171331"><span class="consult-menu-icon" aria-hidden="true">☎</span> Позвонить: +7 953 117-13-31</a>',
     );
 
   return linkProductButtons([
