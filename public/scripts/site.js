@@ -193,21 +193,28 @@
   const menuButton = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenuOverlay');
   const closeButton = document.getElementById('mobileMenuClose');
-  menuButton?.addEventListener('click', () => {
-    const open = mobileMenu?.classList.toggle('open') ?? false;
-    menuButton.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  closeButton?.addEventListener('click', () => {
-    mobileMenu?.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  });
-  mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  // Internal page styles use .active (not .open); keep the button and scroll lock in sync.
+  const setMobileMenuOpen = open => {
+    if (!mobileMenu) return;
+    mobileMenu.classList.toggle('active', open);
     mobileMenu.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }));
+    menuButton?.classList.toggle('active', open);
+    menuButton?.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.addEventListener('click', () => {
+    setMobileMenuOpen(!mobileMenu?.classList.contains('active'));
+  });
+  closeButton?.addEventListener('click', () => setMobileMenuOpen(false));
+  mobileMenu?.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => setMobileMenuOpen(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileMenu?.classList.contains('active')) {
+      setMobileMenuOpen(false);
+      menuButton?.focus();
+    }
+  });
 
   document.querySelectorAll('.consult-trigger').forEach(trigger => {
     trigger.addEventListener('click', event => {

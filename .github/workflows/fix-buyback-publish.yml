@@ -22,6 +22,8 @@ on:
       - 'public/scripts/site.js'
       - 'scripts/site.js'
       - 'src/content/privacy-policy.html'
+      - 'public/terms.html'
+      - 'scripts/e2e-smoke.mjs'
       - '.github/workflows/fix-buyback-publish.yml'
 
 permissions:
@@ -43,6 +45,8 @@ jobs:
           sed -i 's#scoutpc-buyback\.avif#scoutpc-buyback-v2.avif#g' src/pages/vykup-videokart-i-komplektuyushchih-krasnodar.astro
       - run: npm ci --no-audit --no-fund
       - run: npm run build
+      - name: Validate built static assets and pages
+        run: node scripts/audit-dist.mjs
       - name: Copy built site to repository root
         run: cp -a dist/. ./
       - name: Commit built site
