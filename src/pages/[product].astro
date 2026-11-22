@@ -46,13 +46,11 @@ const schema = {
       image: product.variants.map(v => `https://scoutpc.ru${v.image}`),
       brand: { '@type': 'Brand', name: 'ScoutPC' },
       category: 'Игровые компьютеры',
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: 5, reviewCount: 250, bestRating: 5, worstRating: 1 },
-      subjectOf: { '@type': 'WebPage', name: 'Отзывы клиентов ScoutPC на Авито', url: 'https://www.avito.ru/brands/i206808792' },
+      // Price is a starting estimate shown on the page, not stock for two ready-made PCs.
+      // Store-wide Avito reviews do not describe individual ScoutPC product families.
       offers: {
-        '@type': 'AggregateOffer',
-        lowPrice: product.price, highPrice: product.price, priceCurrency: 'RUB',
-        offerCount: product.variants.length, url: canonical,
-        availability: 'https://schema.org/InStock',
+        '@type': 'Offer',
+        price: product.price, priceCurrency: 'RUB', url: canonical,
         seller: { '@type': 'Organization', name: 'ScoutPC' },
       },
     },
