@@ -513,15 +513,18 @@ reduceMotion.addEventListener('change', resetAutoPlay);
             const mobileClose = document.getElementById('mobileMenuClose');
             function openMobileMenu() {
                 hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
                 mobileOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
             function closeMobileMenu() {
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
                 mobileOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
             if (hamburger) {
+                hamburger.setAttribute('aria-expanded', 'false');
                 hamburger.addEventListener('click', () => {
                     if (mobileOverlay.classList.contains('active')) closeMobileMenu();
                     else openMobileMenu();
@@ -530,6 +533,12 @@ reduceMotion.addEventListener('change', resetAutoPlay);
             if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
             mobileOverlay.querySelectorAll('.mobile-overlay-link').forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+                    closeMobileMenu();
+                    hamburger?.focus();
+                }
             });
 
             // FPS INFO POPOVERS
