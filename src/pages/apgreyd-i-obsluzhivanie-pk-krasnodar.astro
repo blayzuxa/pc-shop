@@ -3,6 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../page-data.json';
 import content from '../content/apgreyd-i-obsluzhivanie-pk-krasnodar.html?raw';
 import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
+import { enhanceNavigation } from '../lib/navigation';
+import { buildServiceSchema } from '../lib/schema';
 const page = data['apgreyd-i-obsluzhivanie-pk-krasnodar'];
+const pageContent = enhanceNavigation(content);
+const serviceSchema = buildServiceSchema({
+  name: 'Апгрейд и обслуживание ПК в Краснодаре',
+  serviceType: 'Апгрейд, чистка и обслуживание компьютеров',
+  description: 'Диагностика, точечный апгрейд, чистка от пыли, замена термопасты и проверка стабильности компьютера.',
+  url: page.canonical,
+  breadcrumbName: 'Апгрейд и обслуживание ПК',
+  faqs: [
+    { question: 'Сколько стоит почистить компьютер или ноутбук от пыли?', answer: 'Чистка и обслуживание начинаются от 1 500 ₽. Точная цена зависит от модели и состояния устройства.' },
+    { question: 'Что входит в апгрейд компьютера?', answer: 'Диагностика узкого места, подбор совместимых комплектующих, установка и проверка стабильности после апгрейда.' },
+    { question: 'Можно поменять только видеокарту, не трогая остальное?', answer: 'Да. Меняем только компоненты, которые ограничивают производительность, если остальные детали совместимы.' },
+    { question: 'Нужно приносить компьютер в мастерскую?', answer: 'Да. Обслуживание проводится в мастерской ScoutPC на улице Селезнёва, 136 в Краснодаре.' },
+  ],
+});
+const serviceJsonLd = `<script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>`;
 ---
-<BaseLayout {...page} page="apgreyd-i-obsluzhivanie-pk-krasnodar"><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="apgreyd-i-obsluzhivanie-pk-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={pageContent} /></BaseLayout>

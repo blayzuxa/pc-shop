@@ -4,6 +4,7 @@ import content from '../content/vykup-videokart-i-komplektuyushchih-krasnodar.ht
 import shell from '../content/apgreyd-i-obsluzhivanie-pk-krasnodar.html?raw';
 import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
 import '../styles/vykup-videokart-i-komplektuyushchih-krasnodar.css';
+import { enhanceNavigation } from '../lib/navigation';
 
 const buybackUrl = '/vykup-videokart-i-komplektuyushchih-krasnodar.html';
 const firstSectionIndex = shell.indexOf('<section class="section hero-section"');
@@ -30,7 +31,7 @@ const shellEnd = (footerIndex >= 0 ? shell.slice(footerIndex) : '')
     `<a href="apgreyd-i-obsluzhivanie-pk-krasnodar.html">Апгрейд и обслуживание ПК</a>\n<a href="${buybackUrl}">Выкуп видеокарт и комплектующих</a>`,
   );
 
-const fullContent = `${shellStart}${content}${shellEnd}`;
+const fullContent = enhanceNavigation(`${shellStart}${content}${shellEnd}`);
 
 const serviceSchema = {
   '@context': 'https://schema.org',

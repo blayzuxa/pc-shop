@@ -3,18 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../page-data.json';
 import content from '../content/sborka-pk-krasnodar.html?raw';
 import '../styles/sborka-pk-krasnodar.css';
+import { enhanceNavigation } from '../lib/navigation';
+import { buildServiceSchema } from '../lib/schema';
 const page = data['sborka-pk-krasnodar'];
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://scoutpc.ru/sborka-pk-krasnodar.html#service",
-  "name": "Сборка ПК на заказ в Краснодаре",
-  "serviceType": "Индивидуальная сборка персональных компьютеров",
-  "description": "Подбор комплектующих под игры, задачи и бюджет, согласование состава и состояния деталей, сборка и 3 часа стресс-тестов в OCCT и FurMark. Гарантия на компьютер — 12 месяцев.",
-  "provider": { "@id": "https://scoutpc.ru/#localbusiness" },
-  "areaServed": { "@type": "City", "name": "Краснодар" },
-  "url": "https://scoutpc.ru/sborka-pk-krasnodar.html"
-};
+const pageContent = enhanceNavigation(content);
+const serviceSchema = buildServiceSchema({
+  name: 'Сборка ПК на заказ в Краснодаре',
+  serviceType: 'Индивидуальная сборка персональных компьютеров',
+  description: 'Подбор комплектующих под игры, задачи и бюджет, сборка, настройка и 3 часа стресс-тестов в OCCT и FurMark.',
+  url: page.canonical,
+  breadcrumbName: 'Сборка ПК в Краснодаре',
+  faqs: [
+    { question: 'Сколько по времени занимает сборка ПК на заказ в Краснодаре?', answer: 'В среднем 3–5 дней после подтверждения конфигурации. Срок зависит от загрузки и наличия комплектующих.' },
+    { question: 'Можно выбрать между Intel и AMD?', answer: 'Да. Конфигурацию подбираем на Intel или AMD по бюджету, играм и требуемой производительности.' },
+    { question: 'Какая гарантия на сборку ПК на заказ?', answer: 'Гарантия распространяется на комплектующие сборки. Перед выдачей компьютер проходит 3 часа стресс-тестов.' },
+    { question: 'Можно забрать готовый ПК самому в Краснодаре?', answer: 'Да. Самовывоз доступен из мастерской ScoutPC на улице Селезнёва, 136 в Краснодаре.' },
+  ],
+});
 const serviceJsonLd = `<script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>`;
 ---
-<BaseLayout {...page} page="sborka-pk-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="sborka-pk-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={pageContent} /></BaseLayout>

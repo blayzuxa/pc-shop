@@ -1,38 +1,38 @@
 {
   "index": {
-    "title": "ScoutPC | Сборка игровых ПК в Краснодаре от 60 000 ₽",
-    "description": "Игровые ПК на заказ в Краснодаре от 60 000 ₽. Подбор под бюджет, стресс-тесты OCCT/FurMark, гарантия 12 месяцев, самовывоз и доставка СДЭК.",
+    "title": "Сборка игровых ПК в Краснодаре на заказ | ScoutPC",
+    "description": "Игровые ПК на заказ в Краснодаре от 60 000 ₽. Подбор под бюджет, 3 часа стресс-тестов OCCT/FurMark, гарантия 12 месяцев, самовывоз и доставка по России.",
     "canonical": "https://scoutpc.ru/",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"сборка пк краснодар, игровой компьютер на заказ, кастомная сборка пк, купить игровой пк, scoutpc, scout pc\" name=\"keywords\"/>\n<meta content=\"#040406\" name=\"theme-color\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"ru_RU\" property=\"og:locale\"/>\n<meta content=\"ScoutPC | Сборка игровых ПК в Краснодаре от 60 000 ₽\" property=\"og:title\"/>\n<meta content=\"Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, гарантия 12 месяцев, доставка по всей России.\" property=\"og:description\"/>\n<meta content=\"https://scoutpc.ru/images/work1.jpg\" property=\"og:image\"/>\n<meta content=\"https://scoutpc.ru/\" property=\"og:url\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<meta content=\"ScoutPC | Сборка игровых ПК в Краснодаре от 60 000 ₽\" name=\"twitter:title\"/>\n<meta content=\"Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, гарантия 12 месяцев, доставка по всей России.\" name=\"twitter:description\"/>\n<meta content=\"https://scoutpc.ru/images/work1.jpg\" name=\"twitter:image\"/>"
+    "head": "<meta content=\"#040406\" name=\"theme-color\"/><meta content=\"website\" property=\"og:type\"/><meta content=\"ru_RU\" property=\"og:locale\"/><meta content=\"ScoutPC\" property=\"og:site_name\"/><meta content=\"Сборка игровых ПК в Краснодаре на заказ | ScoutPC\" property=\"og:title\"/><meta content=\"Подбираем и собираем игровые ПК под ваш бюджет и задачи. 3 часа стресс-тестов, гарантия 12 месяцев, доставка по России.\" property=\"og:description\"/><meta content=\"https://scoutpc.ru/images/optimized/pc7-960-v2.webp\" property=\"og:image\"/><meta content=\"Кастомный игровой компьютер ScoutPC\" property=\"og:image:alt\"/><meta content=\"https://scoutpc.ru/\" property=\"og:url\"/><meta content=\"summary_large_image\" name=\"twitter:card\"/><meta content=\"Сборка игровых ПК в Краснодаре на заказ | ScoutPC\" name=\"twitter:title\"/><meta content=\"Игровые ПК под ваш бюджет и задачи с тестированием и гарантией.\" name=\"twitter:description\"/><meta content=\"https://scoutpc.ru/images/optimized/pc7-960-v2.webp\" name=\"twitter:image\"/>"
   },
   "sborka-pk-krasnodar": {
     "title": "Сборка ПК на заказ в Краснодаре от 60 000 ₽ | ScoutPC",
     "description": "Сборка ПК на заказ в Краснодаре: работа от 3 000 ₽, бюджет компьютера от 60 000 ₽. Подбор под игры, 3 часа тестов и гарантия 12 месяцев.",
     "canonical": "https://scoutpc.ru/sborka-pk-krasnodar.html",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Сборка ПК на заказ в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Сборка ПК на заказ в Краснодаре: работа от 3 000 ₽, бюджет компьютера от 60 000 ₽. Подбор под игры, 3 часа тестов и гарантия 12 месяцев.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/sborka-pk-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/work1.jpg\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
+    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Сборка ПК на заказ в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Сборка ПК на заказ в Краснодаре: работа от 3 000 ₽, бюджет компьютера от 60 000 ₽. Подбор под игры, 3 часа тестов и гарантия 12 месяцев.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/sborka-pk-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/optimized/pc7-960-v2.webp\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
   },
   "igrovye-kompyutery-krasnodar": {
     "title": "Игровые компьютеры в Краснодаре от 60 000 ₽ | ScoutPC",
     "description": "Готовые игровые ПК и сборка на заказ в Краснодаре от 60 000 ₽. Подбор под игры и разрешение монитора, 3 часа тестов OCCT/FurMark, гарантия 12 месяцев.",
     "canonical": "https://scoutpc.ru/igrovye-kompyutery-krasnodar.html",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Игровые компьютеры в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Готовые игровые ПК и сборка на заказ в Краснодаре от 60 000 ₽. Подбор под игры и разрешение монитора, 3 часа тестов OCCT/FurMark, гарантия 12 месяцев.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/igrovye-kompyutery-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/work1.jpg\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
+    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Игровые компьютеры в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Готовые игровые ПК и сборка на заказ в Краснодаре от 60 000 ₽. Подбор под игры и разрешение монитора, 3 часа тестов OCCT/FurMark, гарантия 12 месяцев.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/igrovye-kompyutery-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/optimized/pc7-960-v2.webp\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
   },
   "apgreyd-i-obsluzhivanie-pk-krasnodar": {
     "title": "Апгрейд и обслуживание ПК в Краснодаре | ScoutPC",
     "description": "Апгрейд компьютера и чистка ПК/ноутбука в Краснодаре: замена видеокарты, добавление памяти и SSD, чистка от пыли, замена термопасты. Диагностика и расчёт бесплатно.",
     "canonical": "https://scoutpc.ru/apgreyd-i-obsluzhivanie-pk-krasnodar.html",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Апгрейд и обслуживание ПК в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Апгрейд компьютера, чистка ПК и ноутбука от пыли, замена термопасты в Краснодаре. Диагностика и расчёт бесплатно.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/apgreyd-i-obsluzhivanie-pk-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/work1.jpg\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
+    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"Апгрейд и обслуживание ПК в Краснодаре | ScoutPC\" property=\"og:title\"/>\n<meta content=\"Апгрейд компьютера, чистка ПК и ноутбука от пыли, замена термопасты в Краснодаре. Диагностика и расчёт бесплатно.\" property=\"og:description\"/>\n<meta content=\"website\" property=\"og:type\"/>\n<meta content=\"https://scoutpc.ru/apgreyd-i-obsluzhivanie-pk-krasnodar.html\" property=\"og:url\"/>\n<meta content=\"https://scoutpc.ru/images/optimized/pc7-960-v2.webp\" property=\"og:image\"/>\n<meta content=\"summary_large_image\" name=\"twitter:card\"/>\n<link href=\"images/favicon-180.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>"
   },
   "privacy-policy": {
     "title": "Политика конфиденциальности и обработки персональных данных | ScoutPC",
     "description": "",
     "canonical": "https://scoutpc.ru/privacy-policy.html",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"noindex\" name=\"robots\"/>"
+    "head": "<meta content=\"noindex,follow\" name=\"robots\"/>"
   },
   "pdn-consent": {
     "title": "Согласие на обработку персональных данных | ScoutPC",
     "description": "",
     "canonical": "https://scoutpc.ru/pdn-consent.html",
-    "head": "<meta charset=\"utf-8\"/>\n<meta content=\"noindex\" name=\"robots\"/>"
+    "head": "<meta content=\"noindex,follow\" name=\"robots\"/>"
   }
 }

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import shell from '../content/apgreyd-i-obsluzhivanie-pk-krasnodar.html?raw';
+import { enhanceNavigation } from '../lib/navigation';
+import { products, type ProductFamily } from '../data/products';
+import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
+import '../styles/product.css';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { product: product.slug }, props: { product } }));
+}
+
+interface Props { product: ProductFamily }
+const { product } = Astro.props;
+const canonical = `https://scoutpc.ru/${product.slug}.html`;
+const description = `${product.name} от ${product.price.toLocaleString('ru-RU')} ₽: варианты AMD и Intel, характеристики, ориентировочный FPS, тестирование и гарантия ScoutPC в Краснодаре.`;
+const firstSectionIndex = shell.indexOf('<section class="section hero-section"');
+const footerIndex = shell.indexOf('<footer class="footer"');
+const shellStart = enhanceNavigation((firstSectionIndex >= 0 ? shell.slice(0, firstSectionIndex) : '').replace(/<nav class="breadcrumb-nav"[\s\S]*?<\/nav>/, ''));
+const shellEnd = enhanceNavigation(footerIndex >= 0 ? shell.slice(footerIndex) : '');
+const faq = [
+  { q: `Можно изменить конфигурацию ${product.name}?`, a: 'Да. Корпус, объём памяти, накопители, охлаждение и другие комплектующие можно изменить после консультации.' },
+  { q: 'Комплектующие новые?', a: 'Состояние и точные модели всех комплектующих согласовываем до заказа. Бывшие в употреблении детали используем только по вашему согласованию.' },
+  { q: 'Как проверяется готовый компьютер?', a: 'Перед выдачей проводим 3 часа стресс-тестов OCCT и FurMark, проверяем стабильность и температуры.' },
+  { q: 'Можно заказать доставку?', a: 'Да. Отправляем по России через СДЭК; упаковку, страхование и условия оплаты согласовываем заранее.' },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://scoutpc.ru/' },
+      { '@type': 'ListItem', position: 2, name: 'Игровые компьютеры', item: 'https://scoutpc.ru/igrovye-kompyutery-krasnodar.html' },
+      { '@type': 'ListItem', position: 3, name: product.name, item: canonical },
+    ] },
+    { '@type': 'Product', '@id': `${canonical}#product`, name: `Игровой компьютер ${product.name}`, description: product.summary, image: product.variants.map(v => `https://scoutpc.ru${v.image}`), brand: { '@type': 'Brand', name: 'ScoutPC' }, category: 'Игровые компьютеры', offers: { '@type': 'AggregateOffer', lowPrice: product.price, highPrice: product.price, priceCurrency: 'RUB', offerCount: product.variants.length, url: canonical } },
+    { '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
+  ],
+};
+const head = `<meta name="theme-color" content="#040406"><meta property="og:type" content="product"><meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="ScoutPC"><meta property="og:title" content="Игровой компьютер ${product.name} от ${product.price.toLocaleString('ru-RU')} ₽ | ScoutPC"><meta property="og:description" content="${description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://scoutpc.ru${product.variants[1].image}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+const price = product.price.toLocaleString('ru-RU');
+---
+<BaseLayout title={`Игровой компьютер ${product.name} от ${price} ₽ | ScoutPC`} description={description} canonical={canonical} headHtml={head} page={product.slug} pageScript={false}>
+  <Fragment set:html={shellStart} />
+  <main>
+    <nav class="product-breadcrumb" aria-label="Хлебные крошки"><a href="/">Главная</a><span>→</span><a href="/igrovye-kompyutery-krasnodar.html">Игровые ПК</a><span>→</span><span>{product.name}</span></nav>
+    <section class="product-hero">
+      <div class="product-hero-copy">
+        <p class="product-kicker">SCOUTPC · КРАСНОДАР</p>
+        <h1>{product.icon} Игровой компьютер <span>{product.name}</span></h1>
+        <p class="product-lead">{product.summary}</p>
+        <div class="product-price">от {price} ₽</div>
+        <div class="product-actions"><a class="product-primary" href="https://t.me/Scout_PC" target="_blank">Обсудить конфигурацию</a><a href="#variants">Сравнить AMD и Intel</a></div>
+        <p class="product-note">Цена и состав ориентировочные. Точную смету и наличие согласуем перед заказом.</p>
+      </div>
+      <picture class="product-hero-image">
+        <source media="(max-width: 640px)" srcset={product.variants[1].image480} />
+        <img src={product.variants[1].image} width="960" height="1280" alt={`Игровой компьютер ${product.name}`} fetchpriority="high" />
+      </picture>
+    </section>
+    <section class="product-section" id="variants">
+      <div class="product-heading"><p>Два варианта платформы</p><h2>Выберите AMD или Intel</h2><span>Подскажем, какой вариант лучше подходит под ваши игры, задачи и будущий апгрейд.</span></div>
+      <div class="variant-grid">
+        {product.variants.map((variant) => (
+          <article class="variant-card">
+            <picture><source media="(max-width: 640px)" srcset={variant.image480} /><img src={variant.image} loading="lazy" width="960" height="1280" alt={`${product.name} на платформе ${variant.platform}`} /></picture>
+            <div class="variant-copy"><p class="variant-platform">{variant.platform}</p><h3>{product.name} · {variant.platform}</h3><dl><div><dt>Процессор</dt><dd>{variant.cpu}</dd></div><div><dt>Видеокарта</dt><dd>{variant.gpu}</dd></div><div><dt>Память</dt><dd>{variant.memory}</dd></div><div><dt>Материнская плата</dt><dd>{variant.motherboard}</dd></div><div><dt>Охлаждение</dt><dd>{variant.cooling}</dd></div></dl><p class="variant-fps"><strong>{variant.averageFps} FPS</strong><span>ориентир по 10 играм, 1080p, высокие настройки</span></p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="product-section product-fit"><div class="product-heading"><p>Кому подходит</p><h2>{product.resolution}</h2></div><ul>{product.bestFor.map(item => <li>{item}</li>)}</ul></section>
+    <section class="product-section"><div class="product-heading"><p>Перед выдачей</p><h2>Не просто собираем — проверяем</h2></div><div class="product-proof"><article><strong>01</strong><h3>Согласуем детали</h3><p>Фиксируем состав, состояние комплектующих, цену и сроки.</p></article><article><strong>02</strong><h3>Собираем аккуратно</h3><p>Настраиваем BIOS, систему охлаждения и кабель-менеджмент.</p></article><article><strong>03</strong><h3>Тестируем 3 часа</h3><p>Проверяем стабильность и температуры в OCCT и FurMark.</p></article></div></section>
+    <section class="product-section product-faq"><div class="product-heading"><p>Вопросы</p><h2>Что важно знать</h2></div>{faq.map(item => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
+    <section class="product-cta"><p>Подберём точную версию {product.name} под ваши игры и бюджет</p><h2>Напишите — предложим 1–2 сбалансированных варианта</h2><a href="https://t.me/Scout_PC" target="_blank">Получить конфигурацию</a></section>
+  </main>
+  <Fragment set:html={shellEnd} />
+</BaseLayout>

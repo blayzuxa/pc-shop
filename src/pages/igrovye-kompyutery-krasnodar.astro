@@ -3,18 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../page-data.json';
 import content from '../content/igrovye-kompyutery-krasnodar.html?raw';
 import '../styles/igrovye-kompyutery-krasnodar.css';
+import { enhanceNavigation } from '../lib/navigation';
+import { buildServiceSchema } from '../lib/schema';
 const page = data['igrovye-kompyutery-krasnodar'];
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://scoutpc.ru/igrovye-kompyutery-krasnodar.html#service",
-  "name": "Подбор и сборка игровых компьютеров в Краснодаре",
-  "serviceType": "Подбор и сборка игровых ПК под игры, разрешение монитора и бюджет",
-  "description": "Подбор готовых конфигураций и сборка игровых компьютеров на заказ. Комплектующие и их состояние согласуются до заказа. Перед выдачей компьютер проходит 3 часа стресс-тестов в OCCT и FurMark. Гарантия — 12 месяцев.",
-  "provider": { "@id": "https://scoutpc.ru/#localbusiness" },
-  "areaServed": { "@type": "City", "name": "Краснодар" },
-  "url": "https://scoutpc.ru/igrovye-kompyutery-krasnodar.html"
-};
+const pageContent = enhanceNavigation(content);
+const serviceSchema = buildServiceSchema({
+  name: 'Подбор и сборка игровых компьютеров в Краснодаре',
+  serviceType: 'Подбор и сборка игровых ПК под игры, разрешение монитора и бюджет',
+  description: 'Готовые конфигурации и игровые компьютеры на заказ с тестированием и гарантией.',
+  url: page.canonical,
+  breadcrumbName: 'Игровые компьютеры в Краснодаре',
+  faqs: [
+    { question: 'Сколько стоит игровой компьютер в Краснодаре?', answer: 'Бюджет индивидуальной конфигурации начинается от 60 000 ₽. Итоговая цена зависит от комплектующих и согласованной конфигурации.' },
+    { question: 'Можно купить игровой ПК в рассрочку?', answer: 'Условия оплаты и доступные варианты рассрочки согласовываются индивидуально перед заказом.' },
+    { question: 'Компьютеры новые или бывшие в употреблении?', answer: 'Состояние каждого комплектующего согласовываем заранее. Проверенные бывшие в употреблении детали используем только по согласованию.' },
+    { question: 'Можно забрать компьютер сегодня же?', answer: 'Да, если нужная конфигурация есть в наличии. Наличие необходимо уточнить перед визитом.' },
+    { question: 'Как выбрать игровой компьютер под разрешение монитора?', answer: 'Учитываем разрешение, частоту обновления, список игр и желаемые настройки графики, затем подбираем сбалансированную конфигурацию.' },
+  ],
+});
 const serviceJsonLd = `<script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>`;
 ---
-<BaseLayout {...page} page="igrovye-kompyutery-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="igrovye-kompyutery-krasnodar" headHtml={serviceJsonLd}><Fragment set:html={pageContent} /></BaseLayout>

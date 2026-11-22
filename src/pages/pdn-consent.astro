@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import data from '../page-data.json';
 import content from '../content/pdn-consent.html?raw';
 import '../styles/pdn-consent.css';
+import { enhanceNavigation } from '../lib/navigation';
 const page = data['pdn-consent'];
+const pageContent = enhanceNavigation(content);
 ---
-<BaseLayout {...page} page="pdn-consent"><Fragment set:html={content} /></BaseLayout>
+<BaseLayout {...page} page="pdn-consent"><Fragment set:html={pageContent} /></BaseLayout>
