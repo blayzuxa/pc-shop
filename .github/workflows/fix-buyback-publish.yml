@@ -12,6 +12,8 @@ on:
       - 'public/sitemap.xml'
       - 'src/content/index.html'
       - 'src/pages/index.astro'
+      - 'src/pages/[product].astro'
+      - 'src/data/products.ts'
       - 'src/layouts/BaseLayout.astro'
       - 'public/scripts/index.js'
       - 'scripts/index.js'
