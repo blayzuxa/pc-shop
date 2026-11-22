@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import shell from '../content/apgreyd-i-obsluzhivanie-pk-krasnodar.html?raw';
 import { enhanceNavigation } from '../lib/navigation';
-import { products, type ProductFamily } from '../data/products';
+import { products, shortCpu, shortGpu, type ProductFamily } from '../data/products';
 import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
 import '../styles/product.css';
 import '../styles/contact.css';
@@ -14,7 +14,13 @@ export function getStaticPaths() {
 interface Props { product: ProductFamily }
 const { product } = Astro.props;
 const canonical = `https://scoutpc.ru/${product.slug}.html`;
-const description = `${product.name} от ${product.price.toLocaleString('ru-RU')} ₽: варианты AMD и Intel, характеристики, ориентировочный FPS, тестирование и гарантия ScoutPC в Краснодаре.`;
+const primary = product.variants.find((v) => v.platform === 'AMD') ?? product.variants[0];
+const priceText = product.price.toLocaleString('ru-RU');
+const cpuName = shortCpu(primary.cpu);
+const gpuName = shortGpu(primary.gpu);
+const h1Text = `Игровой ПК ${product.name} (${cpuName} / ${gpuName} / ${primary.memory})`;
+const titleText = `Игровой ПК ${product.name} (${gpuName}, ${cpuName}) — купить в Краснодаре от ${priceText} ₽ | ScoutPC`;
+const description = `Игровой ПК ${product.name} (${cpuName}, ${gpuName}): Краснодар, 3 часа стресс-тестов, гарантия 12 месяцев, доставка СДЭК. От ${priceText} ₽.`;
 const firstSectionIndex = shell.indexOf('<section class="section hero-section"');
 const footerIndex = shell.indexOf('<footer class="footer"');
 const shellStart = enhanceNavigation((firstSectionIndex >= 0 ? shell.slice(0, firstSectionIndex) : '').replace(/<nav class="breadcrumb-nav"[\s\S]*?<\/nav>/, ''));
@@ -33,21 +39,37 @@ const schema = {
       { '@type': 'ListItem', position: 2, name: 'Игровые компьютеры', item: 'https://scoutpc.ru/igrovye-kompyutery-krasnodar.html' },
       { '@type': 'ListItem', position: 3, name: product.name, item: canonical },
     ] },
-    { '@type': 'Product', '@id': `${canonical}#product`, name: `Игровой компьютер ${product.name}`, description: product.summary, image: product.variants.map(v => `https://scoutpc.ru${v.image}`), brand: { '@type': 'Brand', name: 'ScoutPC' }, category: 'Игровые компьютеры', offers: { '@type': 'AggregateOffer', lowPrice: product.price, highPrice: product.price, priceCurrency: 'RUB', offerCount: product.variants.length, url: canonical } },
+    {
+      '@type': 'Product', '@id': `${canonical}#product`,
+      name: h1Text,
+      description: `Игровой ПК ${product.name}: ${cpuName}, ${gpuName}, ${primary.memory}. Сборка ScoutPC в Краснодаре, 3 часа стресс-тестов, гарантия 12 месяцев.`,
+      image: product.variants.map(v => `https://scoutpc.ru${v.image}`),
+      brand: { '@type': 'Brand', name: 'ScoutPC' },
+      category: 'Игровые компьютеры',
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: 5, reviewCount: 250, bestRating: 5, worstRating: 1 },
+      subjectOf: { '@type': 'WebPage', name: 'Отзывы клиентов ScoutPC на Авито', url: 'https://www.avito.ru/brands/i206808792' },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: product.price, highPrice: product.price, priceCurrency: 'RUB',
+        offerCount: product.variants.length, url: canonical,
+        availability: 'https://schema.org/InStock',
+        seller: { '@type': 'Organization', name: 'ScoutPC' },
+      },
+    },
     { '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
   ],
 };
-const head = `<meta name="theme-color" content="#040406"><meta property="og:type" content="product"><meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="ScoutPC"><meta property="og:title" content="Игровой компьютер ${product.name} от ${product.price.toLocaleString('ru-RU')} ₽ | ScoutPC"><meta property="og:description" content="${description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://scoutpc.ru${product.variants[1].image}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+const head = `<meta name="theme-color" content="#040406"><meta property="og:type" content="product"><meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="ScoutPC"><meta property="og:title" content="${titleText}"><meta property="og:description" content="${description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://scoutpc.ru${product.variants[1].image}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 const price = product.price.toLocaleString('ru-RU');
 ---
-<BaseLayout title={`Игровой компьютер ${product.name} от ${price} ₽ | ScoutPC`} description={description} canonical={canonical} headHtml={head} page={product.slug} pageScript={false}>
+<BaseLayout title={titleText} description={description} canonical={canonical} headHtml={head} page={product.slug} pageScript={false}>
   <Fragment set:html={shellStart} />
   <main>
     <nav class="product-breadcrumb" aria-label="Хлебные крошки"><a href="/">Главная</a><span>→</span><a href="/igrovye-kompyutery-krasnodar.html">Игровые ПК</a><span>→</span><span>{product.name}</span></nav>
     <section class="product-hero">
       <div class="product-hero-copy">
         <p class="product-kicker">SCOUTPC · КРАСНОДАР</p>
-        <h1>{product.icon} Игровой компьютер <span>{product.name}</span></h1>
+        <h1>Игровой ПК <span>{product.name}</span><span class="h1-specs">({cpuName} / {gpuName} / {primary.memory})</span></h1>
         <p class="product-lead">{product.summary}</p>
         <div class="product-price">от {price} ₽</div>
         <div class="product-actions"><a class="product-primary" href="https://t.me/Scout_PC" target="_blank">Обсудить конфигурацию</a><a href="tel:+79531171331">+7 953 117-13-31</a><a href="#variants">Сравнить AMD и Intel</a></div>
@@ -55,15 +77,15 @@ const price = product.price.toLocaleString('ru-RU');
       </div>
       <picture class="product-hero-image">
         <source media="(max-width: 640px)" srcset={product.variants[1].image480} />
-        <img src={product.variants[1].image} width="960" height="1280" alt={`Игровой компьютер ${product.name}`} fetchpriority="high" />
+        <img src={product.variants[1].image} width="960" height="1280" alt={`Игровой ПК ${product.name} на ${primary.platform}: ${primary.cpu}, ${primary.gpu}, ${primary.memory}, сборка ScoutPC в Краснодаре`} fetchpriority="high" />
       </picture>
     </section>
     <section class="product-section" id="variants">
-      <div class="product-heading"><p>Два варианта платформы</p><h2>Выберите AMD или Intel</h2><span>Подскажем, какой вариант лучше подходит под ваши игры, задачи и будущий апгрейд.</span></div>
+      <div class="product-heading"><p>Два варианта платформы</p><h2>{product.name}: Intel и AMD — выберите платформу</h2><span>Подскажем, какой вариант лучше подходит под ваши игры, задачи и будущий апгрейд.</span></div>
       <div class="variant-grid">
         {product.variants.map((variant) => (
           <article class="variant-card">
-            <picture><source media="(max-width: 640px)" srcset={variant.image480} /><img src={variant.image} loading="lazy" width="960" height="1280" alt={`${product.name} на платформе ${variant.platform}`} /></picture>
+            <picture><source media="(max-width: 640px)" srcset={variant.image480} /><img src={variant.image} loading="lazy" width="960" height="1280" alt={`Игровой ПК ${product.name} на платформе ${variant.platform}: ${variant.cpu}, ${variant.gpu}, ${variant.memory}`} /></picture>
             <div class="variant-copy"><p class="variant-platform">{variant.platform}</p><h3>{product.name} · {variant.platform}</h3><dl><div><dt>Процессор</dt><dd>{variant.cpu}</dd></div><div><dt>Видеокарта</dt><dd>{variant.gpu}</dd></div><div><dt>Память</dt><dd>{variant.memory}</dd></div><div><dt>Материнская плата</dt><dd>{variant.motherboard}</dd></div><div><dt>Охлаждение</dt><dd>{variant.cooling}</dd></div></dl><p class="variant-fps"><strong>{variant.averageFps} FPS</strong><span>ориентир по 10 играм, 1080p, высокие настройки</span></p></div>
           </article>
         ))}

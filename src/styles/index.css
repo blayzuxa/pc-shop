@@ -1413,6 +1413,13 @@
             margin-top: -8px;
             font-weight: 600;
         }
+        .pc-card-hardware {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin-top: 0;
+            letter-spacing: 0.1px;
+        }
         .pc-specs {
             list-style: none;
             display: grid;
