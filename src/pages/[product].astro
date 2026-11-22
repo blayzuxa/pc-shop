@@ -5,6 +5,7 @@ import { enhanceNavigation } from '../lib/navigation';
 import { products, type ProductFamily } from '../data/products';
 import '../styles/apgreyd-i-obsluzhivanie-pk-krasnodar.css';
 import '../styles/product.css';
+import '../styles/contact.css';
 
 export function getStaticPaths() {
   return products.map((product) => ({ params: { product: product.slug }, props: { product } }));
@@ -49,7 +50,7 @@ const price = product.price.toLocaleString('ru-RU');
         <h1>{product.icon} Игровой компьютер <span>{product.name}</span></h1>
         <p class="product-lead">{product.summary}</p>
         <div class="product-price">от {price} ₽</div>
-        <div class="product-actions"><a class="product-primary" href="https://t.me/Scout_PC" target="_blank">Обсудить конфигурацию</a><a href="#variants">Сравнить AMD и Intel</a></div>
+        <div class="product-actions"><a class="product-primary" href="https://t.me/Scout_PC" target="_blank">Обсудить конфигурацию</a><a href="tel:+79531171331">Позвонить: +7 953 117-13-31</a><a href="#variants">Сравнить AMD и Intel</a></div>
         <p class="product-note">Цена и состав ориентировочные. Точную смету и наличие согласуем перед заказом.</p>
       </div>
       <picture class="product-hero-image">
@@ -71,7 +72,7 @@ const price = product.price.toLocaleString('ru-RU');
     <section class="product-section product-fit"><div class="product-heading"><p>Кому подходит</p><h2>{product.resolution}</h2></div><ul>{product.bestFor.map(item => <li>{item}</li>)}</ul></section>
     <section class="product-section"><div class="product-heading"><p>Перед выдачей</p><h2>Не просто собираем — проверяем</h2></div><div class="product-proof"><article><strong>01</strong><h3>Согласуем детали</h3><p>Фиксируем состав, состояние комплектующих, цену и сроки.</p></article><article><strong>02</strong><h3>Собираем аккуратно</h3><p>Настраиваем BIOS, систему охлаждения и кабель-менеджмент.</p></article><article><strong>03</strong><h3>Тестируем 3 часа</h3><p>Проверяем стабильность и температуры в OCCT и FurMark.</p></article></div></section>
     <section class="product-section product-faq"><div class="product-heading"><p>Вопросы</p><h2>Что важно знать</h2></div>{faq.map(item => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
-    <section class="product-cta"><p>Подберём точную версию {product.name} под ваши игры и бюджет</p><h2>Напишите — предложим 1–2 сбалансированных варианта</h2><a href="https://t.me/Scout_PC" target="_blank">Получить конфигурацию</a></section>
+    <section class="product-cta"><p>Подберём точную версию {product.name} под ваши игры и бюджет</p><h2>Напишите или позвоните — предложим 1–2 сбалансированных варианта</h2><div class="product-cta-actions"><a href="https://t.me/Scout_PC" target="_blank">Получить конфигурацию</a><a class="product-phone" href="tel:+79531171331">+7 953 117-13-31</a></div></section>
   </main>
   <Fragment set:html={shellEnd} />
 </BaseLayout>
