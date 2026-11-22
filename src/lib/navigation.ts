@@ -11,7 +11,7 @@ const mobileNavigation = `<a class="mobile-overlay-link" href="/#catalog"><span>
 <a class="mobile-overlay-link" href="/apgreyd-i-obsluzhivanie-pk-krasnodar.html"><span>Апгрейд и обслуживание</span><span class="arrow">→</span></a>
 <a class="mobile-overlay-link" href="/vykup-videokart-i-komplektuyushchih-krasnodar.html"><span>Выкуп и Trade-in</span><span class="arrow">→</span></a>
 <a class="mobile-overlay-link" href="/#reviews"><span>Отзывы</span><span class="arrow">→</span></a>
-<a class="mobile-overlay-link" href="tel:+79531171331"><span>Позвонить: +7 953 117-13-31</span><span class="arrow">→</span></a>`;
+<a class="mobile-overlay-link" href="tel:+79531171331"><span>+7 953 117-13-31</span><span class="arrow">→</span></a>`;
 
 const footerNavigation = `<div class="footer-links">
 <a href="/#catalog">Модели ПК</a>
@@ -80,7 +80,7 @@ export function enhanceNavigation(content: string): string {
     )
     .replace(
       /(<(?:div|span) class="consult-menu"[^>]*>)/g,
-      '$1\n<a href="tel:+79531171331"><span class="consult-menu-icon" aria-hidden="true">☎</span> Позвонить: +7 953 117-13-31</a>',
+      '$1\n<a class="consult-phone-link" href="tel:+79531171331"><span class="consult-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92z"/></svg></span> +7 953 117-13-31</a>',
     );
 
   return linkProductButtons([
