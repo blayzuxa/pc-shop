@@ -22,6 +22,9 @@ export interface ProductFamily {
   variants: ProductVariant[];
 }
 
+export const shortCpu = (cpu: string) => cpu.replace(/^(AMD|Intel)\s+/, '');
+export const shortGpu = (gpu: string) => gpu.replace(/^GeForce\s+/, '');
+
 export const products: ProductFamily[] = [
   {
     slug: 'scout-start', name: 'Scout Start', icon: '🎮', tagline: 'Первый игровой ПК без переплаты', price: 79000,
