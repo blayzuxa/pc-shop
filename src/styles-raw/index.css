@@ -1417,7 +1417,7 @@
             font-size: 0.78rem;
             font-weight: 700;
             color: var(--neon-cyan);
-            margin-top: 0;
+            margin-top: -8px;
             letter-spacing: 0.1px;
         }
         .pc-specs {
