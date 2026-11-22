@@ -1,7 +1,7 @@
 import { access, readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
-const routes = ['index.html','404.html','sborka-pk-krasnodar.html','igrovye-kompyutery-krasnodar.html','apgreyd-i-obsluzhivanie-pk-krasnodar.html','vykup-videokart-i-komplektuyushchih-krasnodar.html','scout-start.html','scout-gamer.html','scout-pro.html','scout-elite.html','privacy-policy.html','pdn-consent.html'];
+const routes = ['index.html','404.html','sborka-pk-krasnodar.html','igrovye-kompyutery-krasnodar.html','apgreyd-i-obsluzhivanie-pk-krasnodar.html','vykup-videokart-i-komplektuyushchih-krasnodar.html','scout-start.html','scout-gamer.html','scout-pro.html','scout-elite.html','privacy-policy.html','pdn-consent.html','terms.html'];
 const errors = [];
 for (const route of routes) {
   const file = path.join('dist', route);
