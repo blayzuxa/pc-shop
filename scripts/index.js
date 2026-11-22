@@ -41,7 +41,7 @@
                         const progress = Math.min((now - startTime) / duration, 1);
                         const eased = 1 - Math.pow(1 - progress, 3);
                         const value = target * eased;
-                        el.textContent = value.toFixed(decimals) + suffix;
+                        el.textContent = value.toFixed(decimals).replace('.', ',') + suffix;
                         if (progress < 1) requestAnimationFrame(tick);
                     }
                     requestAnimationFrame(tick);
@@ -65,11 +65,14 @@
             });
 
             const orbs = document.querySelectorAll('.bg-orb');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
             let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+            let orbFrame = null;
             document.addEventListener('mousemove', function(e) {
+                if (reduceMotion.matches || document.hidden) return;
                 targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
                 targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-            });
+            }, { passive: true });
             function animateOrbs() {
                 mouseX += (targetMouseX - mouseX) * 0.03;
                 mouseY += (targetMouseY - mouseY) * 0.03;
@@ -78,9 +81,26 @@
                 if (orbs[2]) orbs[2].style.transform = `translate(${mouseX * 25}px, ${mouseY * -35}px)`;
                 if (orbs[3]) orbs[3].style.transform = `translate(${mouseX * -30}px, ${mouseY * 25}px)`;
                 if (orbs[4]) orbs[4].style.transform = `translate(${mouseX * 20}px, ${mouseY * -20}px)`;
-                requestAnimationFrame(animateOrbs);
+                orbFrame = requestAnimationFrame(animateOrbs);
             }
-            animateOrbs();
+            function stopOrbAnimation() {
+                if (orbFrame !== null) cancelAnimationFrame(orbFrame);
+                orbFrame = null;
+            }
+            function startOrbAnimation() {
+                if (orbFrame === null && orbs.length && !reduceMotion.matches && !document.hidden) {
+                    orbFrame = requestAnimationFrame(animateOrbs);
+                }
+            }
+            reduceMotion.addEventListener('change', () => {
+                stopOrbAnimation();
+                if (!reduceMotion.matches) startOrbAnimation();
+            });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopOrbAnimation();
+                else startOrbAnimation();
+            });
+            startOrbAnimation();
 
             const glassCards = document.querySelectorAll('.glass-card');
             glassCards.forEach(card => {
@@ -140,10 +160,13 @@ function initDots() {
     if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
-        const dot = document.createElement('div');
+        const dot = document.createElement('button');
+        dot.type = 'button';
         dot.classList.add('slider-dot');
+        dot.setAttribute('aria-label', `Показать фото ${index + 1} из ${slides.length}`);
+        dot.setAttribute('aria-pressed', String(index === 0));
         if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
+        dot.addEventListener('click', () => { goToSlide(index); resetAutoPlay(); });
         dotsContainer.appendChild(dot);
     });
 }
@@ -151,11 +174,12 @@ function initDots() {
 function goToSlide(index) {
     slides.forEach(s => s.classList.remove('active'));
     const activeDots = document.querySelectorAll('.slider-dot');
-    activeDots.forEach(d => d.classList.remove('active'));
+    activeDots.forEach((d, i) => {
+        d.classList.toggle('active', i === index);
+        d.setAttribute('aria-pressed', String(i === index));
+    });
     
     slides[index].classList.add('active');
-    if (activeDots[index]) activeDots[index].classList.add('active');
-    
     currentIndex = index;
 }
 
@@ -173,7 +197,9 @@ if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPla
 if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
 
 function startAutoPlay() {
-    autoPlayInterval = setInterval(nextSlide, 5000);
+    if (slides.length > 1 && !reduceMotion.matches && !document.hidden) {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    }
 }
 
 function resetAutoPlay() {
@@ -184,6 +210,8 @@ function resetAutoPlay() {
 initDots();
 if (slides.length > 0) goToSlide(0);
 startAutoPlay();
+document.addEventListener('visibilitychange', resetAutoPlay);
+reduceMotion.addEventListener('change', resetAutoPlay);
 
 
             // CATALOG TABS
@@ -359,7 +387,6 @@ startAutoPlay();
                     backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
                     if (step === totalSteps) {
                         buildSummary();
-                        window.scoutpcGoal?.('builder_complete');
                         nextBtn.textContent = window.innerWidth <= 480 ? 'В Telegram →' : 'Отправить в Telegram';
                         submitRow.style.display = 'flex';
                     } else {
@@ -403,6 +430,7 @@ startAutoPlay();
                     const text = buildRequestText();
                     if (!text) return;
                     const url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(text)}`;
+                    window.scoutpcGoal?.('builder_complete');
                     window.scoutpcGoal?.('contact_telegram');
                     window.open(url, '_blank');
                 }
@@ -411,6 +439,7 @@ startAutoPlay();
                     const text = buildRequestText();
                     if (!text) return;
                     const showCopied = () => {
+                        window.scoutpcGoal?.('builder_complete');
                         const original = copyBtn.textContent;
                         copyBtn.textContent = 'Скопировано ✓';
                         setTimeout(() => { copyBtn.textContent = original; }, 2000);
